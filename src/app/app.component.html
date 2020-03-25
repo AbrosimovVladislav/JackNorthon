@@ -1,27 +1,31 @@
-<p-dataView [value]="cars" [paginator]="true" [rows]="15">
+<p-dataView [value]="products" [paginator]="true" [rows]="15" layout="grid">
     <p-header>
-      List of Cars
-      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+      List of Products
+      <p-dataViewLayoutOptions>
+      </p-dataViewLayoutOptions>
     </p-header>
     <p-footer>Choose from the list.</p-footer>
-
-    <ng-template let-car pTemplate="listItem">
+  <ng-template let-product pTemplate="gridItem">
+    <div class="ui-g-4">
+      <img src="assets/showcase/images/demo/car/{{product.imageLink}}.png">
+      <div class="ui-g-12">Name: <b>{{product.brand.shortName + " " + product.model}}</b></div>
+      <div class="ui-g-12">Price: <b>{{product.minPrice}}</b></div>
+    </div>
+  </ng-template>
+    <ng-template let-product pTemplate="listItem">
       <div class="car-details">
         <div>
-          <img src="assets/showcase/images/demo/car/{{car.brand}}.png">
+          <img src="assets/showcase/images/demo/car/{{product.imageLink}}.png">
           <div class="ui-g">
-            <div class="ui-g-12">Vin: <b>{{car.vin}}</b></div>
-            <div class="ui-g-12">Year: <b>{{car.year}}</b></div>
-            <div class="ui-g-12">Brand: <b>{{car.brand}}</b></div>
-            <div class="ui-g-12">Color: <b>{{car.color}}</b></div>
+            <div class="ui-g-12">Name: <b>{{product.brand.shortName + " " + product.model}}</b></div>
+            <div class="ui-g-12">Price: <b>{{product.minPrice}}</b></div>
+            <div class="ui-g-12 ui-md-3">
+              <div class="ui-g-12">Price: <b> {{product.rating.value}}</b></div>
+            </div>
           </div>
         </div>
       </div>
     </ng-template>
-    <ng-template let-car pTemplate="gridItem">
-      <div class="ui-g-12 ui-md-3">
-        {{car.year}}
-      </div>
-    </ng-template>
+
 </p-dataView>
 

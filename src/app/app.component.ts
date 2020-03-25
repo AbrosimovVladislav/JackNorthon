@@ -1,24 +1,26 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {OnInit} from 'angular2/core';
-import {Car} from './model/car';
-import {CarService} from './service/car-service.service';
+import {ProductService} from './service/product-service.service';
+import {Product} from './model/product';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
-  cars: Car[];
+export class AppComponent implements OnInit {
+  products: Product[];
 
-  constructor(private carService: CarService) { }
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit() {
-    this.carService.getCarsLarge().subscribe(
-      cars => {
-        this.cars = cars;
-        console.log(this.cars);
+    this.productService.getProducts().subscribe(
+      products => {
+        this.products = products;
+        console.log(this.products);
       }
     );
   }
+
 }
