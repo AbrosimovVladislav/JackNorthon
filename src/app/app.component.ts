@@ -11,6 +11,7 @@ import {Product} from './model/product';
 export class AppComponent implements OnInit {
   products: Product[];
 
+
   constructor(private productService: ProductService) {
   }
 

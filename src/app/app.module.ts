@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {ButtonModule} from 'primeng/button';
     BrowserModule,
     DataViewModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
