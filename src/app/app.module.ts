@@ -6,6 +6,8 @@ import {AppComponent} from './app.component';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
+import {FormsModule} from '@angular/forms';
+import {ListboxModule} from 'primeng/listbox';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     DataViewModule,
     HttpClientModule,
     ButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    FormsModule,
+    ListboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
