@@ -8,10 +8,16 @@ import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
 import {FormsModule} from '@angular/forms';
 import {ListboxModule} from 'primeng/listbox';
+import {MenubarModule} from 'primeng/menubar';
+import {RouterModule} from '@angular/router';
+import {MainComponent} from './component/main/main.component';
+import { ProductComponent } from './component/product/product.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +26,14 @@ import {ListboxModule} from 'primeng/listbox';
     ButtonModule,
     CheckboxModule,
     FormsModule,
-    ListboxModule
+    ListboxModule,
+    MenubarModule,
+    RouterModule.forRoot(
+      [
+        {path: 'main', component: MainComponent},
+        {path: 'product', component: ProductComponent}
+      ]
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
