@@ -13,11 +13,11 @@ import {SItem} from '../../model/SItem';
 export class ProductComponent implements OnInit {
   products: Product[];
   filters: FilterItem[];
-  selectedFilterValues: SItem[];
-  selected: Map<string, string[]>;
+  listBoxNgModelStub: SItem[];
+  selectedFilters: Map<string, string[]>;
 
   constructor(private productService: ProductService, private filterService: FilterService) {
-    this.selected = new Map<string, string[]>();
+    this.selectedFilters = new Map<string, string[]>();
   }
 
   ngOnInit() {
@@ -35,24 +35,46 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  sendRequest(event: any){
 
-  handleClick(event: any) {
-    console.log(this.selectedFilterValues);
-    const eventTargets: EventTarget[] = event.originalEvent.composedPath();
+  }
+
+
+  refreshFilters(event: any) {
+    console.log('handleClick method');
+    const eventTargets: HTMLTextAreaElement[] = event.originalEvent.composedPath();
     for (const key in eventTargets) {
       const eventTarget = eventTargets[key];
       if (eventTarget.localName === 'p-listbox') {
-        const value = event.originalEvent.target.outerText;
+        console.log(event);
+        console.log(eventTargets);
+        let value = event.originalEvent.target.outerText;
+        if (value === '' || value === null) {
+          value = this.extractValueFromEvent(eventTargets);
+        }
         this.updateFilterMap(eventTarget.id, value);
       }
     }
-    console.log(this.selected);
+    console.log(this.selectedFilters);
+  }
+
+  extractValueFromEvent(path: HTMLTextAreaElement[]) {
+    console.log(-1);
+    let value: string = null;
+    let i = 0;
+    while (value === null || value === '') {
+      value = path[i].getAttribute('aria-label');
+      i++;
+    }
+    return value;
   }
 
   updateFilterMap(filterName: string, value: string) {
+    console.log('updateFilterMap method value: ' + value);
     let values: string[];
-    if (this.selected.has(filterName)) {
-      values = this.selected.get(filterName);
+    if (this.selectedFilters.has(filterName)) {
+      console.log('updateFilterMap if inside');
+      values = this.selectedFilters.get(filterName);
       console.log(filterName);
       console.log(value);
       if (values.includes(value)) {
@@ -64,6 +86,6 @@ export class ProductComponent implements OnInit {
       values = [];
       values.push(value);
     }
-    this.selected.set(filterName, values);
+    this.selectedFilters.set(filterName, values);
   }
 }
