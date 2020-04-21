@@ -1,4 +1,4 @@
-import {SelectItem} from 'primeng';
+import {SItem} from './SItem';
 
 export interface FilterItem {
   menuItemName;
@@ -7,5 +7,5 @@ export interface FilterItem {
   filterType;
   rank;
   value: string[];
-  selectItem: SelectItem[];
+  selectItem: SItem[];
 }

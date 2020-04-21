@@ -2,23 +2,25 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {FilterItem} from '../model/filterItem';
-import {SelectItem} from 'primeng';
+import {SItem} from '../model/SItem';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
 
-  selectItems: SelectItem[];
+  selectItems: SItem[];
+  filterItemArray: FilterItem[];
 
   constructor(private http: HttpClient) {
   }
 
-  convertStringToSelectItem(arr: string[]) {
+  convertStringToSelectItem(name: string, arr: string[]) {
     this.selectItems = [];
     console.log(arr);
     for (const key in arr) {
       this.selectItems.push({
+        title: name,
         label: arr[key],
         value: arr[key]
       });
@@ -32,7 +34,7 @@ export class FilterService {
         map(filterItems => {
           const filterItemArray: FilterItem[] = [];
           for (const key in filterItems) {
-            this.convertStringToSelectItem(filterItems[key].value);
+            this.convertStringToSelectItem(filterItems[key].showName, filterItems[key].value);
             if (filterItems.hasOwnProperty(key)) {
               filterItemArray.push({
                 menuItemName: filterItems[key].menuItemName,
@@ -45,6 +47,7 @@ export class FilterService {
               });
             }
           }
+          this.filterItemArray = filterItemArray;
           return filterItemArray;
         })
       );

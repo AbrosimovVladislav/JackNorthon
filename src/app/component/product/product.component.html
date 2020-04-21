@@ -1,9 +1,10 @@
 <div class="p-grid">
   <div class="p-col">
+    <p-button label="Click" (onClick)="handleClick($event)"></p-button>
     <ul>
       <li *ngFor="let filterItem of filters">
-        <p-listbox [options]="filterItem.selectItem" [(ngModel)]="selectedFilterValues" [listStyle]="{'max-height':'150px'}"
-                   [style]="{'width':'250px'}" [multiple]="true"
+        <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem" [(ngModel)]="selectedFilterValues" [listStyle]="{'max-height':'150px'}"
+                   [style]="{'width':'250px'}" [multiple]="true" (ngModelChange)="handleClick($event)" (onChange)="handleClick($event)"
                    [checkbox]="true" [filter]="true">
           <p-header>{{filterItem.showName}}</p-header>
         </p-listbox>
