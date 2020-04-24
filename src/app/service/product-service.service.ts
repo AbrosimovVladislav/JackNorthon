@@ -11,9 +11,9 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  getProducts() {
+  getProducts(url: string) {
     return this.http
-      .get<Product[]>('http://localhost:8080/products')
+      .get<Product[]>(url)
       .pipe(
         map(products => {
           const productArray: Product[] = [];

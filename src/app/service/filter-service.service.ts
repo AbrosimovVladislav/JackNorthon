@@ -17,7 +17,6 @@ export class FilterService {
 
   convertStringToSelectItem(name: string, arr: string[]) {
     this.selectItems = [];
-    console.log(arr);
     for (const key in arr) {
       this.selectItems.push({
         title: name,

@@ -15,39 +15,71 @@ export class ProductComponent implements OnInit {
   filters: FilterItem[];
   listBoxNgModelStub: SItem[];
   selectedFilters: Map<string, string[]>;
+  filterKeyOnFilterName: Map<string, FilterItem>;
+  basePath = 'http://localhost:8080/products';
 
   constructor(private productService: ProductService, private filterService: FilterService) {
     this.selectedFilters = new Map<string, string[]>();
+    this.filterKeyOnFilterName = new Map<string, FilterItem>();
   }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(
+    this.updateProducts(this.basePath);
+    this.filterService.getFilters().subscribe(
+      filters => {
+        this.filters = filters;
+        filters.forEach((filter: FilterItem) => {
+          this.filterKeyOnFilterName.set(filter.showName, filter);
+        });
+      }
+    );
+  }
+
+  updateProducts(url: string) {
+    this.productService.getProducts(url).subscribe(
       products => {
         this.products = products;
         console.log(this.products);
       }
     );
-    this.filterService.getFilters().subscribe(
-      filters => {
-        this.filters = filters;
-        console.log(this.filters);
-      }
-    );
   }
 
-  sendRequest(event: any){
-
+  sendRequest(event: any) {
+    let requestPath = this.basePath + '?';
+    console.log('Start of sendReq -> ' + requestPath);
+    this.selectedFilters.forEach((value: string[], key: string) => {
+      let intervalFlag = true;
+      const currentFilterItem: FilterItem = this.filterKeyOnFilterName.get(key);
+      key = currentFilterItem.filterKey;
+      let paramString = '';
+      value.forEach((filterValue: string) => {
+        paramString += filterValue;
+        if (currentFilterItem.filterType === 'CHECKBOX') {
+          paramString += ',';
+        } else if (currentFilterItem.filterType === 'RANGE') {
+          if (intervalFlag) {
+            paramString += 'interval';
+            intervalFlag = false;
+          }
+        }
+      });
+      if (currentFilterItem.filterType === 'CHECKBOX') {
+        paramString = paramString.substring(0, paramString.length - 1);
+      }
+      paramString = key + '=' + paramString + '&';
+      requestPath += paramString;
+    });
+    requestPath = requestPath.substring(0, requestPath.length - 1);
+    console.log('End of sendReq -> ' + requestPath);
+    this.updateProducts(requestPath);
   }
 
 
   refreshFilters(event: any) {
-    console.log('handleClick method');
     const eventTargets: HTMLTextAreaElement[] = event.originalEvent.composedPath();
     for (const key in eventTargets) {
       const eventTarget = eventTargets[key];
       if (eventTarget.localName === 'p-listbox') {
-        console.log(event);
-        console.log(eventTargets);
         let value = event.originalEvent.target.outerText;
         if (value === '' || value === null) {
           value = this.extractValueFromEvent(eventTargets);
@@ -55,11 +87,9 @@ export class ProductComponent implements OnInit {
         this.updateFilterMap(eventTarget.id, value);
       }
     }
-    console.log(this.selectedFilters);
   }
 
   extractValueFromEvent(path: HTMLTextAreaElement[]) {
-    console.log(-1);
     let value: string = null;
     let i = 0;
     while (value === null || value === '') {
@@ -70,13 +100,9 @@ export class ProductComponent implements OnInit {
   }
 
   updateFilterMap(filterName: string, value: string) {
-    console.log('updateFilterMap method value: ' + value);
     let values: string[];
     if (this.selectedFilters.has(filterName)) {
-      console.log('updateFilterMap if inside');
       values = this.selectedFilters.get(filterName);
-      console.log(filterName);
-      console.log(value);
       if (values.includes(value)) {
         values.splice(values.indexOf(value), 1);
       } else {
@@ -86,6 +112,12 @@ export class ProductComponent implements OnInit {
       values = [];
       values.push(value);
     }
-    this.selectedFilters.set(filterName, values);
+    if (values.length === 0) {
+      console.log('Before ' + this.selectedFilters.get(filterName));
+      this.selectedFilters.delete(filterName);
+      console.log('After ' + this.selectedFilters.get(filterName));
+    } else {
+      this.selectedFilters.set(filterName, values);
+    }
   }
 }
