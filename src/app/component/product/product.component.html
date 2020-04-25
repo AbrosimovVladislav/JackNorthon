@@ -1,6 +1,10 @@
 <div class="p-grid">
   <div class="p-col">
     <p-button label="Click" (onClick)="sendRequest($event)"></p-button>
+    <h3>Range: {{rangeValuesForRangeFilter[0] + ' - ' + rangeValuesForRangeFilter[1]}}</h3>
+    <input type="text"  pInputText [(ngModel)]="rangeValuesForRangeFilter[0]" style="width:14em"/>
+    <input type="text" pInputText [(ngModel)]="rangeValuesForRangeFilter[1]" style="width:14em"/>
+    <p-slider [animate]="true" [(ngModel)]="rangeValuesForRangeFilter" (onChange)="rangeFilterCall($event)" [range]="true"></p-slider>
     <ul>
       <li *ngFor="let filterItem of filters">
         <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem" [(ngModel)]="listBoxNgModelStub"

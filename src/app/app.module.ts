@@ -12,6 +12,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {RouterModule} from '@angular/router';
 import {MainComponent} from './component/main/main.component';
 import { ProductComponent } from './component/product/product.component';
+import {SliderModule} from 'primeng/slider';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductComponent } from './component/product/product.component';
     FormsModule,
     ListboxModule,
     MenubarModule,
+    SliderModule,
     RouterModule.forRoot(
       [
         {path: 'main', component: MainComponent},

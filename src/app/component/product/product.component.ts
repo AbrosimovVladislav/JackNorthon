@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   listBoxNgModelStub: SItem[];
   selectedFilters: Map<string, string[]>;
   filterKeyOnFilterName: Map<string, FilterItem>;
+  rangeValuesForRangeFilter: number[] = [20,80];
   basePath = 'http://localhost:8080/products';
 
   constructor(private productService: ProductService, private filterService: FilterService) {
@@ -31,6 +32,14 @@ export class ProductComponent implements OnInit {
         filters.forEach((filter: FilterItem) => {
           this.filterKeyOnFilterName.set(filter.showName, filter);
         });
+      }
+    );
+  }
+
+  rangeFilterCall(event: any) {
+    this.rangeValuesForRangeFilter.forEach(
+      (filterValue: number) => {
+        console.log(filterValue);
       }
     );
   }
