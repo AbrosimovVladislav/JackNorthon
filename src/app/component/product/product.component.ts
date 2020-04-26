@@ -48,6 +48,13 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  addPaginationSize(url: string, size: number) {
+    const sizePath = 'size=' + size;
+    return url.indexOf('?') === -1
+      ? '?' + sizePath
+      : '&' + sizePath;
+  }
+
   sendRequest(event: any) {
     this.selectedFilterMap.forEach(
       (internalFilterArr: string[], key: string) => {
@@ -80,6 +87,7 @@ export class ProductComponent implements OnInit {
       requestPath += paramString;
     });
     requestPath = requestPath.substring(0, requestPath.length - 1);
+    requestPath += this.addPaginationSize(requestPath, 50);
     this.updateProducts(requestPath);
   }
 }
