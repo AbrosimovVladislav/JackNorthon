@@ -3,14 +3,24 @@
     <p-button label="Click" (onClick)="sendRequest($event)"></p-button>
     <ul>
       <li *ngFor="let filterItem of filters">
-        <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
-                   [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
-                   (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                   [listStyle]="{'max-height':'150px'}"
-                   [style]="{'width':'250px'}" [multiple]="true"
-                   [checkbox]="true" [filter]="true">
+        <div *ngIf="filterItem.filterType==='CHECKBOX'">
+          <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
+                     [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                     (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                     [listStyle]="{'max-height':'150px'}"
+                     [style]="{'width':'250px'}" [multiple]="true"
+                     [checkbox]="true" [filter]="true">
+            <p-header>{{filterItem.showName}}</p-header>
+          </p-listbox>
+        </div>
+        <div *ngIf="filterItem.filterType==='RANGE'">
           <p-header>{{filterItem.showName}}</p-header>
-        </p-listbox>
+          <p></p>
+          <input type="text" [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"
+                 placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}">
+          <input type="text" [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
+                 placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}">
+        </div>
       </li>
     </ul>
   </div>

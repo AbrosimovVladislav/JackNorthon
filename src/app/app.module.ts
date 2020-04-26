@@ -11,8 +11,10 @@ import {ListboxModule} from 'primeng/listbox';
 import {MenubarModule} from 'primeng/menubar';
 import {RouterModule} from '@angular/router';
 import {MainComponent} from './component/main/main.component';
-import { ProductComponent } from './component/product/product.component';
+import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
+import {KeyFilterModule} from 'primeng/keyfilter';
+import {InputTextModule} from 'primeng';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {SliderModule} from 'primeng/slider';
     ListboxModule,
     MenubarModule,
     SliderModule,
+    KeyFilterModule,
+    InputTextModule,
     RouterModule.forRoot(
       [
         {path: 'main', component: MainComponent},

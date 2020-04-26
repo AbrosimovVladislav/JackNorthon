@@ -29,7 +29,10 @@ export class ProductComponent implements OnInit {
         this.filters = filters;
         filters.forEach((filter: FilterItem) => {
           this.filterKeyOnFilterName.set(filter.filterKey, filter);
-          const selectedArray: string[] = [];
+          let selectedArray: string[] = [];
+          if (filter.filterType === 'RANGE') {
+            selectedArray = filter.value;
+          }
           this.selectedFilterMap.set(filter.filterKey, selectedArray);
         });
       }
