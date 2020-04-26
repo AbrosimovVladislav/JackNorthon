@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
   basePath = 'http://localhost:8080/products';
   products: Product[];
   filters: FilterItem[];
+  productCountOnPage = 50;
 
   selectedFilterMap: Map<string, string[]>;
   filterKeyOnFilterName: Map<string, FilterItem>;
@@ -87,7 +88,7 @@ export class ProductComponent implements OnInit {
       requestPath += paramString;
     });
     requestPath = requestPath.substring(0, requestPath.length - 1);
-    requestPath += this.addPaginationSize(requestPath, 50);
+    requestPath += this.addPaginationSize(requestPath, this.productCountOnPage);
     this.updateProducts(requestPath);
   }
 }
