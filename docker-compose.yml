@@ -2,6 +2,7 @@ version: '3.7'
 services:
   front:
     build:
+      context: /root/JackNorthon
       dockerfile: Dockerfile
     volumes:
       - /root/JackNorthon/nginx.conf:/etc/nginx/nginx.conf
@@ -10,7 +11,8 @@ services:
     container_name: front
   back:
     build:
-      dockerfile: ../Project_GunMarket/Dockerfile
+      context: /root/Project_GunMarket
+      dockerfile: Dockerfile
     ports:
     - 8080:8080
     container_name: back
