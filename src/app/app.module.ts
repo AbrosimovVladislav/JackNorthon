@@ -37,7 +37,8 @@ import {InputTextModule} from 'primeng';
     RouterModule.forRoot(
       [
         {path: 'main', component: MainComponent},
-        {path: 'product', component: ProductComponent}
+        {path: 'product', component: ProductComponent},
+        {path: 'Коньки', component: ProductComponent}
       ]
     )
   ],

@@ -1,29 +1,19 @@
 import {Brand} from './brand';
 import {Rating} from './rating';
+import {Type} from './Type';
 
 export interface Product {
   productId;
-  productType;
-  info;
+  model;
+  brand: Brand;
+  type: Type;
+  age;
+  description;
+  characteristics;
   link;
   imageLink;
-  model;
-  weight;
-  capacity;
-  totalLength;
-  barrelLength;
-  params;
-  color;
-  operatingPrinciple;
-  condition;
-  barrelOrientation;
-  country;
-  sleeveMaterial;
-  chargeType;
-  brand: Brand;
-  type;
-  caliber;
   weaponPlatform;
   rating: Rating;
   minPrice;
 }
+

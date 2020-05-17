@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {label: 'Main', url: 'main'},
-      {label: 'Product', url: 'product'}
+      {label: 'Product', url: 'product'},
+      {label: 'Коньки', url: 'product'}
     ];
   }
 }

@@ -10,7 +10,7 @@ import {FilterService} from '../../service/filter-service.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  basePath = 'http://localhost:8080/products';
+  basePath = 'http://localhost:8082/products';
   products: Product[];
   filters: FilterItem[];
   productCountOnPage = 50;
@@ -88,7 +88,6 @@ export class ProductComponent implements OnInit {
       requestPath += paramString;
     });
     requestPath = requestPath.substring(0, requestPath.length - 1);
-    requestPath += this.addPaginationSize(requestPath, this.productCountOnPage);
     this.updateProducts(requestPath);
   }
 }
