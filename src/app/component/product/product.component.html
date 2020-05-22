@@ -36,8 +36,8 @@
       <ng-template let-product pTemplate="gridItem">
         <div class="ui-g-4" align="center">
           <img width="300" alt="img" class="img-responsive" src="{{product.imageLink}}">
-          <div class="ui-g-12">Name: <b>{{product.brand.shortName + " " + product.model}}</b></div>
-          <div class="ui-g-12">Price: <b>{{product.minPrice}}</b></div>
+          <div class="ui-g-12"> <a href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model}}</a></div>
+          <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
         </div>
       </ng-template>
       <ng-template let-product pTemplate="listItem">

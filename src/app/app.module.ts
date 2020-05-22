@@ -16,12 +16,14 @@ import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextModule} from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    ProductComponent
+    ProductComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import {MegaMenuModule} from 'primeng/megamenu';
       [
         {path: 'main', component: MainComponent},
         {path: 'product', component: ProductComponent},
-        {path: 'product/:type', component: ProductComponent}
+        {path: 'product/:type', component: ProductComponent},
+        {path: 'productPage/:productId', component: ProductDetailsComponent}
       ]
     ),
     MegaMenuModule

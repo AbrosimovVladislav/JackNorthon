@@ -12,7 +12,6 @@ export interface Product {
   characteristics;
   link;
   imageLink;
-  weaponPlatform;
   rating: Rating;
   minPrice;
 }
