@@ -15,6 +15,7 @@ import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextModule} from 'primeng';
+import {MegaMenuModule} from 'primeng/megamenu';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import {InputTextModule} from 'primeng';
       [
         {path: 'main', component: MainComponent},
         {path: 'product', component: ProductComponent},
-        {path: 'Коньки', component: ProductComponent}
+        {path: 'product/:type', component: ProductComponent}
       ]
-    )
+    ),
+    MegaMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

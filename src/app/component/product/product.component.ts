@@ -3,6 +3,7 @@ import {Product} from '../../model/product';
 import {FilterItem} from '../../model/filterItem';
 import {ProductService} from '../../service/product-service.service';
 import {FilterService} from '../../service/filter-service.service';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -13,19 +14,28 @@ export class ProductComponent implements OnInit {
   basePath = 'http://localhost:8082/products';
   products: Product[];
   filters: FilterItem[];
-  productCountOnPage = 50;
+  queryMap: ParamMap;
+  typeName: string;
 
   selectedFilterMap: Map<string, string[]>;
   filterKeyOnFilterName: Map<string, FilterItem>;
 
-  constructor(private productService: ProductService, private filterService: FilterService) {
+  constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {
     this.filterKeyOnFilterName = new Map<string, FilterItem>();
     this.selectedFilterMap = new Map<string, string[]>();
   }
 
   ngOnInit() {
+    this.route
+      .paramMap
+      .subscribe(paramMap => this.typeName = paramMap.get('type'));
+    this.route.queryParamMap
+      .subscribe(paramMap => {
+        this.queryMap = paramMap;
+      });
+    const menuItem = this.queryMap.get('menuItem');
     this.updateProducts(this.basePath);
-    this.filterService.getFilters().subscribe(
+    this.filterService.getFilters(menuItem).subscribe(
       filters => {
         this.filters = filters;
         filters.forEach((filter: FilterItem) => {

@@ -26,9 +26,9 @@ export class FilterService {
     }
   }
 
-  getFilters() {
+  getFilters(menuItem: string) {
     return this.http
-      .get<FilterItem[]>('http://localhost:8082/product/filters/КОНЬКИ')
+      .get<FilterItem[]>('http://localhost:8082/product/filters/' + menuItem)
       .pipe(
         map(filterItems => {
           const filterItemArray: FilterItem[] = [];
