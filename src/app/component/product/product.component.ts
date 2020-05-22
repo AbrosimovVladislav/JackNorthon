@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   filters: FilterItem[];
   queryMap: ParamMap;
   typeName: string;
+  typeIds: string;
 
   selectedFilterMap: Map<string, string[]>;
   filterKeyOnFilterName: Map<string, FilterItem>;
@@ -28,13 +29,17 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.route
       .paramMap
-      .subscribe(paramMap => this.typeName = paramMap.get('type'));
+      .subscribe(paramMap => {
+        this.typeName = paramMap.get('type');
+      });
     this.route.queryParamMap
       .subscribe(paramMap => {
         this.queryMap = paramMap;
+        this.typeIds = this.queryMap.get('typeId');
+        const requestPath = this.basePath + '?' + 'type.typeId=' + this.typeIds;
+        this.updateProducts(requestPath);
       });
     const menuItem = this.queryMap.get('menuItem');
-    this.updateProducts(this.basePath);
     this.filterService.getFilters(menuItem).subscribe(
       filters => {
         this.filters = filters;
@@ -59,14 +64,7 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  addPaginationSize(url: string, size: number) {
-    const sizePath = 'size=' + size;
-    return url.indexOf('?') === -1
-      ? '?' + sizePath
-      : '&' + sizePath;
-  }
-
-  sendRequest(event: any) {
+  sendRequest() {
     this.selectedFilterMap.forEach(
       (internalFilterArr: string[], key: string) => {
         if (internalFilterArr.length === 0) {
@@ -98,6 +96,7 @@ export class ProductComponent implements OnInit {
       requestPath += paramString;
     });
     requestPath = requestPath.substring(0, requestPath.length - 1);
+    requestPath = requestPath + '&' + 'type.typeId=' + this.typeIds;
     this.updateProducts(requestPath);
   }
 }
