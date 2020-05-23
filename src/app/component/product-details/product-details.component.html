@@ -1,0 +1,74 @@
+<div class="product-name-container">
+  <div class="product-name">
+    {{product.type.showName + " " + product.brand.shortName + " " + product.model + " " + product.age}}
+  </div>
+</div>
+<div class="product-details-menu-container">
+  <ul>
+    <li>peeep</li>
+    <li>peeep</li>
+    <li>peeep</li>
+    <li>peeep</li>
+    <li>peeep</li>
+    <li>peeep</li>
+  </ul>
+</div>
+<aside class="gallery">
+  <img src={{product.imageLink}} class="gallery-img1">
+  <img src={{product.imageLink}} class="gallery-img2">
+  <img src={{product.imageLink}} class="gallery-img3">
+</aside>
+<!--ToDo: image proportion-->
+<aside class="product-img-container">
+  <img src={{product.imageLink}} class="product-img">
+</aside>
+<aside class="product-info">
+  <div class="product-price-container">
+    <p class="product-price">от {{product.minPrice}} Р</p>
+  </div>
+  <div class="favourites-and-comparison">
+    <div class="favourite-container heart-icon one-string-text">
+      <img src="assets/showcase/images/icons/heart.png" style="padding-right: 10px">
+      Добавить в избранное
+    </div>
+    <div class="comparison-container compare-icon one-string-text">
+      <img src="assets/showcase/images/icons/compare.png" style="padding-right: 10px">
+      Добавить в сравнения
+    </div>
+  </div>
+
+  <div class="product-description">
+    <p>
+      {{product.description}}
+    </p>
+  </div>
+</aside>
+
+<p-table style="position: absolute; top: 780px; margin: 20px;" [value]="offers">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Link</th>
+      <th>ShopName</th>
+      <th>ShopWebSite</th>
+      <th>Price</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-offer>
+    <tr>
+      <td><a href="{{offer.link}}">{{offer.link}}</a></td>
+      <td>{{offer.shop.name}}</td>
+      <td>{{offer.shop.website}}</td>
+      <td>{{offer.price}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!--
+<div *ngFor="let offer of offers;">
+  <p>{{offer.link}}</p>
+  <p>{{offer.shop.name}}</p>
+  <p>{{offer.shop.website}}</p>
+  <p>{{offer.price}}</p>
+</div>
+-->
+

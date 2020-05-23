@@ -17,6 +17,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextModule} from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
 import { ProductDetailsComponent } from './component/product-details/product-details.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProductDetailsComponent } from './component/product-details/product-det
     SliderModule,
     KeyFilterModule,
     InputTextModule,
+    TableModule,
     RouterModule.forRoot(
       [
         {path: 'main', component: MainComponent},
