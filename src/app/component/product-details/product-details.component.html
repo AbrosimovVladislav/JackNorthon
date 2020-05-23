@@ -1,48 +1,92 @@
-<div class="product-name-container">
-  <div class="product-name">
-    {{product.type.showName + " " + product.brand.shortName + " " + product.model + " " + product.age}}
-  </div>
-</div>
-<div class="product-details-menu-container">
-  <ul>
-    <li>peeep</li>
-    <li>peeep</li>
-    <li>peeep</li>
-    <li>peeep</li>
-    <li>peeep</li>
-    <li>peeep</li>
-  </ul>
-</div>
-<aside class="gallery">
-  <img src={{product.imageLink}} class="gallery-img1">
-  <img src={{product.imageLink}} class="gallery-img2">
-  <img src={{product.imageLink}} class="gallery-img3">
-</aside>
-<!--ToDo: image proportion-->
-<aside class="product-img-container">
-  <img src={{product.imageLink}} class="product-img">
-</aside>
-<aside class="product-info">
-  <div class="product-price-container">
-    <p class="product-price">от {{product.minPrice}} Р</p>
-  </div>
-  <div class="favourites-and-comparison">
-    <div class="favourite-container heart-icon one-string-text">
-      <img src="assets/showcase/images/icons/heart.png" style="padding-right: 10px">
-      Добавить в избранное
-    </div>
-    <div class="comparison-container compare-icon one-string-text">
-      <img src="assets/showcase/images/icons/compare.png" style="padding-right: 10px">
-      Добавить в сравнения
-    </div>
-  </div>
+<div class="p-grid" style="margin-left: 5%; margin-right: 5%">
+  <!--Added two empty columns for both sides-->
+  <div class="p-col-2"></div>
+  <div class="p-col-8">
+    <div class="p-grid">
+      <div class="p-col-11">
+        <div class="p-grid">
+          <div class="p-col-12 product-name">
+            {{product.type.showName + " " + product.brand.shortName + " " + product.model + " " + product.age}}
+          </div>
 
-  <div class="product-description">
-    <p>
-      {{product.description}}
-    </p>
+
+          <div class="p-col-2 product-details-menu">
+            <p-button label="peeep" styleClass="ui-button-secondary"></p-button>
+          </div>
+          <div class="p-col-2 product-details-menu">
+            <p-button label="peeep" styleClass="ui-button-secondary"></p-button>
+          </div>
+          <div class="p-col-2 product-details-menu">
+            <p-button label="peeep" styleClass="ui-button-secondary"></p-button>
+          </div>
+          <div class="p-col-2 product-details-menu">
+            <p-button label="peeep" styleClass="ui-button-secondary"></p-button>
+          </div>
+          <div class="p-col-2 product-details-menu">
+            <p-button label="peeep" styleClass="ui-button-secondary"></p-button>
+          </div>
+          <div class="p-col-2 product-details-menu">
+            <p-button label="peeep" styleClass="ui-button-secondary"></p-button>
+          </div>
+
+
+          <div class="p-col-6" style="padding-top: 5%">
+            <div class="p-grid">
+              <div class="p-col-4">
+                <img src={{product.imageLink}} class="gallery-img1">
+                <img src={{product.imageLink}} class="gallery-img2">
+                <img src={{product.imageLink}} class="gallery-img3">
+              </div>
+              <div class="p-col-8">
+                <img src={{product.imageLink}} class="product-img">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="p-col-6 product-info">
+            <div class="p-grid">
+              <div class="p-col-12 product-rating">
+                <img src="assets/showcase/images/icons/star.png">
+                <img src="assets/showcase/images/icons/star.png">
+                <img src="assets/showcase/images/icons/star.png">
+                <img src="assets/showcase/images/icons/star.png">
+                <img src="assets/showcase/images/icons/star.png">
+              </div>
+              <div class="p-col-12">
+                от {{product.minPrice}} Р
+              </div>
+
+              <div class="p-col-6 favourites-and-comparison one-string-text">
+                <img src="assets/showcase/images/icons/heart.png">
+                 Добавить в избранное
+              </div>
+              <div class="p-col-6 favourites-and-comparison one-string-text">
+                <img src="assets/showcase/images/icons/compare.png">
+                 Добавить в сравнения
+              </div>
+              <div class="p-col-12 product-description">
+                  {{product.description}}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="p-col-1 best-offers-heading">
+          Лучшие предложения
+        <img src={{product.imageLink}} class="product-img">
+        <img src={{product.imageLink}} class="product-img">
+        <img src={{product.imageLink}} class="product-img">
+        <img src={{product.imageLink}} class="product-img">
+      </div>
+    </div>
+
   </div>
-</aside>
+  <div class="p-col-2"></div>
+</div>
 
 <p-table style="position: absolute; top: 780px; margin: 20px;" [value]="offers">
   <ng-template pTemplate="header">
@@ -64,11 +108,12 @@
 </p-table>
 
 <!--
+
 <div *ngFor="let offer of offers;">
   <p>{{offer.link}}</p>
   <p>{{offer.shop.name}}</p>
   <p>{{offer.shop.website}}</p>
   <p>{{offer.price}}</p>
 </div>
--->
 
+-->

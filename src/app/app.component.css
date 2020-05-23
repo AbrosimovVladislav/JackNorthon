@@ -1,0 +1,7 @@
+.centered-menu .ui-menubar{
+  text-align: center;
+}
+
+.centered-menu .ui-menu-list{
+  display: inline-block;
+}
