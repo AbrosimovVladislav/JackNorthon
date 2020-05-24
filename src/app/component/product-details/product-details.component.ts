@@ -21,20 +21,15 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route
-      .paramMap
-      .subscribe(paramMap => {
-        this.productId = paramMap.get('productId');
-      });
+    this.route.paramMap.subscribe(paramMap => this.productId = paramMap.get('productId'));
     console.log(this.productId);
 
     this.productService.getProducts('http://localhost:8082/products/' + this.productId).subscribe(
       products => {
         this.product = products[0];
-        console.log(this.product);
-        this.images.push({source: this.product.imageLink});
-        this.images.push({source: this.product.imageLink});
-        this.images.push({source: this.product.imageLink});
+        for (let i = 0; i < 3; i++) {
+          this.images.push({source: this.product.imageLink});
+        }
       }
     );
 
@@ -46,5 +41,4 @@ export class ProductDetailsComponent implements OnInit {
       }
     );
   }
-
 }

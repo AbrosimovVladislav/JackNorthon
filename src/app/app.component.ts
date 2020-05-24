@@ -3,6 +3,9 @@ import {OnInit} from 'angular2/core';
 import {MenuItem} from 'primeng/api';
 import {Type} from './model/Type';
 import {MenuItemsService} from './service/menuItems-service';
+import {ProductService} from './service/product-service.service';
+import {Router} from '@angular/router';
+import {Product} from './model/product';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +13,35 @@ import {MenuItemsService} from './service/menuItems-service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  searchProductsUrl: string = 'http://localhost:8082/products/search?searchLine=';
   menu: MenuItem[];
   items: MenuItem[] = [];
-  upperItems: MenuItem[] = [];
   types: Type[];
+  searchResults: any[];
+  product: Product;
+  currentSearchText: string;
 
-  constructor(private menuItemsService: MenuItemsService) {
+  constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
+  }
+
+  onSelect(product: Product) {
+    this.product = product;
+    this.router
+      .navigate(['/'])
+      .then(() => this.router.navigate(['/productPage/', product.productId]));
+  }
+
+  search(event) {
+    this.currentSearchText = event.query;
+    this.productService
+      .getProducts(this.searchProductsUrl + this.currentSearchText)
+      .subscribe(products => this.searchResults = products);
+  }
+
+  searchEnter(event) {
+    if (event.key === 'Enter') {
+      this.router.navigate(['/search', {searchLine: this.currentSearchText}]);
+    }
   }
 
   ngOnInit() {

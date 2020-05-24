@@ -16,16 +16,20 @@ import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {InputTextModule} from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
-import { ProductDetailsComponent } from './component/product-details/product-details.component';
+import {ProductDetailsComponent} from './component/product-details/product-details.component';
 import {TableModule} from 'primeng/table';
 import {GalleriaModule} from 'primeng/galleria';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SearchResultComponent } from './component/search-result/search-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
@@ -41,13 +45,17 @@ import {GalleriaModule} from 'primeng/galleria';
     InputTextModule,
     TableModule,
     GalleriaModule,
+    AutoCompleteModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(
       [
         {path: 'main', component: MainComponent},
         {path: 'product', component: ProductComponent},
         {path: 'product/:type', component: ProductComponent},
-        {path: 'productPage/:productId', component: ProductDetailsComponent}
-      ]
+        {path: 'productPage/:productId', component: ProductDetailsComponent, runGuardsAndResolvers: 'always'},
+        {path: 'search', component: SearchResultComponent}
+      ],
+      {onSameUrlNavigation: 'reload'}
     ),
     MegaMenuModule
   ],

@@ -12,19 +12,17 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   basePath = 'http://localhost:8082/products';
+  inStock = true;
   products: Product[];
   filters: FilterItem[];
   queryMap: ParamMap;
   typeName: string;
   typeIds: string;
 
-  selectedFilterMap: Map<string, string[]>;
-  filterKeyOnFilterName: Map<string, FilterItem>;
+  selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
+  filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {
-    this.filterKeyOnFilterName = new Map<string, FilterItem>();
-    this.selectedFilterMap = new Map<string, string[]>();
-  }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {}
 
   ngOnInit() {
     this.route
@@ -36,7 +34,7 @@ export class ProductComponent implements OnInit {
       .subscribe(paramMap => {
         this.queryMap = paramMap;
         this.typeIds = this.queryMap.get('typeId');
-        const requestPath = this.basePath + '?' + 'type.typeId=' + this.typeIds;
+        const requestPath = this.basePath + '?' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
         this.updateProducts(requestPath);
       });
     const menuItem = this.queryMap.get('menuItem');
@@ -96,7 +94,7 @@ export class ProductComponent implements OnInit {
       requestPath += paramString;
     });
     requestPath = requestPath.substring(0, requestPath.length - 1);
-    requestPath = requestPath + '&' + 'type.typeId=' + this.typeIds;
+    requestPath += '&' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
     this.updateProducts(requestPath);
   }
 }
