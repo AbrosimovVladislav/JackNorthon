@@ -18,11 +18,25 @@
 
 
 .product-details-menu {
-  margin: 0;
-  padding: 10px;
+  margin: 0 auto;
+  height: 60px;
   background: #E9E9E9;
   color: #E9E9E9;
+  vertical-align: center;
   text-align: center;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 140%;
+  /* or 18px */
+
+  letter-spacing: 0.02em;
+
+  /* #0E0E0E */
+
+  color: #0E0E0E;
 }
 
 .product-details-menu-item {

@@ -1,7 +1,19 @@
-.centered-menu .ui-menubar{
+@font-face {
+  font-family: "Open Sans";
+  src: url("src/assets/showcase/fonts/OpenSans-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("src/assets/showcase/fonts/OpenSans-Bold.ttf");
+  font-weight: bold;
+}
+
+.centered-menu .ui-menubar {
   text-align: center;
 }
 
-.centered-menu .ui-menu-list{
+.centered-menu .ui-menu-list {
   display: inline-block;
 }
