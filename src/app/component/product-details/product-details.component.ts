@@ -15,6 +15,7 @@ export class ProductDetailsComponent implements OnInit {
   productId: string;
   product: Product;
   offers: Offer[];
+  images: any[] = [];
 
   constructor(private offerService: OfferService, private route: ActivatedRoute, private  productService: ProductService) {
   }
@@ -31,6 +32,9 @@ export class ProductDetailsComponent implements OnInit {
       products => {
         this.product = products[0];
         console.log(this.product);
+        this.images.push({source: this.product.imageLink});
+        this.images.push({source: this.product.imageLink});
+        this.images.push({source: this.product.imageLink});
       }
     );
 
