@@ -1,55 +1,47 @@
-<div class="p-grid" style="margin-left: 5%; margin-right: 5%">
-  <!--Added two empty columns for both sides-->
-  <div class="p-col-2"></div>
-  <div class="p-col-8">
+<div class="p-grid ui-fluid">
+  <div class="p-col-0 p-md-1 p-lg-2 p-xl-2">
+    <!--2 column layout for left side, different for dif screens-->
+  </div>
+
+  <div class="p-col-12 p-md-10 p-lg-8 p-xl-8">
+    <!--8 columns for valuable layout, different for dif screens-->
+
     <div class="p-grid">
-      <div class="p-col-11">
+      <!--Grid for valuable layout-->
+      <div id="top" class="p-col-12 product-name">
+        <!--12-col Product name-->
+        {{product.type.showName + " " + product.brand.shortName + " " + product.model + " " + product.age}}
+      </div>
+
+      <!--2 product menu-tabs, each is half-width-->
+      <div class="p-col-6 product-details-menu">
+        <a href="/productPage/{{productId}}#top" class="product-details-menu-item">Описание</a>
+      </div>
+      <div class="p-col-6 product-details-menu">
+        <a href="/productPage/{{productId}}#offersTable" class="product-details-menu-item">Цены</a>
+      </div>
+
+      <div class="p-col-12">
+        <!--12 columns for valuable layout, different for dif screens-->
+
         <div class="p-grid">
-          <div class="p-col-12 product-name">
-            {{product.type.showName + " " + product.brand.shortName + " " + product.model + " " + product.age}}
+          <!--Grid for product-info-->
+
+
+          <div #productGalleria class="p-col-12 p-md-8 p-lg-6 p-justify-center p-align-center">
+            <!--Half of available screen for gallery-->
+            <p-galleria [showFilmstrip]="true"
+                        [panelWidth]="productGalleria.offsetWidth"
+                        [panelHeight]="productGalleria.offsetWidth * (8/10)"
+                        [images]="images"
+                        [showCaption]="false">
+            </p-galleria>
           </div>
+          <div class="p-col-12 p-md-8 p-lg-6 p-align-center">
+            <!--Half of available screen for info grid-->
+            <div class="p-grid product-info">
 
-
-          <div class="p-col-2 product-details-menu">
-            <a href="" class="product-menu-item" style="width: 100%">Описание</a>
-          </div>
-          <div class="p-col-2 product-details-menu">
-            <a href="" class="product-menu-item">Характеристики</a>
-          </div>
-          <div class="p-col-2 product-details-menu">
-            <a href="" class="product-menu-item">Цены</a>
-          </div>
-          <div class="p-col-2 product-details-menu">
-            <a href="" class="product-menu-item">Наличие в магазинах</a>
-          </div>
-          <div class="p-col-2 product-details-menu">
-            <a href="" class="product-menu-item">Карта</a>
-          </div>
-          <div class="p-col-2 product-details-menu">
-            <a href=""n class="product-menu-item">Отзывы</a>
-          </div>
-
-
-          <div class="p-col-6" style="padding-top: 5%">
-            <div class="p-grid">
-              <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="false"></p-galleria>
-
-<!--              <div class="p-col-4">
-                <img src={{product.imageLink}} class="gallery-img1">
-                <img src={{product.imageLink}} class="gallery-img2">
-                <img src={{product.imageLink}} class="gallery-img3">
-              </div>
-              <div class="p-col-8">
-                <img src={{product.imageLink}} class="product-img">
-              </div>-->
-            </div>
-          </div>
-
-
-
-
-          <div class="p-col-6 product-info">
-            <div class="p-grid">
+              <!--full-width star product rating-->
               <div class="p-col-12 product-rating">
                 <img src="assets/showcase/images/icons/star.png">
                 <img src="assets/showcase/images/icons/star.png">
@@ -57,71 +49,87 @@
                 <img src="assets/showcase/images/icons/star.png">
                 <img src="assets/showcase/images/icons/star.png">
               </div>
-              <div class="p-col-12">
+
+              <!--Full-width min product price-->
+              <div class="p-col-12 product-price">
                 от {{product.minPrice}} Р
               </div>
 
-              <div class="p-col-6 favourites-and-comparison one-string-text">
-                <img src="assets/showcase/images/icons/heart.png">
-                 Добавить в избранное
-              </div>
-              <div class="p-col-6 favourites-and-comparison one-string-text">
-                <img src="assets/showcase/images/icons/compare.png">
-                 Добавить в сравнения
-              </div>
-              <div class="p-col-12 product-description">
-                  {{product.description}}
+              <!--Half-width favourites link-->
+              <div class="p-col-6 p-align-center favourites-and-comparison">
+                <img src="assets/showcase/images/icons/heart.png"
+                     style="padding-right: 5%">
+                <div class="one-string-text">
+                  Добавить в избранное
+                </div>
               </div>
 
+              <!--Half-width compare link-->
+              <div class="p-col-6 p-align-center favourites-and-comparison">
+                <img src="assets/showcase/images/icons/compare.png"
+                     style="padding-right: 5%">
+                <div class="one-string-text">
+                  Добавить в сравнения
+                </div>
+              </div>
+
+              <!--Full-width product description-->
+              <div #description class="p-col-12 product-description">
+                {{product.description | slice:sliceOptions.start:sliceOptions.end}}
+                <div *ngIf="product.description.length >= sliceOptions.default">
+                  <span class="expand-text" (click)="onExpandText($event)"
+                        style="display: {{expandTextVisible===true ? 'normal' : 'none'}}">Показать больше</span>
+                </div>
+              </div>
             </div>
-
           </div>
-
         </div>
       </div>
-      <div class="p-col-1 best-offers">
-          <div class="best-offers-heading">
-            Лучшие предложения
-          </div>
-        <div class="best-offers-banner">
-          <img src={{product.imageLink}} class="product-img">
-          <img src={{product.imageLink}} class="product-img">
-          <img src={{product.imageLink}} class="product-img">
-          <img src={{product.imageLink}} class="product-img">
-        </div>
+      <div id="offersTable" class="p-col-12">
+        <p-scrollPanel [style]="{width: '100%', height: '100vh'}">
+          <p-table [value]="offers" [autoLayout]="true" [responsive]="true" class="offers">
+            <ng-template pTemplate="header">
+              <th colspan="3">Предложения магазинов</th>
+            </ng-template>
+            <ng-template pTemplate="body" let-offer>
+              <tr>
+                <td align="left">
+                  <a href="{{offer.link}}">
+                  {{product.type.showName + " " +
+                    product.brand.shortName + " " +
+                    product.model + " " +
+                    product.age}}
+                  </a>
+                </td>
+                <td>
+                  <a href="{{offer.shop.website}}">
+                    {{offer.shop.name}}
+                    <p>
+                      <img src="assets/showcase/images/icons/star-small.png">
+                      <img src="assets/showcase/images/icons/star-small.png">
+                      <img src="assets/showcase/images/icons/star-small.png">
+                      <img src="assets/showcase/images/icons/star-small.png">
+                      <img src="assets/showcase/images/icons/star-small.png">
+                    </p>
+                  </a></td>
+                <td align="right">
+                  <a href="{{offer.link}}" class="offer-price">{{offer.price}}</a>
+                </td>
+                <td align="right">
+                  <a href="{{offer.link}}"><span class="offer-link">В&nbsp;МАГАЗИН</span></a>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </p-scrollPanel>
       </div>
+
     </div>
 
   </div>
-  <div class="p-col-2"></div>
+
+  <div class="p-col-0 p-md-1 p-lg-2 p-xl-2">
+    <!--2 column layout for right side, different for dif screens-->
+  </div>
 </div>
 
-<p-table style="position: absolute; top: 780px; margin: 20px;" [value]="offers">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Link</th>
-      <th>ShopName</th>
-      <th>ShopWebSite</th>
-      <th>Price</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-offer>
-    <tr>
-      <td><a href="{{offer.link}}">{{offer.link}}</a></td>
-      <td>{{offer.shop.name}}</td>
-      <td>{{offer.shop.website}}</td>
-      <td>{{offer.price}}</td>
-    </tr>
-  </ng-template>
-</p-table>
-
-<!--
-
-<div *ngFor="let offer of offers;">
-  <p>{{offer.link}}</p>
-  <p>{{offer.shop.name}}</p>
-  <p>{{offer.shop.website}}</p>
-  <p>{{offer.price}}</p>
-</div>
-
--->

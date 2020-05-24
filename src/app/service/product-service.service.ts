@@ -30,10 +30,11 @@ export class ProductService {
                   description: products[key].description,
                   characteristics: products[key].characteristics,
                   link: products[key].link,
-                  imageLink: 'assets/showcase' + products[key].imageLink.substring(14),
+                  imageLink: 'assets/showcase' + products[key].imageLink.substring(13),
                   rating: products[key].rating,
                   minPrice: products[key].minPrice
                 });
+                console.log(productArray[key].imageLink);
               } else {
                 const product: Product = products as Product;
                 productArray.push({
@@ -45,15 +46,17 @@ export class ProductService {
                   description: product.description,
                   characteristics: product.characteristics,
                   link: product.link,
-                  imageLink: 'assets/showcase' + product.imageLink.substring(14),
+                  imageLink: 'assets/showcase' + product.imageLink.substring(13),
                   rating: product.rating,
                   minPrice: product.minPrice
                 });
+                console.log(productArray[0].imageLink);
               }
             }
           }
           return productArray;
-        })
+        }
+        )
       );
   }
 }

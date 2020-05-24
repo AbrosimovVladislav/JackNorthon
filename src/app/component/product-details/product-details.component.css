@@ -8,42 +8,25 @@
   letter-spacing: 0.02em;
 
   position: relative;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: left;
   vertical-align: center;
 
   color: #0E0E0E;
 }
 
-.best-offers-heading {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 21px;
-  /*line-height: 140%;*/
-  /* or 29px */
-  letter-spacing: 0.02em;
-
-  position: relative;
-  padding-top: 5%;
-  padding-left: 5%;
-  text-align: left;
-
-  color: #0E0E0E;
-}
 
 .product-details-menu {
   margin: 0;
-  padding: 5%;
+  padding: 10px;
   background: #E9E9E9;
   color: #E9E9E9;
-
+  text-align: center;
 }
 
-.product-menu-item {
+.product-details-menu-item {
   display: inline-block;
-  text-align: center;
 
   font-family: Open Sans;
   font-style: normal;
@@ -57,24 +40,19 @@
   color: #0E0E0E;
 }
 
-.product-rating {
+.product-rating img {
   display: inline-block;
+  padding-right: 5px;
 }
 
+.gallery {
 
-.gallery-img1 {
-  position: relative;
-  max-width: 100%;
 }
 
-.gallery-img2 {
-  position: relative;
-  max-width: 100%;
-}
-
-.gallery-img3 {
-  position: relative;
-  max-width: 100%;
+:host ::ng-deep img.ui-panel-images {
+  object-fit: contain !important;
+  height: inherit;
+  width: inherit;
 }
 
 .product-img {
@@ -90,9 +68,8 @@
   line-height: 140%;
   /* or 29px */
 
-  padding: 5%;
-
   letter-spacing: 0.02em;
+
   color: #000000;
 }
 
@@ -102,6 +79,7 @@
 
 .favourites-and-comparison {
   text-align: left;
+  display: inline-block;
 }
 
 
@@ -114,6 +92,7 @@
   /* or 18px */
   letter-spacing: 0.02em;
   /* #0E0E0E */
+
 
   display: inline-block;
   color: #0E0E0E;
@@ -128,20 +107,110 @@
   line-height: 140%;
   /* or 18px */
   letter-spacing: 0.02em;
+  padding-top: 5%;
   /* #0E0E0E */
   color: #0E0E0E;
 }
 
-.best-offers {
-  position: relative;
-  padding-top: 5%;
-  padding-left: 5%;
-  text-align: left;
-
+.expand-text {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 140%;
+  /* or 18px */
+  letter-spacing: 0.02em;
+  /* #0E0E0E */
+  color: #0E0E0E;
 }
 
-.best-offers-banner {
+.expand-text:hover {
+  cursor: pointer;
+}
+
+.offers {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 140%;
+  /* or 29px */
   position: center;
-  padding-top: 5%;
-  padding-left: 5%;
+  text-align: left;
+  letter-spacing: 0.02em;
+
+  color: #000000;
 }
+
+
+.offers a p {
+  margin-top: 0;
+  margin-bottom: 0.01em;
+}
+
+.offers td {
+  border: none;
+  border-bottom: 1px solid #E9E9E9;
+
+  word-wrap: break-spaces;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+
+  vertical-align: center;
+  color: #000000;
+}
+
+.offer-price {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 140%;
+  /* or 29px */
+  position: center;
+  text-align: right;
+  letter-spacing: 0.02em;
+
+  color: #000000;
+}
+
+.ui-button:enabled:hover {
+  background-color: #E07E0B !important;
+  color: #ffffff;
+  border-color: #E07E0B !important;
+}
+
+.ui-button:enabled:active {
+  background-color: #E07E0B !important;
+  color: #ffffff;
+  border-color: #E07E0B !important;
+}
+
+.offer-link {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 140%;
+  /* or 18px */
+
+  letter-spacing: 0.02em;
+
+  text-align: right;
+  max-width: fit-content;
+
+
+  color: #FFFFFF;
+  background: #E07E0B;
+  border-color: #E07E0B;
+  border-radius: 3px;
+  padding: 10px;
+
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+}
+

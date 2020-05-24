@@ -16,6 +16,12 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   offers: Offer[];
   images: any[] = [];
+  sliceOptions = {
+    start: 0,
+    end: 300,
+    default: 300
+  };
+  expandTextVisible = true;
 
   constructor(private offerService: OfferService, private route: ActivatedRoute, private  productService: ProductService) {
   }
@@ -32,9 +38,24 @@ export class ProductDetailsComponent implements OnInit {
       products => {
         this.product = products[0];
         console.log(this.product);
-        this.images.push({source: this.product.imageLink});
-        this.images.push({source: this.product.imageLink});
-        this.images.push({source: this.product.imageLink});
+        this.images.push({
+          source: this.product.imageLink, alt: this.product.type.showName + ' ' +
+            this.product.brand.shortName + ' ' +
+            this.product.model + ' ' +
+            this.product.age
+        });
+        this.images.push({
+          source: this.product.imageLink, alt: this.product.type.showName + ' ' +
+            this.product.brand.shortName + ' ' +
+            this.product.model + ' ' +
+            this.product.age
+        });
+        this.images.push({
+          source: this.product.imageLink, alt: this.product.type.showName + ' ' +
+            this.product.brand.shortName + ' ' +
+            this.product.model + ' ' +
+            this.product.age
+        });
       }
     );
 
@@ -45,6 +66,11 @@ export class ProductDetailsComponent implements OnInit {
         console.log(this.offers);
       }
     );
+  }
+
+  onExpandText($event: MouseEvent) {
+    this.sliceOptions.end = this.sliceOptions.end ? undefined : this.sliceOptions.default;
+    this.expandTextVisible = false;
   }
 
 }
