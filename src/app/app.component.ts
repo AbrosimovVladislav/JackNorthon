@@ -10,19 +10,25 @@ import {MenuItemsService} from './service/menuItems-service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  items: MenuItem[];
+  menu: MenuItem[];
+  items: MenuItem[] = [];
+  upperItems: MenuItem[] = [];
   types: Type[];
 
   constructor(private menuItemsService: MenuItemsService) {
   }
 
   ngOnInit() {
-    this.items = [
+    this.menu = [
       {label: 'Main', url: 'main'},
-      {label: 'Product', url: 'product'}
+      {label: 'Каталог', items: this.items}
     ];
 
-    this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => this.items.push(mi)));
-    console.log(this.items);
+    this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
+        this.items.push(mi);
+        const cutMenuItem: MenuItem = {label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams};
+        this.menu.push(cutMenuItem);
+      }
+    ));
   }
 }
