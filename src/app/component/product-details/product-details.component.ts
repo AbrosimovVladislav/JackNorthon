@@ -16,19 +16,35 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   offers: Offer[];
   images: any[] = [];
+  sliceOptions = {
+    start: 0,
+    end: 300,
+    default: 300
+  };
+  expandTextVisible = true;
 
   constructor(private offerService: OfferService, private route: ActivatedRoute, private  productService: ProductService) {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(paramMap => this.productId = paramMap.get('productId'));
+    this.route
+      .paramMap
+      .subscribe(paramMap => {
+        this.productId = paramMap.get('productId');
+      });
     console.log(this.productId);
 
     this.productService.getProducts('http://localhost:8082/products/' + this.productId).subscribe(
       products => {
         this.product = products[0];
+        console.log(this.product);
         for (let i = 0; i < 3; i++) {
-          this.images.push({source: this.product.imageLink});
+          this.images.push({
+            source: this.product.imageLink, alt: this.product.type.showName + ' ' +
+              this.product.brand.shortName + ' ' +
+              this.product.model + ' ' +
+              this.product.age
+          });
         }
       }
     );
@@ -41,4 +57,10 @@ export class ProductDetailsComponent implements OnInit {
       }
     );
   }
+
+  onExpandText($event: MouseEvent) {
+    this.sliceOptions.end = this.sliceOptions.end ? undefined : this.sliceOptions.default;
+    this.expandTextVisible = false;
+  }
+
 }
