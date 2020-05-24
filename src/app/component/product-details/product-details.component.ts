@@ -38,24 +38,14 @@ export class ProductDetailsComponent implements OnInit {
       products => {
         this.product = products[0];
         console.log(this.product);
-        this.images.push({
-          source: this.product.imageLink, alt: this.product.type.showName + ' ' +
-            this.product.brand.shortName + ' ' +
-            this.product.model + ' ' +
-            this.product.age
-        });
-        this.images.push({
-          source: this.product.imageLink, alt: this.product.type.showName + ' ' +
-            this.product.brand.shortName + ' ' +
-            this.product.model + ' ' +
-            this.product.age
-        });
-        this.images.push({
-          source: this.product.imageLink, alt: this.product.type.showName + ' ' +
-            this.product.brand.shortName + ' ' +
-            this.product.model + ' ' +
-            this.product.age
-        });
+        for (let i = 0; i < 3; i++) {
+          this.images.push({
+            source: this.product.imageLink, alt: this.product.type.showName + ' ' +
+              this.product.brand.shortName + ' ' +
+              this.product.model + ' ' +
+              this.product.age
+          });
+        }
       }
     );
 

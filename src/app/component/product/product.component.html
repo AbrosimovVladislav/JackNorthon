@@ -1,6 +1,8 @@
 <h1>{{typeName}}</h1>
 <div class="p-grid">
   <div class="p-col">
+    <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true"></p-checkbox>
+    <p></p>
     <p-button label="Click" (onClick)="sendRequest()"></p-button>
     <ul>
       <li *ngFor="let filterItem of filters">
@@ -36,7 +38,7 @@
       <ng-template let-product pTemplate="gridItem">
         <div class="ui-g-4" align="center">
           <img width="300" alt="img" class="img-responsive" src="{{product.imageLink}}">
-          <div class="ui-g-12"> <a href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model}}</a></div>
+          <div class="ui-g-12"> <a href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model + " " + product.age}}</a></div>
           <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
         </div>
       </ng-template>

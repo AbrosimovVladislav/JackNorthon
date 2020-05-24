@@ -1,0 +1,38 @@
+<span style="color: #f00; font-family: monospace; font-size: xx-large">ПО </span>
+<span style="color: blue; font-size: xx-large">ВАШЕМУ </span>
+<span style="color: chartreuse; font-family: monospace;  font-size: xx-large">ЗАПРОСУ </span>
+<span style="color: coral; font-size: xx-large">НАЙДЕНО </span>
+<span style="color: deeppink; font-family: monospace; font-size: xx-large">{{resultProducts.length}} </span>
+<span style="color: darkslateblue; font-size: xx-large">ТОВАРОВ </span>
+<span style="color: gold  ; font-size: xx-large">ПИДОРЫ</span>
+
+<p-dataView [value]="resultProducts" [paginator]="true" [rows]="50" layout="grid">
+  <p-header>
+    List of Products
+    <p-dataViewLayoutOptions>
+    </p-dataViewLayoutOptions>
+  </p-header>
+  <p-footer>Choose from the list.</p-footer>
+  <ng-template let-product pTemplate="gridItem">
+    <div class="ui-g-4" align="center">
+      <img width="300" alt="img" class="img-responsive" src="{{product.imageLink}}">
+      <div class="ui-g-12"> <a href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model}}</a></div>
+      <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
+    </div>
+  </ng-template>
+  <ng-template let-product pTemplate="listItem">
+    <div class="car-details">
+      <div>
+        <img src="assets/showcase/images/demo/car/{{product.imageLink}}.png">
+        <div class="ui-g">
+          <div class="ui-g-12">Name: <b>{{product.brand.shortName + " " + product.model}}</b></div>
+          <div class="ui-g-12">Price: <b>{{product.minPrice}}</b></div>
+          <div class="ui-g-12 ui-md-3">
+            <div class="ui-g-12">Price: <b> {{product.rating.value}}</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</p-dataView>
