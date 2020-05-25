@@ -17,3 +17,39 @@
 .centered-menu .ui-menu-list {
   display: inline-block;
 }
+
+::ng-deep .ui-inputwrapper-focus:enabled:focus:not(.ui-state-error) {
+  border-color: coral;
+  color: coral;
+  lighting-color: coral;
+}
+::ng-deep .ui-autocomplete-input:enabled:focus:not(.ui-state-error) {
+  border-color: chartreuse;
+  color: chartreuse;
+  lighting-color: chartreuse;
+}
+::ng-deep .ui-autocomplete .ui-inputtextarea:enabled:focus:not(.ui-state-error) {
+  border-color: blueviolet;
+  color: blueviolet;
+  lighting-color: blueviolet;
+}
+::ng-deep .ui-autocomplete .ui-inputswitch-focus:enabled:focus:not(.ui-state-error) {
+  border-color: black;
+  color: black;
+  lighting-color: black;
+}
+::ng-deep .ui-autocomplete .inputTest:enabled:focus:not(.ui-state-error) {
+  border-color: red;
+  color: red;
+  lighting-color: red;
+  box-shadow: red;
+  -webkit-box-shadow: red;
+  mso-shadow-color: red;
+  mso-border-shadow: yes;
+  mso-scheme-shadow-color: red;
+}
+::ng-deep .panelTest .ui-autocomplete-items .ui-state-highlight:enabled:focus:not(.ui-state-error) {
+  border-color: gold;
+  color: gold;
+  lighting-color: gold;
+}

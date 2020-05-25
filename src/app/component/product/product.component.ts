@@ -4,6 +4,7 @@ import {FilterItem} from '../../model/filterItem';
 import {ProductService} from '../../service/product-service.service';
 import {FilterService} from '../../service/filter-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {SelectItem} from 'primeng';
 
 @Component({
   selector: 'app-product',
@@ -21,6 +22,12 @@ export class ProductComponent implements OnInit {
 
   selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
   filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
+  sortOptions: SelectItem[] = [
+    {label: 'Цена ↑', value: 'minPrice,asc'}, {label: 'Цена ↓', value: 'minPrice,desc'},
+    {label: 'Популярность ↑', value: 'rating.value,asc'}, {label: 'Популярность ↓', value: 'rating.value,desc'},
+    {label: 'Отзывы ▲', value: 'reviewCount,asc'}, {label: 'Отзывы ▼', value: 'reviewCount,desc'}
+  ];
+  sortKey: string;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {}
 
@@ -96,5 +103,11 @@ export class ProductComponent implements OnInit {
     requestPath = requestPath.substring(0, requestPath.length - 1);
     requestPath += '&' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
     this.updateProducts(requestPath);
+  }
+
+  onSortChange() {
+    const url = this.basePath + '?type.typeId=' + this.typeIds + '&inStock=' + this.inStock + '&sort=' + this.sortKey;
+    console.log('sortUrl=' + url);
+    this.updateProducts(url);
   }
 }

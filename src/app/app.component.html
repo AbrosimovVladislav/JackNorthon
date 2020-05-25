@@ -1,6 +1,11 @@
 <p-menubar [model]="menu" class="centered-menu"></p-menubar>
+
+
+
 <p-autoComplete [ngModel]="product" [suggestions]="searchResults" field=" "
-                (completeMethod)="search($event)" (onSelect)="onSelect($event)" (onKeyUp)="searchEnter($event)">
+                (completeMethod)="search($event)" (onSelect)="onSelect($event)" (onKeyUp)="searchEnter($event)"
+                inputStyleClass="inputTest" panelStyleClass="panelTest" styleClass=""
+>
 <ng-template let-product pTemplate="item">
   <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
     <img src="{{product.imageLink}}" style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
