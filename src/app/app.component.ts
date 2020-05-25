@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
   searchResults: any[];
   product: Product;
   currentSearchText: string;
+  screenWidth: number;
+  smallScreenWidth = 576;
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }
@@ -46,15 +48,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.menu = [
-      {label: 'Main', url: 'main'},
+      /*      {label: 'Main', url: 'main'},*/
       {label: 'Каталог', items: this.items}
     ];
 
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
         this.items.push(mi);
-        const cutMenuItem: MenuItem = {label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams};
-        this.menu.push(cutMenuItem);
+        // const cutMenuItem: MenuItem = {label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams};
+        // this.menu.push(cutMenuItem);
       }
     ));
+    this.screenWidth = screen.width;
+    console.log('********************************');
+    console.log(this.screenWidth);
   }
 }
