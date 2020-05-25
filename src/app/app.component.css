@@ -17,21 +17,3 @@
 .centered-menu .ui-menu-list {
   display: inline-block;
 }
-
-//.ui-inputtext:enabled:focus:not(.ui-state-error)  {
-//  border-color: chartreuse;
-//  color: chartreuse;
-//  lighting-color: chartreuse;
-//  box-shadow: 0 0 0 0.2em chartreuse;
-//  mso-shadow-color: chartreuse;
-//}
-
-.ui-inputtext:enabled:focus {
-  background-color: red;
-  box-shadow: red;
-  lighting-color: red;
-  color
-}
-.p-autocomplete:focus:enabled {
-  background-color: coral;
-}
