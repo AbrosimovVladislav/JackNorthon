@@ -12,13 +12,10 @@ export class FilterService {
   selectItems: SItem[];
   filterItemArray: FilterItem[];
   sortOptions: SItem[] = [
-    {title: 'Цена', label: 'Цена ↑', value: 'minPrice,asc'}, {title: 'Цена', label: 'Цена ↓', value: 'minPrice,desc'},
-    {title: 'Популярность', label: 'Популярность ↑', value: 'rating.value,asc'}, {
-      title: 'Популярность',
-      label: 'Популярность ↓',
-      value: 'rating.value,desc'
-    },
-    {title: 'Отзывы', label: 'Отзывы ▲', value: 'reviewCount,asc'}, {title: 'Отзывы', label: 'Отзывы ▼', value: 'reviewCount,desc'}
+    {title: 'Цена', label: 'Цена ↑', value: 'minPrice,asc'},
+    {title: 'Цена', label: 'Цена ↓', value: 'minPrice,desc'},
+    {title: 'Популярность', label: 'Популярность ↓', value: 'rating.value,desc'},
+    {title: 'Отзывы', label: 'Отзывы ▼', value: 'reviewCount,desc'}
   ];
 
   constructor(private http: HttpClient) {
