@@ -30,7 +30,7 @@ export class ProductService {
                     description: products[key].description,
                     characteristics: products[key].characteristics,
                     link: products[key].link,
-                    imageLink: 'assets/showcase' + products[key].imageLink.substring(14),
+                    imageLink: products[key].imageLink,
                     rating: this.createShowRating(products[key].rating),
                     minPrice: products[key].minPrice
                   });
@@ -45,7 +45,7 @@ export class ProductService {
                     description: product.description,
                     characteristics: product.characteristics,
                     link: product.link,
-                    imageLink: 'assets/showcase' + product.imageLink.substring(14),
+                    imageLink: product.imageLink,
                     rating: this.createShowRating(product.rating),
                     minPrice: product.minPrice
                   });

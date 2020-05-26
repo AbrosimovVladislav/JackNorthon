@@ -1,19 +1,18 @@
 <p-menubar [model]="menu" class="centered-menu"></p-menubar>
 
-
-
-<p-autoComplete [ngModel]="product" [suggestions]="searchResults" field=" "
+<p-autoComplete [ngModel]=" product" [suggestions]="searchResults" field=" "
                 (completeMethod)="search($event)" (onSelect)="onSelect($event)" (onKeyUp)="searchEnter($event)"
                 inputStyleClass="inputTest" panelStyleClass="panelTest" styleClass=""
 >
-<ng-template let-product pTemplate="item">
-  <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-    <img src="{{product.imageLink}}" style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-    <div
-      style="font-size:18px;float:right;margin:10px 10px 0 0">{{product.brand.shortName}} {{product.model}} {{product.age}}</div>
-  </div>
-</ng-template>
+  <ng-template let-product pTemplate="item">
+    <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+      <img src="{{'http://localhost:8082/images/' + product.productId}}" style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
+      <div
+        style="font-size:18px;float:right;margin:10px 10px 0 0">{{product.brand.shortName}} {{product.model}} {{product.age}}</div>
+    </div>
+  </ng-template>
 </p-autoComplete>
 
-<span style="margin-left:10px">{{product === null || product === undefined ? '' : 'Product: ' + product.brand?.shortName + ' ' + product.model + ' ' + product.age}}</span>
+<span
+  style="margin-left:10px">{{product === null || product === undefined ? '' : 'Product: ' + product.brand?.shortName + ' ' + product.model + ' ' + product.age}}</span>
 <router-outlet></router-outlet>

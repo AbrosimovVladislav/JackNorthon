@@ -52,7 +52,7 @@
       <p-footer>Choose from the list.</p-footer>
       <ng-template let-product pTemplate="gridItem">
         <div class="ui-g-4" style="text-align: center">
-          <img width="300" alt="img" class="img-responsive" src="{{product.imageLink}}">
+          <img width="300" alt="img" class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}">
           <div class="ui-g-12"><a
             href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model + " " + product.age}}</a>
           </div>

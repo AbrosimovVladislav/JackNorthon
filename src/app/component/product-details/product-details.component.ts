@@ -40,10 +40,8 @@ export class ProductDetailsComponent implements OnInit {
         console.log(this.product);
         for (let i = 0; i < 3; i++) {
           this.images.push({
-            source: this.product.imageLink, alt: this.product.type.showName + ' ' +
-              this.product.brand.shortName + ' ' +
-              this.product.model + ' ' +
-              this.product.age
+            source: 'http://localhost:8082/images/' + this.product.productId,
+            alt: this.product.type.showName + ' ' + this.product.brand.shortName + ' ' + this.product.model + ' ' + this.product.age
           });
         }
       }
