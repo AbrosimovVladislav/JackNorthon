@@ -24,6 +24,14 @@
           <input type="text" [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
                  placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}">
         </div>
+        <div *ngIf="filterItem.filterType==='DROPDOWN'">
+          <p-header>{{filterItem.showName}}</p-header>
+          <p></p>
+          <p-dropdown [options]="filterItem.selectItem" [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                      (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                      [style]="{'min-width':'140px'}"
+                      placeholder="{{filterItem.showName}}"></p-dropdown>
+        </div>
       </li>
     </ul>
   </div>
@@ -32,11 +40,6 @@
       <p-header>
         <div class="ui-helper-clearfix">
           <div class="p-grid">
-            <div class="p-col-12 p-md-4">
-              <p-dropdown [options]="sortOptions" [style]="{'min-width':'140px'}" (onChange)="onSortChange()"
-                          [(ngModel)]="sortKey" placeholder="Sort By">
-              </p-dropdown>
-            </div>
             <div class="p-col-6 p-md-4 filter-container">
               <div style="text-align: center">List of Products</div>
             </div>
@@ -50,7 +53,9 @@
       <ng-template let-product pTemplate="gridItem">
         <div class="ui-g-4" style="text-align: center">
           <img width="300" alt="img" class="img-responsive" src="{{product.imageLink}}">
-          <div class="ui-g-12"> <a href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model + " " + product.age}}</a></div>
+          <div class="ui-g-12"><a
+            href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model + " " + product.age}}</a>
+          </div>
           <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
         </div>
       </ng-template>
