@@ -13,7 +13,6 @@ export class ProductService {
   }
 
   getProducts(url: string) {
-    console.log('we are in getProducts');
     return this.http
       .get<Product[]>(url)
       .pipe(

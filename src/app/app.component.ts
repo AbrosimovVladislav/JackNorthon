@@ -51,10 +51,30 @@ export class AppComponent implements OnInit {
     ];
 
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
+        this.refreshCommandSetting(mi);
         this.items.push(mi);
-        const cutMenuItem: MenuItem = {label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams};
+        const cutMenuItem: MenuItem = {
+          label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams, command: mi.command
+        };
         this.menu.push(cutMenuItem);
       }
     ));
+
+    console.log('vertical');
+    console.log(this.items);
+    console.log('horizontal');
+    console.log(this.menu);
+  }
+
+  refreshCommandSetting(mi: MenuItem) {
+    mi.command = (event) => {
+      this.router.navigate(['/']).then(() => this.router.navigate(event.item.routerLink, {queryParams: event.item.queryParams}));
+    };
+    const items = mi.items;
+    if (items !== null && items.length !== 0) {
+      items.forEach(item => {
+        this.refreshCommandSetting(item);
+      });
+    }
   }
 }
