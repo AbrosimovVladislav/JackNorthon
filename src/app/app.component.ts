@@ -59,11 +59,6 @@ export class AppComponent implements OnInit {
         this.menu.push(cutMenuItem);
       }
     ));
-
-    console.log('vertical');
-    console.log(this.items);
-    console.log('horizontal');
-    console.log(this.menu);
   }
 
   refreshCommandSetting(mi: MenuItem) {
