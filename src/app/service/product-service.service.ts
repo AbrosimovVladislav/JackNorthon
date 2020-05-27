@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Product} from '../model/product';
-import {Rating} from '../model/rating';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +30,7 @@ export class ProductService {
                     characteristics: products[key].characteristics,
                     link: products[key].link,
                     imageLink: products[key].imageLink,
-                    rating: this.createShowRating(products[key].rating),
+                    rating: products[key].rating,
                     minPrice: products[key].minPrice
                   });
                 } else {
@@ -46,7 +45,7 @@ export class ProductService {
                     characteristics: product.characteristics,
                     link: product.link,
                     imageLink: product.imageLink,
-                    rating: this.createShowRating(product.rating),
+                    rating: product.rating,
                     minPrice: product.minPrice
                   });
                 }
@@ -56,14 +55,5 @@ export class ProductService {
           }
         )
       );
-  }
-
-  createShowRating(rating: Rating) {
-    let result = '';
-    for (let i = 0; i < rating.value; i++) {
-      result = result + '*';
-    }
-    rating.value = result;
-    return rating;
   }
 }

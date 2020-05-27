@@ -43,11 +43,7 @@
 
               <!--full-width star product rating-->
               <div class="p-col-12 product-rating">
-                <img src="assets/showcase/images/icons/star.png">
-                <img src="assets/showcase/images/icons/star.png">
-                <img src="assets/showcase/images/icons/star.png">
-                <img src="assets/showcase/images/icons/star.png">
-                <img src="assets/showcase/images/icons/star.png">
+                <p-rating [ngModel]="product.rating.value" iconOnClass="pi pi-star" iconOffClass="pi pi-star-o" readonly="true" stars="5" [cancel]="false"></p-rating>
               </div>
 
               <!--Full-width min product price-->
