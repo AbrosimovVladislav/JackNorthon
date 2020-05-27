@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
         label: mi.label,
         url: mi.url,
         routerLink: mi.routerLink,
-        queryParams: mi.queryParams,
+        queryParams: mi.queryParams
       };
       this.horizontalMenu.push(cutMenuItem);
     }));

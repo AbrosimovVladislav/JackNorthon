@@ -45,7 +45,6 @@ body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
 }
 
 
-
 body .non-icon .ui-submenu-icon {
   display: none;
 }
@@ -66,5 +65,4 @@ body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuite
 
 body .ui-menubar .ui-menuitem-link {
   background: #0E0E0E;
-
 }

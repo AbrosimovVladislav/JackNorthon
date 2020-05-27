@@ -14,14 +14,14 @@ import {MainComponent} from './component/main/main.component';
 import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
-import {InputTextModule, LightboxModule, ScrollPanelModule} from 'primeng';
+import {InputTextModule, LightboxModule, ScrollPanelModule, TabMenuModule} from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ProductDetailsComponent} from './component/product-details/product-details.component';
 import {TableModule} from 'primeng/table';
 import {GalleriaModule} from 'primeng/galleria';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { SearchResultComponent } from './component/search-result/search-result.component';
+import {SearchResultComponent} from './component/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import { SearchResultComponent } from './component/search-result/search-result.c
     ),
     MegaMenuModule,
     LightboxModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    TabMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
