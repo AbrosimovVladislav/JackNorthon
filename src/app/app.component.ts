@@ -46,7 +46,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.menu = [
-      {label: 'Main', url: 'main'},
       {label: 'Каталог', items: this.items}
     ];
 

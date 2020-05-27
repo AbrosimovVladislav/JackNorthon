@@ -1,1 +1,15 @@
-<p>main works!</p>
+<h1 style="text-align: center; font-family: Bebas Neue; font-weight: bold;">YOUR HOCKEY</h1>
+<h2 style="text-align: center; font-family: Bebas Neue; font-weight: bold;">PRE ALPHA VERSION</h2>
+
+
+<div class="p-grid">
+  <div class="p-col-4"></div>
+  <div class="p-col-4 p-justify-center">
+    <p-carousel [value]="videos" [circular]="true">
+      <ng-template let-car pTemplate="item">
+        <iframe style="width: 100%" [src]='safeURL' frameborder="0" allowfullscreen></iframe>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <div class="p-col-4"></div>
+</div>
