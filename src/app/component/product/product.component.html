@@ -51,15 +51,19 @@
       </p-header>
       <p-footer>Choose from the list.</p-footer>
       <ng-template let-product pTemplate="gridItem">
-        <div class="ui-g-4" style="text-align: center">
-          <img width="300" alt="img" class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}">
+        <div class="ui-g-3">
+          <img (mouseover)="addBorderStyle($event)" (mouseout)="removeBorderStyle()" width="300" alt="img" class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}">
+          <p>{{product.brand.shortName}}</p>
           <div class="ui-g-12"><a
-            href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model + " " + product.age}}</a>
+            href="/productPage/{{product.productId}}">{{product.type.showName + " " + product.model + " " + product.age}}</a>
           </div>
           <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
           <p-rating [ngModel]="product.rating.value" iconOnClass="pi pi-star" iconOffClass="pi pi-star-o" readonly="true" stars="5" [cancel]="false"></p-rating>
+          <p>Количество предложений : {{product.offerQuantity}}</p>
         </div>
+
       </ng-template>
+
     </p-dataView>
   </div>
 </div>

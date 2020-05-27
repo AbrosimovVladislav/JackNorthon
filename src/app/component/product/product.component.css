@@ -1,0 +1,15 @@
+.ui-g-3:hover {
+  border: 2px solid #E07E0B;
+  box-shadow: 0 0 30px gray;
+  text-align: center;
+  padding-bottom: 35px;
+  padding-top: 35px;
+}
+
+.ui-g-3 {
+  border: 2px solid white;
+  border-bottom: 2px solid #E9E9E9;
+  text-align: center;
+  padding-bottom: 35px;
+  padding-top: 35px;
+}

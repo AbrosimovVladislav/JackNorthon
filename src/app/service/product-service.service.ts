@@ -31,7 +31,8 @@ export class ProductService {
                     link: products[key].link,
                     imageLink: products[key].imageLink,
                     rating: products[key].rating,
-                    minPrice: products[key].minPrice
+                    minPrice: products[key].minPrice,
+                    offerQuantity: products[key].offerQuantity
                   });
                 } else {
                   const product: Product = products as Product;
@@ -46,7 +47,8 @@ export class ProductService {
                     link: product.link,
                     imageLink: product.imageLink,
                     rating: product.rating,
-                    minPrice: product.minPrice
+                    minPrice: product.minPrice,
+                    offerQuantity: product.offerQuantity
                   });
                 }
               }
