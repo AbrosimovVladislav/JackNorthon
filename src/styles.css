@@ -7,6 +7,11 @@ body {
   line-height: 140%;
 }
 
+body .ui-inputtext {
+  background: #E5E5E5;
+  color: #0E0E0E;
+}
+
 body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   outline: 0 none;
   outline-offset: 0;
@@ -16,51 +21,28 @@ body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   border-color: #E07E0B;
 }
 
-body .ui-inputtext {
-  background: #E5E5E5;
-  color: #0E0E0E;
-}
-/*
-body .ui-menubar,
-body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
-  padding: 0;
-  background-color: #0E0E0E;
-  color: #E5E5E5;
-  border: none;
-
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 140%;
-  !* or 18px *!
-
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}*/
-
 /*to have a place for triangle in catalog*/
 body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
   padding-right: 5px;
 }
 
-/*to have no changes in catalog while focused || hovered*/
+/*to have no changes in catalog and horizontal menu while focused || hovered*/
 body .ui-menubar,
 body .ui-menubar .ui-menuitem-link,
-body .ui-menubar .ui-menuitem-link .ui-menuitem-text,
-body .ui-menubar .ui-menuitem-link:focus:not(.ui-state-error),
-body .ui-menubar .ui-menuitem-link:hover:not(.ui-state-error),
-body .ui-menubar .ui-menuitem-link .ui-menuitem-text:hover:not(.ui-state-error),
-body .ui-menubar .ui-menuitem-link .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-menubar .ui-menuitem-link:focus,
+body .ui-menubar .ui-menuitem-link:hover,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
-
-body .ui-tabmenu,
-body .ui-tabmenu .ui-tabmenu-nav,
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar .ui-menuitem-link:hover .ui-menuitem-text,
+/*to have catalog root label inactive color when not hovered/focused
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link,
+*/
 body .ui-tabmenu .ui-tabmenu-nav:hover,
-body .ui-tabmenu .ui-tabmenu-nav .ui-menuitem-link:not(.ui-state-active):not(.ui-state-disabled):hover,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:hover,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link:focus,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active) .ui-menuitem-link .ui-menuitem-text,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text:not(.ui-state-active):not(.ui-state-disabled):hover {
   outline: 0 none;
@@ -69,6 +51,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-
   border: none;
   background: #0E0E0E;
   color: #E5E5E5;
+
 
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -89,9 +72,19 @@ body .non-icon .ui-submenu-icon {
   and active/hovered submenu text in common active color
 */
 .pi-bars:before,
+body .ui-menubar .ui-menuitem.ui-state-active,
+body ul .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link .ui-menuitem-text,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-icon,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon,
+/*to make catalog root label always active*/
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link .ui-menuitem-text,
+/**/
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active > .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active:not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text {
   background: #0E0E0E;
   color: #E07E0B;
   border: none;
@@ -107,6 +100,13 @@ body .ui-tabmenu .ui-tabmenu-nav {
   border: none;
 }
 
-
-
+/*to have less space between menuitems in horisontal menu*/
+body .ui-tabmenu,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
+  display: flex;
+  align-items: center;
+  /*vertical-align: center;*/
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
 

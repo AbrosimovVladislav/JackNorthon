@@ -13,16 +13,6 @@
 .header {
   background: #0E0E0E;
   color: #E5E5E5;
-
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 140%;
-  /* or 18px */
-
-  letter-spacing: 0.02em;
-  padding-bottom: 0;
 }
 
 .logo {
@@ -46,7 +36,6 @@
   max-height: 100%;
   /*  display: block;*/
 
-
   text-align: center;
 }
 
@@ -61,7 +50,6 @@
 }
 
 .header-icons {
-
   display: flex;
   align-items: flex-end;
   vertical-align: bottom;
@@ -72,8 +60,6 @@
   width: auto;
   margin: 0.5%;
   height: auto;
-
-
 }
 
 .header-text {
@@ -85,39 +71,10 @@
   text-align: left;
 }
 
-.p-col-0 .header-text {
-  display: none;
-}
-
-
-.ui-menubar {
-  text-align: center;
-
-  background: #0E0E0E;
-  color: #E5E5E5;
-
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 140%;
-  /* or 18px */
-
-  letter-spacing: 0.02em;
-}
-
-.ui-menu-list {
-  display: inline-block;
-}
-
-.ui-menubar-root-list {
-  background: #0E0E0E;
-  border: none !important;
-}
-
 .header-menu {
   background: #0E0E0E;
   border-top: 1px solid #CFCFCF;
+  padding-bottom: 0;
 }
 
 body .ui-menubar .catalog .ui-menuitem-link .ui-menuitem-text {

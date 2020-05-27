@@ -66,14 +66,13 @@
   <div class="p-col-12 header-menu">
     <!--Catalog + most important 1 lvl items-->
     <div class="p-grid">
-      <div class="p-col-12 p-md-2">
+      <div class="p-col-12 p-md-2 p-col-fixed" style="width:130px; padding-right: 0; padding-top: 4px">
         <p-menubar [model]="catalog" icon="pi pi-bars" class="catalog"></p-menubar>
       </div>
-      <div class="p-col-0 p-md-10 p-justify-start">
+      <div class="p-col-0 p-md-10 p-justify-start"style="width:auto; padding-left: 0">
         <p-tabMenu [model]="items" [hidden]="screenWidth<smallScreenWidth"></p-tabMenu>
       </div>
     </div>
   </div>
 </div>
-
 <router-outlet></router-outlet>
