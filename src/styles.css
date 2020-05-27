@@ -1,3 +1,70 @@
 body {
+  background: #E5E5E5;
+}
 
-}/* You can add global styles to this file, and also import other style files */
+body .ui-inputtext:enabled:focus:not(.ui-state-error) {
+  outline: 0 none;
+  outline-offset: 0;
+  -webkit-box-shadow: 0 0 0 0.1em #E07E0B;
+  -moz-box-shadow: 0 0 0 0.1em #E07E0B;
+  box-shadow: 0 0 0 0.1em #E07E0B;
+  border-color: #E07E0B;
+}
+
+body .ui-inputtext {
+  background: #E5E5E5;
+  color: #0E0E0E;
+}
+
+body .ui-menubar .ui-menuitem-link:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+
+body .ui-menubar {
+  padding: 0;
+  background-color: #0E0E0E;
+  color: #E5E5E5;
+  border: none;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 140%;
+  /* or 18px */
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
+  color: #E5E5E5;
+}
+
+
+
+body .non-icon .ui-submenu-icon {
+  display: none;
+}
+
+
+.pi-bars:before {
+  color: #E07E0B;
+}
+
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link {
+  background-color: #0E0E0E;
+  color: #E5E5E5;
+}
+
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text {
+  color: #E07E0B;
+}
+
+body .ui-menubar .ui-menuitem-link {
+  background: #0E0E0E;
+
+}
