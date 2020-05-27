@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   currentSearchText: string;
   screenWidth: number;
   mobileScreenWidth = 775;
-  smallScreenWidth = 968;
+  smallScreenWidth = 974;
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }

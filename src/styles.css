@@ -11,7 +11,10 @@ body .ui-inputtext {
   color: #0E0E0E;
 }
 
-body .ui-inputtext:enabled:focus:not(.ui-state-error) {
+
+/*to have active input borders in common active color*/
+body .ui-inputtext:enabled:focus:not(.ui-state-error),
+body input:enabled:focus:not(.ui-state-error) {
   outline: 0 none;
   outline-offset: 0;
   -webkit-box-shadow: 0 0 0 0.1em #E07E0B;
@@ -105,7 +108,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   display: flex;
   align-items: center;
   /*vertical-align: center;*/
-  padding-left: 0.5em;
+  padding-left: 0;
   padding-right: 0.5em;
 }
 
