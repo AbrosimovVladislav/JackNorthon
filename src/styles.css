@@ -1,5 +1,10 @@
 body {
   background: #E5E5E5;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 140%;
 }
 
 body .ui-inputtext:enabled:focus:not(.ui-state-error) {
@@ -15,15 +20,9 @@ body .ui-inputtext {
   background: #E5E5E5;
   color: #0E0E0E;
 }
-
-body .ui-menubar .ui-menuitem-link:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: none;
-}
-
-
-body .ui-menubar {
+/*
+body .ui-menubar,
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
   padding: 0;
   background-color: #0E0E0E;
   color: #E5E5E5;
@@ -34,35 +33,80 @@ body .ui-menubar {
   font-weight: normal;
   font-size: 13px;
   line-height: 140%;
-  /* or 18px */
+  !* or 18px *!
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}*/
+
+/*to have a place for triangle in catalog*/
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
+  padding-right: 5px;
+}
+
+/*to have no changes in catalog while focused || hovered*/
+body .ui-menubar,
+body .ui-menubar .ui-menuitem-link,
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar .ui-menuitem-link:focus:not(.ui-state-error),
+body .ui-menubar .ui-menuitem-link:hover:not(.ui-state-error),
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text:hover:not(.ui-state-error),
+body .ui-menubar .ui-menuitem-link .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+
+body .ui-tabmenu,
+body .ui-tabmenu .ui-tabmenu-nav,
+body .ui-tabmenu .ui-tabmenu-nav:hover,
+body .ui-tabmenu .ui-tabmenu-nav .ui-menuitem-link:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text:not(.ui-state-active):not(.ui-state-disabled):hover {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border: none;
+  background: #0E0E0E;
+  color: #E5E5E5;
 
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
-body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
-  color: #E5E5E5;
-}
-
-
+/*to have no triangle in root catalog item (label)*/
 body .non-icon .ui-submenu-icon {
   display: none;
 }
 
-
-.pi-bars:before {
-  color: #E07E0B;
-}
-
-body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link {
-  background-color: #0E0E0E;
+/*to have a triangle in common color*/
+.pi-caret-right:before {
   color: #E5E5E5;
 }
 
-body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text {
+/*to have catalog
+  and active/hovered triangle in submenu in common active color
+  and active/hovered submenu text in common active color
+*/
+.pi-bars:before,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+  background: #0E0E0E;
   color: #E07E0B;
+  border: none;
 }
 
-body .ui-menubar .ui-menuitem-link {
-  background: #0E0E0E;
+/*to have no border in catalog*/
+body .ui-menubar .ui-submenu-list {
+  border: none;
 }
+
+/*to have no border in bottom of horizontal menu*/
+body .ui-tabmenu .ui-tabmenu-nav {
+  border: none;
+}
+
+
+
+
