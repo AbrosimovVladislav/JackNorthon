@@ -7,5 +7,116 @@
 }
 
 body {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 140%;
+}
 
-}/* You can add global styles to this file, and also import other style files */
+body .ui-inputtext {
+  background: #FFFFFF;
+  color: #0E0E0E;
+}
+
+
+/*to have active input borders in common active color*/
+body .ui-inputtext:enabled:focus:not(.ui-state-error),
+body input:enabled:focus:not(.ui-state-error) {
+  outline: 0 none;
+  outline-offset: 0;
+  -webkit-box-shadow: 0 0 0 0.1em #E07E0B;
+  -moz-box-shadow: 0 0 0 0.1em #E07E0B;
+  box-shadow: 0 0 0 0.1em #E07E0B;
+  border-color: #E07E0B;
+}
+
+/*to have a place for triangle in catalog*/
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
+  padding-right: 5px;
+}
+
+/*to have no changes in catalog and horizontal menu while focused || hovered*/
+body .ui-menubar,
+body .ui-menubar .ui-menuitem-link,
+body .ui-menubar .ui-menuitem-link:focus,
+body .ui-menubar .ui-menuitem-link:hover,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link,
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar .ui-menuitem-link:hover .ui-menuitem-text,
+/*to have catalog root label inactive color when not hovered/focused
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link,
+*/
+body .ui-tabmenu .ui-tabmenu-nav:hover,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:hover,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link:focus,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active) .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link .ui-menuitem-text:not(.ui-state-active):not(.ui-state-disabled):hover {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border: none;
+  background: #0E0E0E;
+  color: #E5E5E5;
+
+
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/*to have no triangle in root catalog item (label)*/
+body .non-icon .ui-submenu-icon {
+  display: none;
+}
+
+/*to have a triangle in common color*/
+.pi-caret-right:before {
+  color: #E5E5E5;
+}
+
+/*to have catalog
+  and active/hovered triangle in submenu in common active color
+  and active/hovered submenu text in common active color
+*/
+.pi-bars:before,
+body .ui-menubar .ui-menuitem.ui-state-active,
+body ul .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-icon,
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon,
+/*to make catalog root label always active*/
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link .ui-menuitem-text,
+/**/
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active > .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active:not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text {
+  background: #0E0E0E;
+  color: #E07E0B;
+  border: none;
+}
+
+/*to have no border in catalog*/
+body .ui-menubar .ui-submenu-list {
+  border: none;
+}
+
+/*to have no border in bottom of horizontal menu*/
+body .ui-tabmenu .ui-tabmenu-nav {
+  border: none;
+}
+
+/*to have less space between menuitems in horisontal menu*/
+body .ui-tabmenu,
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
+  display: flex;
+  align-items: center;
+  /*vertical-align: center;*/
+  padding-left: 0;
+  padding-right: 0.5em;
+}
+

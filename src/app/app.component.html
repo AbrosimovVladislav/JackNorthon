@@ -1,18 +1,63 @@
-<p-menubar [model]="menu" class="centered-menu"></p-menubar>
+<div id="header" class="p-grid header ui-fluid">
+  <!--Grid for header-->
+  <div class="p-col-12 p-md-2 p-lg-2 p-xl-2">
+    <!--Logo place-->
+    <a href="/main">
+      <img id="logo" class="logo" src="assets/showcase/images/logo/logo.svg">
+    </a>
+  </div>
+  <div class="p-col-8 p-md-6 search-block">
+    <!--Search place-->
+    <p-autoComplete [ngModel]="product"
+                    [suggestions]="searchResults"
+                    ui-menuitem-icon="pi pi-bars"
+                    field="Поиск по имени"
+                    size="75"
+                    (completeMethod)="search($event)"
+                    (onSelect)="onSelect($event)"
+                    (onKeyUp)="searchEnter($event)">
+      <ng-template let-product pTemplate="item">
+        <div class="ui-helper-clearfix top-search">
+          <img src="{{'http://localhost:8082/images/' + product.productId}}"
+               style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
+          <div
+            style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
+            {{product.brand.shortName}} {{product.model}} {{product.age}}
+          </div>
+        </div>
+      </ng-template>
+    </p-autoComplete>
+  </div>
 
-<p-autoComplete [ngModel]=" product" [suggestions]="searchResults" field=" "
-                (completeMethod)="search($event)" (onSelect)="onSelect($event)" (onKeyUp)="searchEnter($event)"
-                inputStyleClass="inputTest" panelStyleClass="panelTest" styleClass=""
->
-  <ng-template let-product pTemplate="item">
-    <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-      <img src="{{'http://localhost:8082/images/' + product.productId}}" style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-      <div
-        style="font-size:18px;float:right;margin:10px 10px 0 0">{{product.brand.shortName}} {{product.model}} {{product.age}}</div>
+  <!--Compare + Favourites + Login/Profile-->
+  <div class="p-col-4 p-md-4">
+    <div class="p-grid p-align-center" style="margin: auto">
+      <div class="p-col-4 p-md-5 header-text">
+        <img src="assets/showcase/images/icons/grey-compare.svg"
+             class="header-icons">
+        {{screenWidth > mobileScreenWidth ? 'Сравнить' : ''}}
+      </div>
+      <div class="p-col-4 p-md-5  header-text">
+        <img src="assets/showcase/images/icons/grey-heart.svg"
+             class="header-icons">
+        {{screenWidth > mobileScreenWidth ? 'Избранное' : ''}}
+      </div>
+      <div class="p-col-4 p-md-2 header-text">
+        <img src="assets/showcase/images/icons/avatar.png">
+      </div>
     </div>
-  </ng-template>
-</p-autoComplete>
+  </div>
 
-<span
-  style="margin-left:10px">{{product === null || product === undefined ? '' : 'Product: ' + product.brand?.shortName + ' ' + product.model + ' ' + product.age}}</span>
+  <div class="p-col-12 header-menu">
+    <!--Catalog + most important 1 lvl items-->
+    <div class="p-grid">
+      <div class="p-col-12 p-md-2" style=" padding-right: 0; padding-top: 4px">
+        <p-menubar [model]="catalog" icon="pi pi-bars" class="catalog"></p-menubar>
+      </div>
+      <div class="p-col-0 p-md-10 p-justify-start" style="width:auto">
+        <p-tabMenu [model]="items" [hidden]="screenWidth<smallScreenWidth"></p-tabMenu>
+      </div>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
