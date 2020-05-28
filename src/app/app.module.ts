@@ -14,7 +14,7 @@ import {MainComponent} from './component/main/main.component';
 import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
-import {InputTextModule, LightboxModule, ScrollPanelModule, TabMenuModule} from 'primeng';
+import {DropdownModule, InputTextModule, LightboxModule, RatingModule, ScrollPanelModule, TabMenuModule} from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ProductDetailsComponent} from './component/product-details/product-details.component';
 import {TableModule} from 'primeng/table';
@@ -60,7 +60,9 @@ import {SearchResultComponent} from './component/search-result/search-result.com
     MegaMenuModule,
     LightboxModule,
     ScrollPanelModule,
-    TabMenuModule
+    TabMenuModule,
+    DropdownModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

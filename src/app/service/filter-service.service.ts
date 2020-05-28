@@ -11,6 +11,12 @@ export class FilterService {
 
   selectItems: SItem[];
   filterItemArray: FilterItem[];
+  sortOptions: SItem[] = [
+    {title: 'Цена', label: 'Цена ↑', value: 'minPrice,asc'},
+    {title: 'Цена', label: 'Цена ↓', value: 'minPrice,desc'},
+    {title: 'Популярность', label: 'Популярность ↓', value: 'rating.value,desc'},
+    {title: 'Отзывы', label: 'Отзывы ▼', value: 'reviewCount,desc'}
+  ];
 
   constructor(private http: HttpClient) {
   }
@@ -32,6 +38,15 @@ export class FilterService {
       .pipe(
         map(filterItems => {
           const filterItemArray: FilterItem[] = [];
+          filterItemArray.push({
+            menuItemName: '',
+            showName: 'Sort',
+            filterKey: 'sort',
+            filterType: 'DROPDOWN',
+            rank: '1',
+            value: null,
+            selectItem: this.sortOptions
+          });
           for (const key in filterItems) {
             this.convertStringToSelectItem(filterItems[key].showName, filterItems[key].value);
             if (filterItems.hasOwnProperty(key)) {

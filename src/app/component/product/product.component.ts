@@ -22,7 +22,8 @@ export class ProductComponent implements OnInit {
   selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
   filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {}
+  constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {
+  }
 
   ngOnInit() {
     this.route
@@ -76,17 +77,22 @@ export class ProductComponent implements OnInit {
       let intervalFlag = true;
       const currentFilterItem: FilterItem = this.filterKeyOnFilterName.get(key);
       let paramString = '';
-      value.forEach((filterValue: string) => {
-        paramString += filterValue;
-        if (currentFilterItem.filterType === 'CHECKBOX') {
-          paramString += ',';
-        } else if (currentFilterItem.filterType === 'RANGE') {
-          if (intervalFlag) {
-            paramString += 'interval';
-            intervalFlag = false;
+
+      if (currentFilterItem.filterType === 'DROPDOWN') {
+        paramString = value.toString();
+      } else {
+        value.forEach((filterValue: string) => {
+          paramString += filterValue;
+          if (currentFilterItem.filterType === 'CHECKBOX') {
+            paramString += ',';
+          } else if (currentFilterItem.filterType === 'RANGE') {
+            if (intervalFlag) {
+              paramString += 'interval';
+              intervalFlag = false;
+            }
           }
-        }
-      });
+        });
+      }
       if (currentFilterItem.filterType === 'CHECKBOX') {
         paramString = paramString.substring(0, paramString.length - 1);
       }

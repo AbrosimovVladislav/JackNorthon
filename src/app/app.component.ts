@@ -13,7 +13,7 @@ import {Product} from './model/product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  searchProductsUrl: string = 'http://localhost:8082/products/search?searchLine=';
+  searchProductsUrl = 'http://localhost:8082/products/search?searchLine=';
   catalog: MenuItem[];
   horizontalMenu: MenuItem[];
   items: MenuItem[] = [];
@@ -52,21 +52,28 @@ export class AppComponent implements OnInit {
     this.catalog = [
       {label: 'Каталог', icon: 'pi pi-bars', items: this.items, styleClass: 'non-icon'}
     ];
-    this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
-      this.items.push(mi);
-    }));
-
     this.horizontalMenu = [];
+
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
+      this.refreshCommandSetting(mi);
+      this.items.push(mi);
       const cutMenuItem: MenuItem = {
-        label: mi.label,
-        url: mi.url,
-        routerLink: mi.routerLink,
-        queryParams: mi.queryParams
+        label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams, command: mi.command
       };
       this.horizontalMenu.push(cutMenuItem);
-    }));
+    ));
     this.screenWidth = screen.width;
-    console.log(this.screenWidth);
+  }
+
+  refreshCommandSetting(mi: MenuItem) {
+    mi.command = (event) => {
+      this.router.navigate(['/']).then(() => this.router.navigate(event.item.routerLink, {queryParams: event.item.queryParams}));
+    };
+    const items = mi.items;
+    if (items !== null && items.length !== 0) {
+      items.forEach(item => {
+        this.refreshCommandSetting(item);
+      });
+    }
   }
 }

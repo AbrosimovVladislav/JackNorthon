@@ -19,7 +19,7 @@
                     styleClass="abc">
       <ng-template let-product pTemplate="item">
         <div class="ui-helper-clearfix top-search">
-          <img src="{{product.imageLink}}" style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
+          <img src="{{'http://localhost:8082/images/' + product.productId}}" style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
           <div
             style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
             {{product.brand.shortName}} {{product.model}} {{product.age}}

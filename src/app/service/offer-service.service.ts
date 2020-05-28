@@ -13,7 +13,6 @@ export class OfferService {
 
   getOffersById(productId: string) {
     const url = 'http://localhost:8082/offers/' + productId;
-    console.log('we are in getoffers');
     return this.http
       .get<Offer[]>(url)
       .pipe(
