@@ -14,14 +14,14 @@ import {MainComponent} from './component/main/main.component';
 import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
-import {CarouselModule, DropdownModule, InputTextModule, LightboxModule, RatingModule, ScrollPanelModule} from 'primeng';
+import {CarouselModule, DropdownModule, InputTextModule, LightboxModule, RatingModule, ScrollPanelModule, TabMenuModule} from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ProductDetailsComponent} from './component/product-details/product-details.component';
 import {TableModule} from 'primeng/table';
 import {GalleriaModule} from 'primeng/galleria';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { SearchResultComponent } from './component/search-result/search-result.component';
+import {SearchResultComponent} from './component/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { SearchResultComponent } from './component/search-result/search-result.c
     BrowserAnimationsModule,
     RouterModule.forRoot(
       [
-        {path: '', component: MainComponent},
+        {path: 'main', component: MainComponent},
         {path: 'product', component: ProductComponent},
         {path: 'product/:type', component: ProductComponent},
         {path: 'productPage/:productId', component: ProductDetailsComponent, runGuardsAndResolvers: 'always'},
@@ -60,6 +60,7 @@ import { SearchResultComponent } from './component/search-result/search-result.c
     MegaMenuModule,
     LightboxModule,
     ScrollPanelModule,
+    TabMenuModule,
     DropdownModule,
     RatingModule,
     CarouselModule

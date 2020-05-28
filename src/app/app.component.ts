@@ -13,13 +13,17 @@ import {Product} from './model/product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  searchProductsUrl: string = 'http://localhost:8082/products/search?searchLine=';
-  menu: MenuItem[];
+  searchProductsUrl = 'http://localhost:8082/products/search?searchLine=';
+  catalog: MenuItem[];
+  horizontalMenu: MenuItem[];
   items: MenuItem[] = [];
   types: Type[];
   searchResults: any[];
   product: Product;
   currentSearchText: string;
+  screenWidth: number;
+  mobileScreenWidth = 775;
+  smallScreenWidth = 974;
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }
@@ -45,19 +49,20 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.menu = [
-      {label: 'Каталог', items: this.items}
+    this.catalog = [
+      {label: 'Каталог', icon: 'pi pi-bars', items: this.items, styleClass: 'non-icon'}
     ];
+    this.horizontalMenu = [];
 
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
-        this.refreshCommandSetting(mi);
-        this.items.push(mi);
-        const cutMenuItem: MenuItem = {
-          label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams, command: mi.command
-        };
-        this.menu.push(cutMenuItem);
-      }
-    ));
+      this.refreshCommandSetting(mi);
+      this.items.push(mi);
+      const cutMenuItem: MenuItem = {
+        label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams, command: mi.command
+      };
+      this.horizontalMenu.push(cutMenuItem);
+    }));
+    this.screenWidth = screen.width;
   }
 
   refreshCommandSetting(mi: MenuItem) {
