@@ -10,9 +10,9 @@ services:
     - 80:80
     container_name: front
   back:
-    hostname: gunmarket
+    hostname: yourhockey
     build:
-      context: ../Project_GunMarket
+      context: ../YouHockey
       dockerfile: Dockerfile
     ports:
     - 8080:8080
