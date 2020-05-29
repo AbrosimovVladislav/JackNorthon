@@ -3,8 +3,6 @@
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
-  /*line-height: 140%;*/
-  /* or 29px */
   letter-spacing: 0.02em;
 
   position: relative;
@@ -25,7 +23,7 @@
   position: relative;
   height: 250px;
   width: 100%;
-  margin: auto;
+/*  margin: auto;*/
 }
 
 img.img-responsive {
@@ -65,4 +63,30 @@ img.img-responsive {
   border-bottom: 1px solid #E5E5E5;
   text-align: center;
   margin-top: 0;
+}
+
+a.data-view-product-name {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+
+  color: #0E0E0E;
+}
+
+a.data-view-product-name:hover {
+  color: #E07E0B;
+}
+
+.data-view-product-rating,
+.data-view-offer-qty {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+
+  letter-spacing: 0.02em;
+  padding-top: 0.5em;
+  color: #0E0E0E;
 }
