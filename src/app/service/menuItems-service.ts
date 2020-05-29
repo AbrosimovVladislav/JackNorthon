@@ -7,13 +7,15 @@ import {MenuItem} from 'primeng';
   providedIn: 'root'
 })
 export class MenuItemsService {
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
 
   constructor(private http: HttpClient) {
   }
 
   getMenuItems() {
     return this.http
-      .get<MenuItem[]>('http://localhost:8082/menuItems')
+      .get<MenuItem[]>(this.machineBaseUrl + '8082/menuItems')
       .pipe(
         map(menuItems => {
           const menuItemsArr: MenuItem[] = [];

@@ -10,7 +10,9 @@ import {Product} from '../../model/product';
 })
 export class SearchResultComponent implements OnInit {
 
-  searchProductsUrl = 'http://localhost:8082/products/search?searchLine=';
+  machineBaseUrl = 'http://161.35.70.99';
+  // machineBaseUrl = 'http://localhost:';
+  searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   resultProducts: Product[];
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {

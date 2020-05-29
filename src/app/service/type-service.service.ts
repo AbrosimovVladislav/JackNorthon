@@ -7,13 +7,15 @@ import {Type} from '../model/Type';
   providedIn: 'root'
 })
 export class TypeService {
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
 
   constructor(private http: HttpClient) {
   }
 
   getTypes() {
     return this.http
-      .get<Type[]>('http://localhost:8082/types')
+      .get<Type[]>(this.machineBaseUrl + '8082/types')
       .pipe(
         map(types => {
           const typesArr: Type[] = [];

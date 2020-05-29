@@ -11,7 +11,8 @@ import {OfferService} from '../../service/offer-service.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
   productId: string;
   product: Product;
   offers: Offer[];
@@ -34,13 +35,13 @@ export class ProductDetailsComponent implements OnInit {
       });
     console.log(this.productId);
 
-    this.productService.getProducts('http://localhost:8082/products/' + this.productId).subscribe(
+    this.productService.getProducts(this.machineBaseUrl + '8082/products/' + this.productId).subscribe(
       products => {
         this.product = products[0];
         console.log(this.product);
         for (let i = 0; i < 3; i++) {
           this.images.push({
-            source: 'http://localhost:8082/images/' + this.product.productId,
+            source: this.machineBaseUrl +  + '8082/images/' + this.product.productId,
             alt: this.product.type.showName + ' ' + this.product.brand.shortName + ' ' + this.product.model + ' ' + this.product.age
           });
         }

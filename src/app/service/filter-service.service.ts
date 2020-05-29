@@ -8,7 +8,8 @@ import {SItem} from '../model/SItem';
   providedIn: 'root'
 })
 export class FilterService {
-
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
   selectItems: SItem[];
   filterItemArray: FilterItem[];
   sortOptions: SItem[] = [
@@ -34,7 +35,7 @@ export class FilterService {
 
   getFilters(menuItem: string) {
     return this.http
-      .get<FilterItem[]>('http://localhost:8082/product/filters/' + menuItem)
+      .get<FilterItem[]>(this.machineBaseUrl + '8082/product/filters/' + menuItem)
       .pipe(
         map(filterItems => {
           const filterItemArray: FilterItem[] = [];

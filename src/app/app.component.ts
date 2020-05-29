@@ -13,7 +13,9 @@ import {Product} from './model/product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  searchProductsUrl = 'http://localhost:8082/products/search?searchLine=';
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
+  searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   catalog: MenuItem[];
   horizontalMenu: MenuItem[];
   items: MenuItem[] = [];
@@ -24,6 +26,7 @@ export class AppComponent implements OnInit {
   screenWidth: number;
   mobileScreenWidth = 775;
   smallScreenWidth = 974;
+
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }

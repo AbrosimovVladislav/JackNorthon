@@ -15,7 +15,7 @@
   <p-footer>Choose from the list.</p-footer>
   <ng-template let-product pTemplate="gridItem">
     <div class="ui-g-4" align="center">
-      <img width="300" alt="img" class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}">
+      <img width="300" alt="img" class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}">
       <div class="ui-g-12"> <a href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model}}</a></div>
       <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
     </div>

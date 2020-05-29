@@ -11,7 +11,9 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  basePath = 'http://localhost:8082/products';
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
+  basePath = this.machineBaseUrl + '8082/products';
   inStock = true;
   products: Product[];
   filters: FilterItem[];

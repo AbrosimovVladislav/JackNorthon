@@ -7,12 +7,14 @@ import {Offer} from '../model/offer';
   providedIn: 'root'
 })
 export class OfferService {
+  machineBaseUrl = 'http://161.35.70.99:';
+  // machineBaseUrl = 'http://localhost:';
 
   constructor(private http: HttpClient) {
   }
 
   getOffersById(productId: string) {
-    const url = 'http://localhost:8082/offers/' + productId;
+    const url = this.machineBaseUrl + '8082/offers/' + productId;
     return this.http
       .get<Offer[]>(url)
       .pipe(
