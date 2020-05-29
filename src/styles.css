@@ -32,8 +32,8 @@ body input:enabled:focus:not(.ui-state-error) {
 }
 
 /*to have a place for triangle in catalog*/
-body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
-  padding-right: 5px;
+body .ui-menubar .ui-menuitem-link {
+  padding-right: 2em;
 }
 
 /*to have no changes in catalog and horizontal menu while focused || hovered*/
@@ -128,6 +128,7 @@ body .ui-paginator,
 body .ui-dataview .ui-dataview-footer {
   background: #ffffff;
   border: none;
+  padding: 0;
 }
 
 

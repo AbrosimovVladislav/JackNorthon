@@ -8,9 +8,9 @@
   letter-spacing: 0.02em;
 
   position: relative;
-  padding-top: 3%;
-  padding-bottom: 2%;
-  padding-left: 2%;
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+  padding-left: 0.25em;
   text-align: left;
   vertical-align: center;
 
@@ -24,11 +24,11 @@
 .product-image {
   position: relative;
   height: 250px;
-  width: 250px;
+  width: 100%;
   margin: auto;
 }
 
-img {
+img.img-responsive {
   position: absolute;
   display: flex;
   align-items: center;
@@ -44,16 +44,10 @@ img {
 }
 
 .product-short-info {
-  /*  display: flex;
-    align-items: flex-end;
-    justify-content: center;*/
+  text-align: center;
 }
 
-body .ui-dataview .ui-dataview-header {
-  border: none;
-}
-
-.ui-g-3:hover {
+.ui-g-6:hover {
   position: relative;
   /*common active color on hover
     border: 2px solid #E07E0B;*/
@@ -63,14 +57,12 @@ body .ui-dataview .ui-dataview-header {
   padding: 35px 0;
 }
 
-.ui-g-3 {
+.ui-g-6 {
   position: relative;
   display: flex;
   align-items: flex-end;
-  /*  border: 2px solid transparent;*/
   padding: 35px 0;
   border-bottom: 1px solid #E5E5E5;
   text-align: center;
   margin-top: 0;
-
 }
