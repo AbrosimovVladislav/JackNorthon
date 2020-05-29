@@ -120,3 +120,26 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   padding-right: 0.5em;
 }
 
+
+/*to have no border and common background color in dataview*/
+body .ui-dataview .ui-dataview-header,
+body .ui-dataview .ui-dataview-content,
+body .ui-paginator,
+body .ui-dataview .ui-dataview-footer {
+  background: #ffffff;
+  border: none;
+}
+
+
+/*to have active page in paginator in common active state*/
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+  background: #ffffff;
+  color: #E07E0B;
+}
+
+body .ui-paginator .ui-paginator-pages .ui-paginator-page:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  border: 1px solid #E07E0B;
+  box-shadow: 0 0 10px grey;
+}
