@@ -1,3 +1,91 @@
+<div class="p-grid">
+  <div class="p-col-0 p-md-2">
+    <!--to have a type name aligned on search on md devices-->
+  </div>
+  <div class="p-col-11 p-md-10 type-name p-justify-end">
+    {{typeName}}
+  </div>
+  <div class="p-col-12 p-md-2 product-filter-container">
+    <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true"></p-checkbox>
+    <p></p>
+    <p-button label="Click" (onClick)="sendRequest()"></p-button>
+    <ul>
+      <li *ngFor="let filterItem of filters">
+        <div *ngIf="filterItem.filterType==='CHECKBOX'">
+          <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
+                     [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                     (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                     [listStyle]="{'max-height':'150px'}"
+                     [style]="{'width':'250px'}" [multiple]="true"
+                     [checkbox]="true" [filter]="true">
+            <p-header>{{filterItem.showName}}</p-header>
+          </p-listbox>
+        </div>
+        <div *ngIf="filterItem.filterType==='RANGE'">
+          <p-header>{{filterItem.showName}}</p-header>
+          <p></p>
+          <input type="text" [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"
+                 placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}">
+          <input type="text" [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
+                 placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}">
+        </div>
+        <div *ngIf="filterItem.filterType==='DROPDOWN'">
+          <p-header>{{filterItem.showName}}</p-header>
+          <p></p>
+          <p-dropdown [options]="filterItem.selectItem" [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                      (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                      [style]="{'min-width':'140px'}"
+                      placeholder="{{filterItem.showName}}"></p-dropdown>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="p-col-12 p-md-10 product-dataview">
+    <p-dataView [value]="products" [paginator]="true" [rows]="24" layout="grid">
+      <p-header style="height: 0">
+        <!--uncomment to see typename in the center of table
+        <div class="type-name" style="text-align: center">{{typeName}}</div>
+      -->
+      </p-header>
+      <p-footer style="height: 0"></p-footer>
+      <ng-template let-product pTemplate="gridItem">
+        <div class="p-grid ui-g-6 ui-md-4 ui-lg-3">
+          <div class="p-col-12 p-align-start p-justify-center product-image">
+            <a href="/productPage/{{product.productId}}">
+              <img (mouseover)="addBorderStyle($event)" (mouseout)="removeBorderStyle()" alt="img"
+                   class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}">
+            </a>
+          </div>
+          <div class="p-col-12  p-align-end p-justify-center product-short-info">
+            <p>{{product.brand.shortName}}</p>
+            <div class="ui-g-12 p-align-start">
+              <a href="/productPage/{{product.productId}}" class="data-view-product-name">
+                {{product.type.showName + " " + product.model + " " + product.age}}
+              </a>
+            </div>
+            <div class="ui-g-12">
+              <b>от&nbsp;{{product.minPrice}}&nbsp;₽</b>
+            </div>
+            <div class="ui-g-12 data-view-product-rating">
+              <p-rating [ngModel]="product.rating.value" iconOnClass="pi pi-star" iconOffClass="pi pi-star-o"
+                        readonly="true" stars="5" [cancel]="false"></p-rating>
+            </div>
+            <div class="ui-g-12">
+              <a href="/productPage/{{product.productId}}#offersTable" class="data-view-offer-qty">
+              Количество предложений:&nbsp;{{product.offerQuantity}}
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </div>
+</div>
+
+
+<!--
+
+
 <h1>{{typeName}}</h1>
 <div class="p-grid">
   <div class="p-col">
@@ -51,15 +139,22 @@
       </p-header>
       <p-footer>Choose from the list.</p-footer>
       <ng-template let-product pTemplate="gridItem">
-        <div class="ui-g-4" style="text-align: center">
-          <img width="300" alt="img" class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}">
+        <div class="ui-g-3">
+          <img (mouseover)="addBorderStyle($event)" (mouseout)="removeBorderStyle()" width="300" alt="img"
+               class="img-responsive" src="{{'http://localhost:8082/images/' + product.productId}}"
+          style="margin: auto">
+          <p>{{product.brand.shortName}}</p>
           <div class="ui-g-12"><a
-            href="/productPage/{{product.productId}}">{{product.brand.shortName + " " + product.model + " " + product.age}}</a>
+            href="/productPage/{{product.productId}}">{{product.type.showName + " " + product.model + " " + product.age}}</a>
           </div>
           <div class="ui-g-12"><b>{{product.minPrice}} ₽</b></div>
           <p-rating [ngModel]="product.rating.value" iconOnClass="pi pi-star" iconOffClass="pi pi-star-o" readonly="true" stars="5" [cancel]="false"></p-rating>
+          <p>Количество предложений : {{product.offerQuantity}}</p>
         </div>
+
       </ng-template>
+
     </p-dataView>
   </div>
 </div>
+-->
