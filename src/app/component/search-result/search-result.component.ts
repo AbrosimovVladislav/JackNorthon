@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../service/product-service.service';
 import {Product} from '../../model/product';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-search-result',
@@ -9,9 +10,7 @@ import {Product} from '../../model/product';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
-
-  machineBaseUrl = 'http://161.35.70.99';
-  // machineBaseUrl = 'http://localhost:';
+  machineBaseUrl = environment.machineBaseUrl;
   searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   resultProducts: Product[];
 

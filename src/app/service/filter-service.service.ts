@@ -3,13 +3,13 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {FilterItem} from '../model/filterItem';
 import {SItem} from '../model/SItem';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  machineBaseUrl = 'http://161.35.70.99:';
-  // machineBaseUrl = 'http://localhost:';
+  machineBaseUrl = environment.machineBaseUrl;
   selectItems: SItem[];
   filterItemArray: FilterItem[];
   sortOptions: SItem[] = [

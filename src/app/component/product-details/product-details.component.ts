@@ -4,6 +4,7 @@ import {Product} from '../../model/product';
 import {ProductService} from '../../service/product-service.service';
 import {Offer} from '../../model/offer';
 import {OfferService} from '../../service/offer-service.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-product-details',
@@ -11,8 +12,7 @@ import {OfferService} from '../../service/offer-service.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  machineBaseUrl = 'http://161.35.70.99:';
-  // machineBaseUrl = 'http://localhost:';
+  machineBaseUrl = environment.machineBaseUrl;
   productId: string;
   product: Product;
   offers: Offer[];
@@ -41,10 +41,11 @@ export class ProductDetailsComponent implements OnInit {
         console.log(this.product);
         for (let i = 0; i < 3; i++) {
           this.images.push({
-            source: this.machineBaseUrl +  + '8082/images/' + this.product.productId,
+            source: this.machineBaseUrl + '8082/images/' + this.product.productId,
             alt: this.product.type.showName + ' ' + this.product.brand.shortName + ' ' + this.product.model + ' ' + this.product.age
           });
         }
+        console.log(this.images);
       }
     );
 

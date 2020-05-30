@@ -4,6 +4,7 @@ import {FilterItem} from '../../model/filterItem';
 import {ProductService} from '../../service/product-service.service';
 import {FilterService} from '../../service/filter-service.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -11,8 +12,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  machineBaseUrl = 'http://161.35.70.99:';
-  // machineBaseUrl = 'http://localhost:';
+  machineBaseUrl = environment.machineBaseUrl;
   basePath = this.machineBaseUrl + '8082/products';
   inStock = true;
   products: Product[];

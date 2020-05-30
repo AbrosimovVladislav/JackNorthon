@@ -6,6 +6,7 @@ import {MenuItemsService} from './service/menuItems-service';
 import {ProductService} from './service/product-service.service';
 import {Router} from '@angular/router';
 import {Product} from './model/product';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,7 @@ import {Product} from './model/product';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  machineBaseUrl = 'http://161.35.70.99:';
-  // machineBaseUrl = 'http://localhost:';
+  machineBaseUrl = environment.machineBaseUrl;
   searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   catalog: MenuItem[];
   horizontalMenu: MenuItem[];
