@@ -1,5 +1,5 @@
 .type-name {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
@@ -66,7 +66,7 @@ img.img-responsive {
 }
 
 a.data-view-product-name {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
@@ -81,7 +81,7 @@ a.data-view-product-name:hover {
 
 .data-view-product-rating,
 .data-view-offer-qty {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;

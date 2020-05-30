@@ -1,30 +1,20 @@
+
 @font-face {
-  font-family: "Bebas Neue";
-  src: url("src/assets/showcase/fonts/BebasNeue Regular.ttf");
+  font-family: "Ubuntu";
+  src: url("src/assets/showcase/fonts/Ubuntu-R.ttf");
+  /*src: url("src/assets/showcase/fonts/OpenSans-Regular.ttf");*/
   font-weight: normal;
 }
 
-
 @font-face {
-  font-family: "Bebas Neue";
-  src: url("src/assets/showcase/fonts/BebasNeue Bold.ttf");
+  font-family: "Ubuntu";
+  src: url("src/assets/showcase/fonts/Ubuntu-B.ttf");
+  /*src: url("src/assets/showcase/fonts/OpenSans-Bold.ttf");*/
   font-weight: bold;
 }
 
-.pi-star:before {
-  content: url("assets/showcase/images/icons/StarFigma.svg");
-}
-
-.pi-star-o:before {
-  content: url("assets/showcase/images/icons/StarFigmaO.svg");
-}
-
-body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before{
-  color: #E07E0B;
-}
-
 body {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -35,7 +25,22 @@ body .ui-inputtext {
   background: #FFFFFF;
   color: #0E0E0E;
 }
+.pi-star:before {
+  content: url("assets/showcase/images/icons/StarFigma.svg");
+}
 
+.pi-star-o:before {
+  content: url("assets/showcase/images/icons/StarFigmaO.svg");
+}
+
+/*to have common active color
+  on triangle in catalog on hover
+  and spinner in search
+*/
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
+body .pi-spinner:before {
+  color: #E07E0B;
+}
 
 /*to have active input borders in common active color*/
 body .ui-inputtext:enabled:focus:not(.ui-state-error),

@@ -1,5 +1,5 @@
 .product-name {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
@@ -25,7 +25,7 @@
   vertical-align: center;
   text-align: center;
 
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -43,7 +43,7 @@
   display: inline-block;
   vertical-align: center;
 
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -76,7 +76,7 @@
 }
 
 .product-price {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
@@ -96,7 +96,7 @@
 
 
 .one-string-text {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -112,7 +112,7 @@
 
 
 .product-description {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -125,7 +125,7 @@
 }
 
 .expand-text {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
@@ -141,7 +141,7 @@
 }
 
 .offers {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
@@ -166,7 +166,7 @@
 
   word-wrap: break-spaces;
 
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -176,7 +176,7 @@
 }
 
 .offer-price {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
@@ -202,7 +202,7 @@
 }
 
 .offer-link {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
