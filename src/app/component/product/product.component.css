@@ -1,0 +1,92 @@
+.type-name {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  letter-spacing: 0.02em;
+
+  position: relative;
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+  padding-left: 0.25em;
+  text-align: left;
+  vertical-align: center;
+
+  color: #0E0E0E;
+}
+
+.product-filter-container {
+  max-width: border-box;
+}
+
+.product-image {
+  position: relative;
+  height: 250px;
+  width: 100%;
+/*  margin: auto;*/
+}
+
+img.img-responsive {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  max-height: 200px;
+  max-width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 35px;
+
+  margin: auto;
+}
+
+.product-short-info {
+  text-align: center;
+}
+
+.ui-g-6:hover {
+  position: relative;
+  /*common active color on hover
+    border: 2px solid #E07E0B;*/
+  box-shadow: 0 0 20px #CFCFCF;
+
+  text-align: center;
+  padding: 35px 0;
+}
+
+.ui-g-6 {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 35px 0;
+  border-bottom: 1px solid #E5E5E5;
+  text-align: center;
+  margin-top: 0;
+}
+
+a.data-view-product-name {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+
+  color: #0E0E0E;
+}
+
+a.data-view-product-name:hover {
+  color: #E07E0B;
+}
+
+.data-view-product-rating,
+.data-view-offer-qty {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+
+  letter-spacing: 0.02em;
+  padding-top: 0.5em;
+  color: #0E0E0E;
+}

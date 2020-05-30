@@ -1,30 +1,20 @@
+
 @font-face {
-  font-family: "Bebas Neue";
-  src: url("src/assets/showcase/fonts/BebasNeue Regular.ttf");
+  font-family: "Ubuntu";
+  src: url("src/assets/showcase/fonts/Ubuntu-R.ttf");
+  /*src: url("src/assets/showcase/fonts/OpenSans-Regular.ttf");*/
   font-weight: normal;
 }
 
-
 @font-face {
-  font-family: "Bebas Neue";
-  src: url("src/assets/showcase/fonts/BebasNeue Bold.ttf");
+  font-family: "Ubuntu";
+  src: url("src/assets/showcase/fonts/Ubuntu-B.ttf");
+  /*src: url("src/assets/showcase/fonts/OpenSans-Bold.ttf");*/
   font-weight: bold;
 }
 
-.pi-star:before {
-  content: url("assets/showcase/images/icons/StarFigma.svg");
-}
-
-.pi-star-o:before {
-  content: url("assets/showcase/images/icons/StarFigmaO.svg");
-}
-
-body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before{
-  color: #E07E0B;
-}
-
 body {
-  font-family: Open Sans;
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -35,7 +25,22 @@ body .ui-inputtext {
   background: #FFFFFF;
   color: #0E0E0E;
 }
+.pi-star:before {
+  content: url("assets/showcase/images/icons/StarFigma.svg");
+}
 
+.pi-star-o:before {
+  content: url("assets/showcase/images/icons/StarFigmaO.svg");
+}
+
+/*to have common active color
+  on triangle in catalog on hover
+  and spinner in search
+*/
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
+body .pi-spinner:before {
+  color: #E07E0B;
+}
 
 /*to have active input borders in common active color*/
 body .ui-inputtext:enabled:focus:not(.ui-state-error),
@@ -49,8 +54,8 @@ body input:enabled:focus:not(.ui-state-error) {
 }
 
 /*to have a place for triangle in catalog*/
-body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
-  padding-right: 5px;
+body .ui-menubar .ui-menuitem-link {
+  padding-right: 2em;
 }
 
 /*to have no changes in catalog and horizontal menu while focused || hovered*/
@@ -137,3 +142,38 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   padding-right: 0.5em;
 }
 
+
+/*to have no border and common background color in dataview*/
+body .ui-dataview .ui-dataview-header,
+body .ui-dataview .ui-dataview-content,
+body .ui-paginator,
+body .ui-dataview .ui-dataview-footer {
+  background: #ffffff;
+  border: none;
+  padding: 0 0 0.5em;
+}
+
+
+/*to have active page in paginator in common active state color*/
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+  background: #ffffff;
+  color: #E07E0B;
+}
+
+/*to remove standard shadow on focused paginator buttons*/
+body .ui-paginator .ui-paginator-pages .ui-paginator-page:focus,
+body .ui-paginator .ui-paginator-first:focus,
+body .ui-paginator .ui-paginator-prev:focus,
+body .ui-paginator .ui-paginator-next:focus,
+body .ui-paginator .ui-paginator-last:focus {
+  box-shadow: none;
+}
+
+/*to have hovered buttons in paginator in common active state color*/
+body .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover,
+body .ui-paginator .ui-paginator-first:not(.ui-state-disabled):not(.ui-state-active):hover,
+body .ui-paginator .ui-paginator-prev:not(.ui-state-disabled):not(.ui-state-active):hover,
+body .ui-paginator .ui-paginator-next:not(.ui-state-disabled):not(.ui-state-active):hover,
+body .ui-paginator .ui-paginator-last:not(.ui-state-disabled):not(.ui-state-active):hover {
+  box-shadow: 0 0 10px #E07E0B;
+}

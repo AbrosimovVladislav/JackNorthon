@@ -1,16 +1,4 @@
-@font-face {
-  font-family: "Open Sans";
-  src: url("src/assets/showcase/fonts/Ubuntu-R.ttf");
-  /*src: url("src/assets/showcase/fonts/OpenSans-Regular.ttf");*/
-  font-weight: normal;
-}
 
-@font-face {
-  font-family: "Open Sans";
-  src: url("src/assets/showcase/fonts/Ubuntu-B.ttf");
-  /*src: url("src/assets/showcase/fonts/OpenSans-Bold.ttf");*/
-  font-weight: bold;
-}
 
 .header {
   background: #0E0E0E;
