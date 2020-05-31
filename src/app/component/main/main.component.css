@@ -1,0 +1,32 @@
+.container-height{
+  height: 500%;
+}
+
+.product-image {
+  position: relative;
+  height: auto;
+  width: 20%;
+  /*  margin: auto;*/
+}
+
+.product-image:hover {
+  position: relative;
+  height: auto;
+  width: 21%;
+  /*  margin: auto;*/
+}
+
+img.img-responsive {
+  position: absolute;
+  display: flex;
+  align-items: end;
+  vertical-align: bottom;
+  max-height: 900px;
+  max-width: 100%;
+  left: 90%;
+  top: 0;
+  transform: translate(-50%, 0);
+  padding: 10px 35px;
+
+  margin: auto;
+}
