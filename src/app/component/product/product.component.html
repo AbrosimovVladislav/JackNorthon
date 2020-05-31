@@ -1,11 +1,11 @@
-<div class="p-grid">
+<div class="p-grid p-justify-around">
   <div class="p-col-0 p-md-2">
     <!--to have a type name aligned on search on md devices-->
   </div>
-  <div class="p-col-11 p-md-10 type-name p-justify-end">
+  <div class="p-col-11 p-md-10 type-name p-justify-around">
     {{typeName}}
   </div>
-  <div class="p-col-12 p-lg-3 product-filter-container p-justify-start">
+  <div class="p-col-12 p-lg-3 product-filter-container">
     <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true" (onChange)="sendRequest()"></p-checkbox>
     <ul class="filters">
       <li *ngFor="let filterItem of filters">
@@ -75,7 +75,7 @@
 
     </p-button>
   </div>
-  <div class="p-col-12 p-md-9 p-justify-center product-dataview">
+  <div class="p-col-12 p-md-9 p-justify-around product-dataview">
     <p-dataView [value]="products"
                 [paginator]="true"
                 [rows]="24"
