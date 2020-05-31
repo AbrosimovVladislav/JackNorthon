@@ -13,8 +13,19 @@ export class SearchResultComponent implements OnInit {
   machineBaseUrl = environment.machineBaseUrl;
   searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   resultProducts: Product[];
+  cardGocus = 0;
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
+  }
+
+  addBorderStyle(event: MouseEvent) {
+    console.log(event);
+    /*    this.hoverProdId = event.target.src;*/
+    this.cardGocus++;
+  }
+
+  removeBorderStyle() {
+    this.cardGocus--;
   }
 
   ngOnInit(): void {
