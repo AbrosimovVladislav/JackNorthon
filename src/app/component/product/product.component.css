@@ -16,7 +16,43 @@
 }
 
 .product-filter-container {
-  max-width: border-box;
+  width: border-box;
+  max-width: 240px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border-right: 1px solid #E5E5E5;
+}
+
+.filter-header {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 140%;
+  /* or 18px */
+  letter-spacing: 0.02em;
+
+  color: #0E0E0E;
+}
+
+.filter-header-box {
+/*  border-bottom: 1px solid #E5E5E5;*/
+  border-top: 1px solid #E5E5E5;
+}
+
+.filter-box {
+  display: flex;
+  justify-content: start;
+  left: 0;
+  margin: auto;
+}
+
+.range-box {
+  max-width: 90px;
+}
+
+.product-dataview {
+  padding: 0 0 0 1.5em;
 }
 
 .product-image {
@@ -52,14 +88,14 @@ img.img-responsive {
   box-shadow: 0 0 20px #CFCFCF;
 
   text-align: center;
-  padding: 35px 0;
+  padding: 0 0 35px;
 }
 
 .ui-g-6 {
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 35px 0;
+  padding: 0 0 35px;
   border-bottom: 1px solid #E5E5E5;
   text-align: center;
   margin-top: 0;

@@ -24,13 +24,26 @@ body {
 body .ui-inputtext {
   background: #FFFFFF;
   color: #0E0E0E;
+  margin: auto ;
 }
+
+body .ui-inputtext:enabled:hover:not(.ui-state-error) {
+  border-color: #E07E0B;
+}
+
 .pi-star:before {
   content: url("assets/showcase/images/icons/StarFigma.svg");
 }
 
 .pi-star-o:before {
   content: url("assets/showcase/images/icons/StarFigmaO.svg");
+}
+
+/*to override font family & size*/
+body .ui-widget {
+  font-family: "Ubuntu";
+  font-size: 13px;
+  text-decoration: none;
 }
 
 /*to have common active color
@@ -47,10 +60,25 @@ body .ui-inputtext:enabled:focus:not(.ui-state-error),
 body input:enabled:focus:not(.ui-state-error) {
   outline: 0 none;
   outline-offset: 0;
+  font-family: Ubuntu;
+  font-size: 13px;
   -webkit-box-shadow: 0 0 0 0.1em #E07E0B;
   -moz-box-shadow: 0 0 0 0.1em #E07E0B;
   box-shadow: 0 0 0 0.1em #E07E0B;
   border-color: #E07E0B;
+}
+
+/*to override theme colors and sizes*/
+body .ui-inputtext {
+  font-size: 13px;
+  color: #0E0E0E;
+  background: #ffffff;
+  padding: 0.429em;
+  border: 1px solid #E5E5E5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /*to have a place for triangle in catalog*/
@@ -142,6 +170,12 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   padding-right: 0.5em;
 }
 
+/*to have centered empty message in dataview*/
+body .ui-dataview-emptymessage {
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 13px;
+}
 
 /*to have no border and common background color in dataview*/
 body .ui-dataview .ui-dataview-header,
@@ -152,7 +186,6 @@ body .ui-dataview .ui-dataview-footer {
   border: none;
   padding: 0 0 0.5em;
 }
-
 
 /*to have active page in paginator in common active state color*/
 body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
@@ -176,4 +209,197 @@ body .ui-paginator .ui-paginator-prev:not(.ui-state-disabled):not(.ui-state-acti
 body .ui-paginator .ui-paginator-next:not(.ui-state-disabled):not(.ui-state-active):hover,
 body .ui-paginator .ui-paginator-last:not(.ui-state-disabled):not(.ui-state-active):hover {
   box-shadow: 0 0 10px #E07E0B;
+}
+
+
+/*to override checkbox common size*/
+body .ui-chkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  width: 13px;
+  height: 13px;
+}
+
+/*to override common checkbox style*/
+body .ui-chkbox .ui-chkbox-box {
+  border: 1px solid #0E0E0E;
+  background-color: #ffffff;
+  width: 13px;
+  height: 13px;
+  text-align: center;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-transition: background-color 0.2s, border-color 0.2s;
+  -o-transition: background-color 0.2s, border-color 0.2s;
+  -webkit-transition: background-color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+/*to have common active color on hover*/
+body .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover {
+  border-color: #E07E0B;
+}
+
+/*to have common active color on focus*/
+body .ui-chkbox .ui-chkbox-box.ui-state-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+  border-color: #E07E0B;
+}
+
+/*to have common active color on selected checkbox*/
+body .ui-chkbox .ui-chkbox-box.ui-state-active,
+body .ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: #E07E0B;
+  background-color: #E07E0B;
+  color: #ffffff;
+}
+
+/*to have a tick in common size*/
+body .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+  overflow: hidden;
+  position: relative;
+  font-size: 11px;
+}
+
+/*to have common margin in label near checkbox*/
+body .ui-chkbox-label {
+  margin: 0 0 0 0.5em;
+}
+
+
+/*to have no list style in filters*/
+body ul.filters {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/*to override common style of filters*/
+body .ui-listbox {
+  padding: 0;
+  min-width: 12em;
+  background: #ffffff;
+  border: none;
+}
+
+/*to have minimum margin in checkbox*/
+body .ui-listbox .ui-chkbox {
+  margin: 0 0.5em 0 0;
+}
+
+/*to have common style of filter list header*/
+body .ui-listbox .ui-listbox-header {
+  padding: 0 0 0.5em;
+  border: none;
+  font-weight: bold;
+  color: #0E0E0E;
+  background-color: #ffffff;
+  margin: 0;
+}
+
+/*to have no shadow transition on focus in filter items*/
+body .ui-listbox .ui-listbox-list .ui-listbox-item:focus {
+  box-shadow: none;
+}
+
+/*to have responsive width in filter items*/
+body .ui-listbox .ui-listbox-header .ui-listbox-filter-container {
+  width: calc(100% - (1.5em));
+}
+
+/*to have responsive width in filter search in header*/
+body .ui-listbox .ui-listbox-header .ui-listbox-filter-container input {
+  padding: 0.429em 2em 0.429em 0.429em;
+}
+
+/*to have common color of search icon
+  and cool scroll
+*/
+body .ui-listbox .ui-listbox-header .ui-listbox-filter-container .ui-listbox-filter-icon {
+  top: 50%;
+  left: auto;
+  margin-top: -0.5em;
+  right: 0.5em;
+  color: #E07E0B;
+}
+
+/*to have no color on background*/
+body .ui-listbox .ui-listbox-list {
+  background-color: #ffffff;
+}
+
+/*to have common text color and minimum margin in filter items*/
+body .ui-listbox .ui-listbox-list .ui-listbox-item {
+  margin: 0;
+  padding: 0.429em 0;
+  border: 0 none;
+  color: #0E0E0E;
+}
+
+/*to have no background on highlighted filter items*/
+body .ui-listbox .ui-listbox-list .ui-listbox-item.ui-state-highlight {
+  color: #0E0E0E;
+  background-color: #FFFFFF;
+}
+
+/*to have no shadow transition on filter item focus*/
+body .ui-listbox .ui-listbox-list .ui-listbox-item:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+/*to have non-active filter items in common color*/
+body .ui-listbox:not(.ui-state-disabled) .ui-listbox-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+  color: #0E0E0E;
+  background-color: #E5E5E5;
+}
+
+/*to have no border on hovered unselected filter items*/
+body .ui-listbox.ui-state-disabled .ui-chkbox-box:not(.ui-state-disabled):not(.ui-state-active):hover {
+  border: none;
+}
+
+/*to have filters button in common style and size*/
+body .ui-button,
+body .ui-button:enabled:hover,
+body .ui-button:enabled:focus,
+body .ui-button:enabled:active,
+body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
+  margin: 5px auto;
+  color: #ffffff;
+  background-color: #E07E0B;
+  border: 1px solid #E07E0B;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 0 0 0.2em #E07E0B;
+  -moz-box-shadow: 0 0 0 0.2em #E07E0B;
+  box-shadow: 0 0 0 0.2em #E07E0B;
+  height: auto;
+  width: 100%;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 140%;
+  /* identical to button height */
+
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/*to have a minimum padding in filter button text*/
+body .ui-button.ui-button-text-only .ui-button-text {
+  padding: 0.7em 0.2em;
+}
+
+/*to have filters in full column width*/
+body .ui-listbox.ui-inputtext.ui-widget.ui-widget-content.ui-corner-all {
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
