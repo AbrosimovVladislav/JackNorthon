@@ -1,3 +1,10 @@
+.p-lg-10.welcome_text:not(p-col-12) {
+  font-size: 100px
+}
+
+.p-col-12.welcome_text:not(p-lg-10) {
+  font-size: 10px
+}
 
 @font-face {
   font-family: "Ubuntu";
