@@ -13,9 +13,9 @@
 .logo {
   position: relative;
   display: flex;
-  margin: auto;
-  margin-left: 0.5em;
-  padding: 5%;
+  margin: 0;
+  padding: 5% 5% 5% 0.5em;
+  width: 82%;
   align-items: center;
   vertical-align: center;
   justify-content: center;
@@ -66,6 +66,18 @@
   width: fit-content;
   padding: 5% 0;
   text-align: left;
+}
+
+@media screen and (max-device-width: 775px){
+.header-text {
+  display: none;
+}
+}
+
+@media screen and (max-device-width: 994px){
+  .horizontal-menu {
+    display: none;
+  }
 }
 
 .header-menu {

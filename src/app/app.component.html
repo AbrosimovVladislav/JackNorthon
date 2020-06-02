@@ -4,7 +4,7 @@
     <div class="p-col-12 p-lg-3 fixed-p-3">
       <!--Logo place-->
       <a href="/">
-        <img id="logo" class="logo" style="margin:0 auto; padding: 0;  width: 82%" src="assets/showcase/images/logo/logo-2.jpg">
+        <img id="logo" class="logo" src="assets/showcase/images/logo/logo-2.jpg">
       </a>
     </div>
     <div class="p-col-8 p-lg-5 search-block fixed-p-5">
@@ -31,24 +31,26 @@
     </div>
 
     <!--Compare + Favourites + Login/Profile-->
-    <div class="p-col-4 p-lg-4 fixed-p-4">
-      <div class="p-grid p-align-center" style="margin: auto">
-        <div class="p-col-4 p-md-5">
+    <div class="p-col-fixed" style="width: 325px">
+      <div class="p-grid p-align-center p-justify-start" style="margin: auto">
+        <div class="p-col-fixed p-md-5" style="width: 35px">
           <img src="assets/showcase/images/icons/grey-compare.svg"
                class="header-icons">
-          <div class="header-text">
-            {{screenWidth > mobileScreenWidth ? 'Сравнить' : ''}}
-          </div>
         </div>
-        <div class="p-col-4 p-md-5 ">
+        <div class="p-col-fixed header-text" style="width: 70px">
+          Сравнить
+        </div>
+        <div class="p-col-fixed p-md-5" style="width: 35px">
           <img src="assets/showcase/images/icons/grey-heart.svg"
                class="header-icons">
-          <div class="header-text">
-            {{screenWidth > mobileScreenWidth ? 'Избранное' : ''}}
-          </div>
         </div>
-        <div class="p-col-4 p-md-2 header-text">
-          <img src="assets/showcase/images/icons/avatar.png">
+        <div class="p-col-fixed header-text" style="width: 70px">
+          Избранное
+        </div>
+
+        <div class="p-col-fixed">
+          <img src="assets/showcase/images/icons/avatar.png"
+          class="header-icons">
         </div>
       </div>
     </div>
@@ -56,8 +58,8 @@
     <div class="p-col-12 p-lg-3 fixed-p-3" style=" padding-right: 0; padding-top: 4px">
       <p-menubar [model]="catalog" icon="pi pi-bars" class="catalog"></p-menubar>
     </div>
-    <div class="p-col-0 p-lg-9 p-justify-start fixed-p-9" style="width:auto">
-      <p-tabMenu [model]="items" [hidden]="screenWidth<=smallScreenWidth"></p-tabMenu>
+    <div class="p-col-0 p-lg-9 p-justify-start fixed-p-9 horizontal-menu" style="width:auto">
+      <p-tabMenu [model]="items" ></p-tabMenu>
     </div>
   </div>
 </div>
