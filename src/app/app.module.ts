@@ -19,7 +19,7 @@ import {
   CarouselModule,
   DropdownModule,
   InputTextModule,
-  LightboxModule,
+  LightboxModule, MessageModule, MessagesModule,
   RatingModule,
   ScrollPanelModule,
   TabMenuModule,
@@ -59,7 +59,7 @@ import {SearchResultComponent} from './component/search-result/search-result.com
     BrowserAnimationsModule,
     RouterModule.forRoot(
       [
-        {path: 'main', component: MainComponent},
+        {path: '', component: MainComponent},
         {path: 'product', component: ProductComponent},
         {path: 'product/:type', component: ProductComponent},
         {path: 'productPage/:productId', component: ProductDetailsComponent, runGuardsAndResolvers: 'always'},
@@ -75,7 +75,9 @@ import {SearchResultComponent} from './component/search-result/search-result.com
     RatingModule,
     CarouselModule,
     TooltipModule,
-    CardModule
+    CardModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
