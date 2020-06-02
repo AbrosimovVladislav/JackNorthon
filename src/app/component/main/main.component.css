@@ -15,7 +15,14 @@
 }
 */
 
-.container{
+.container {
   padding-bottom: 2%;
   text-align: center;
+}
+
+.welcome_text {
+  font-family: Ubuntu;
+  line-height: 140%;
+  font-weight: normal;
+  font-size: 2em;
 }
