@@ -3,12 +3,18 @@
 .header {
   background: #0E0E0E;
   color: #E5E5E5;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
 }
 
 .logo {
   position: relative;
   display: flex;
   margin: auto;
+  margin-left: 0.5em;
   padding: 5%;
   align-items: center;
   vertical-align: center;
@@ -47,8 +53,8 @@
   padding-left: 5%;
   padding-right: 5%;
   position: relative;
-  width: auto;
-  margin: 0.5%;
+  width: fit-content;
+  margin: 0.5% 0;
   height: auto;
 }
 
@@ -57,7 +63,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 5%;
+  width: fit-content;
+  padding: 5% 0;
   text-align: left;
 }
 
@@ -69,4 +76,25 @@
 
 body .ui-menubar .catalog .ui-menuitem-link .ui-menuitem-text {
   color: #E07E0B;
+}
+
+
+.fixed-p-3 {
+  max-width: 240px;
+}
+
+.fixed-p-4 {
+  max-width: 400px;
+}
+
+.fixed-p-5 {
+  max-width: 500px;
+}
+
+.fixed-p-9 {
+  max-width: 900px;
+}
+
+.fixed-p-12 {
+  max-width: 1200px;
 }
