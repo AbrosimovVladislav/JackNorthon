@@ -23,10 +23,6 @@ export class AppComponent implements OnInit {
   searchResults: any[];
   product: Product;
   currentSearchText: string;
-  screenWidth: number;
-  mobileScreenWidth = 775;
-  smallScreenWidth = 974;
-
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }
@@ -65,7 +61,6 @@ export class AppComponent implements OnInit {
       };
       this.horizontalMenu.push(cutMenuItem);
     }));
-    this.screenWidth = screen.width;
   }
 
   refreshCommandSetting(mi: MenuItem) {
