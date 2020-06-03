@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center; padding: 0; margin:auto">
+<div class="data-view-content">
   <div class="p-grid p-justify-center ui-fluid p-align-start fixed-p-12">
     <div class="p-col-0 p-lg-3 fixed-p-3">
       <!--to have a type name aligned on search on lg devices, will be hided on small screens-->
@@ -73,7 +73,7 @@
           </div>
         </li>
       </ul>
-      <p-button label="Применить все фильтры"
+      <p-button label="Применить все"
                 (onClick)="sendRequest()"
                 style="display: flex; justify-content: center">
 
@@ -93,14 +93,14 @@
         <p-footer style="height: 0"></p-footer>
         <ng-template let-product pTemplate="gridItem">
           <div class="p-grid p-col-12 p-md-6 p-lg-4 p-xl-3 product-card p-justify-center">
-            <div class="p-col-12 p-align-start p-justify-center product-image">
+            <div class="p-col-6 p-md-12 p-align-start p-justify-center product-image">
               <a href="/productPage/{{product.productId}}">
                 <img alt="img"
                      class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}">
               </a>
             </div>
-            <div class="p-col-12  p-align-end p-justify-center product-short-info">
-              <p>{{product.brand.shortName}}</p>
+            <div class="p-col-6 p-md-12  p-align-center p-justify-center product-short-info">
+              <p class="p-col-12">{{product.brand.shortName}}</p>
               <div class="p-col-12 p-align-start">
                 <a href="/productPage/{{product.productId}}" class="data-view-product-name">
                   {{product.type.showName + " " + product.model + " " + product.age}}

@@ -1,3 +1,10 @@
+.data-view-content {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin:auto;
+}
+
 .type-name {
   font-family: Ubuntu;
   font-style: normal;
@@ -10,7 +17,6 @@
   padding-bottom: 1.5em;
   padding-left: 0;
   text-align: left;
-  vertical-align: center;
 
   color: #0E0E0E;
 }
@@ -32,6 +38,7 @@
     text-align: center;
   }
 }
+
 
 .filter-header {
   font-family: Ubuntu;
@@ -91,6 +98,37 @@ img.img-responsive {
 
 .product-short-info {
   text-align: center;
+}
+
+/*to have horizontal content on mobile*/
+@media screen and (max-width: 767px) {
+  .product-image {
+    position: relative;
+    height: 250px;
+    width: 50%;
+    /*  margin: auto;*/
+  }
+  img.img-responsive {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    max-height: 200px;
+    max-width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+
+    margin: auto;
+  }
+  .product-short-info {
+    text-align: left;
+    height: 250px;
+    width: 50%;
+    display: inline-block;
+    align-items: start;
+  }
 }
 
 .product-card:hover {

@@ -29,18 +29,23 @@ body .p-grid {
 
 /*to have maximum width in grid columns*/
 .fixed-p-3 {
+  width: 25%;
   max-width: 280px;
 }
 .fixed-p-4 {
+  width: 33.33%;
   max-width: 380px;
 }
 .fixed-p-5 {
+  width: 41.66%;
   max-width: 480px;
 }
 .fixed-p-9 {
+  width: 75%;
   max-width: 880px;
 }
 .fixed-p-12 {
+  width: 100%;
   max-width: 1200px;
 }
 
