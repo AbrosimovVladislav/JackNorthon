@@ -41,7 +41,7 @@ body .p-grid {
   max-width: 880px;
 }
 .fixed-p-12 {
-  max-width: 1180px;
+  max-width: 1200px;
 }
 
 /*to have zero-content columns disappeared in small screens*/
@@ -181,10 +181,6 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
   border: none;
 }
 
-/*to have minimum padding in catalog root label (to be in one line with filters)*/
-body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link {
-  padding-left: 0;
-}
 
 /*to have no border in catalog*/
 body .ui-menubar .ui-submenu-list {
