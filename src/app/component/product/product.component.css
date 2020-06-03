@@ -8,7 +8,7 @@
   position: relative;
   padding-top: 2em;
   padding-bottom: 1.5em;
-  padding-left: 0.25em;
+  padding-left: 0.5em;
   text-align: left;
   vertical-align: center;
 
@@ -16,10 +16,21 @@
 }
 
 .product-filter-container {
-  width: border-box;
-  max-width: 240px;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-left: 0.5em;
+}
+
+
+/*to have no standard filters on small screens
+  and name of the type in the center of the screen
+*/
+@media screen and (max-width: 991px) {
+  .product-filter-container {
+    padding: 0;
+    display: none;
+  }
+  .type-name {
+    text-align: center;
+  }
 }
 
 .filter-header {
@@ -47,11 +58,13 @@
 }
 
 .range-box {
-  max-width: 90px;
+  display: inline-block;
+  width: auto;
+  max-width: 95%;
 }
 
 .product-dataview {
-  padding: 0 0 0 1.5em;
+/*  padding: 0 0 0 1.5em;*/
 }
 
 .product-image {
@@ -71,7 +84,7 @@ img.img-responsive {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 0 35px;
+  padding: 0 20px;
 
   margin: auto;
 }
@@ -80,21 +93,21 @@ img.img-responsive {
   text-align: center;
 }
 
-.ui-g-6:hover {
+.product-card:hover {
   position: relative;
   /*common active color on hover
     border: 2px solid #E07E0B;*/
   box-shadow: 0 0 20px #CFCFCF;
 
   text-align: center;
-  padding: 0 0 35px;
+/*  padding: 0 0 35px;*/
 }
 
-.ui-g-6 {
+.product-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 0 0 35px;
+/*  padding: 0 0 35px;*/
   border-bottom: 1px solid #E5E5E5;
   text-align: center;
   margin-top: 0;
@@ -110,7 +123,8 @@ a.data-view-product-name {
   color: #0E0E0E;
 }
 
-a.data-view-product-name:hover {
+a.data-view-product-name:hover,
+.product-card:hover .data-view-product-name {
   color: #E07E0B;
 }
 
