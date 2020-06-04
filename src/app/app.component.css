@@ -67,13 +67,58 @@
   text-align: left;
 }
 
-@media screen and (max-device-width: 775px){
-.header-text {
-  display: none;
-}
+@media screen and (max-device-width: 991px) {
+  .header-text,
+  #desktopSearch,
+  #desktopCatalog {
+    display: none;
+    padding: 0;
+  }
+
+  #mobileCatalog,
+  #mobileCatalogButton {
+    font-family: Ubuntu;
+    font-size: 13px;
+  }
+
+  #mobileCatalogButton {
+    width: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .compare-favourites-container {
+    display: flex;
+    justify-content: center !important;
+    width: 130px;
+  }
+  .logo-container {
+    display: flex;
+    justify-content: center !important;
+  }
+
+  .header .p-justify-start{
+    justify-content: space-between;
+    margin: 0 2em;
+  }
 }
 
-@media screen and (max-device-width: 1002px){
+@media screen and (min-device-width: 992px) {
+  #mobileCatalogButton,
+  #mobileCatalog,
+  .mobile-catalog-container {
+    display: none;
+    padding: 0;
+  }
+
+  .compare-favourites-container {
+    width: 325px;
+  }
+}
+
+@media screen and (max-device-width: 1002px) {
   .horizontal-menu {
     padding: 0;
     display: none;

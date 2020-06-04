@@ -184,6 +184,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
   background: #0E0E0E;
   color: #E07E0B;
   border: none;
+  font-size: 13px;
 }
 
 
