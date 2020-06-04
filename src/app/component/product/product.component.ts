@@ -12,6 +12,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  visibleSidebar1 = false;
   machineBaseUrl = environment.machineBaseUrl;
   basePath = this.machineBaseUrl + '8082/products';
   inStock = true;
@@ -30,7 +31,7 @@ export class ProductComponent implements OnInit {
 
   addBorderStyle(event: MouseEvent) {
     console.log(event);
-/*    this.hoverProdId = event.target.src;*/
+    /*    this.hoverProdId = event.target.src;*/
     this.cardGocus++;
   }
 

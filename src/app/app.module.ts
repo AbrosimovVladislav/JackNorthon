@@ -15,15 +15,16 @@ import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {
-    CardModule,
-    CarouselModule,
-    DropdownModule,
-    InputTextModule,
-    LightboxModule, MessageModule, MessagesModule,
-    RatingModule,
-    ScrollPanelModule, SlideMenuModule,
-    TabMenuModule,
-    TooltipModule
+  BlockUIModule,
+  CardModule,
+  CarouselModule,
+  DropdownModule,
+  InputTextModule,
+  LightboxModule, MessageModule, MessagesModule,
+  RatingModule,
+  ScrollPanelModule, SidebarModule, SlideMenuModule,
+  TabMenuModule,
+  TooltipModule
 } from 'primeng';
 import {MegaMenuModule} from 'primeng/megamenu';
 import {ProductDetailsComponent} from './component/product-details/product-details.component';
@@ -41,45 +42,47 @@ import {SearchResultComponent} from './component/search-result/search-result.com
     ProductDetailsComponent,
     SearchResultComponent
   ],
-    imports: [
-        BrowserModule,
-        DataViewModule,
-        HttpClientModule,
-        ButtonModule,
-        CheckboxModule,
-        FormsModule,
-        ListboxModule,
-        MenubarModule,
-        SliderModule,
-        KeyFilterModule,
-        InputTextModule,
-        TableModule,
-        GalleriaModule,
-        AutoCompleteModule,
-        BrowserAnimationsModule,
-        RouterModule.forRoot(
-            [
-                {path: '', component: MainComponent},
-                {path: 'product', component: ProductComponent},
-                {path: 'product/:type', component: ProductComponent},
-                {path: 'productPage/:productId', component: ProductDetailsComponent, runGuardsAndResolvers: 'always'},
-                {path: 'search', component: SearchResultComponent}
-            ],
-            {onSameUrlNavigation: 'reload'}
-        ),
-        MegaMenuModule,
-        LightboxModule,
-        ScrollPanelModule,
-        TabMenuModule,
-        DropdownModule,
-        RatingModule,
-        CarouselModule,
-        TooltipModule,
-        CardModule,
-        MessagesModule,
-        MessageModule,
-        SlideMenuModule
-    ],
+  imports: [
+    BrowserModule,
+    DataViewModule,
+    HttpClientModule,
+    ButtonModule,
+    CheckboxModule,
+    FormsModule,
+    ListboxModule,
+    MenubarModule,
+    SliderModule,
+    KeyFilterModule,
+    InputTextModule,
+    TableModule,
+    GalleriaModule,
+    AutoCompleteModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(
+      [
+        {path: '', component: MainComponent},
+        {path: 'product', component: ProductComponent},
+        {path: 'product/:type', component: ProductComponent},
+        {path: 'productPage/:productId', component: ProductDetailsComponent, runGuardsAndResolvers: 'always'},
+        {path: 'search', component: SearchResultComponent}
+      ],
+      {onSameUrlNavigation: 'reload'}
+    ),
+    MegaMenuModule,
+    LightboxModule,
+    ScrollPanelModule,
+    TabMenuModule,
+    DropdownModule,
+    RatingModule,
+    CarouselModule,
+    TooltipModule,
+    CardModule,
+    MessagesModule,
+    MessageModule,
+    SlideMenuModule,
+    SidebarModule,
+    BlockUIModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
