@@ -2,6 +2,10 @@
   <div class="p-grid p-justify-start p-align-center ui-fluid fixed-p-12">
     <!--Grid for header-->
     <div class="p-col-12 p-lg-3 fixed-p-3">
+      <div class="p-col-3 p-lg-0">
+        <button  #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>
+        <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"></p-slideMenu>
+      </div>
       <!--Logo place-->
       <a href="/">
         <img id="logo" class="logo" src="assets/showcase/images/logo/logo-2.jpg">
