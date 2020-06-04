@@ -15,13 +15,14 @@ import {ProductComponent} from './component/product/product.component';
 import {SliderModule} from 'primeng/slider';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {
+  BlockUIModule,
   CardModule,
   CarouselModule,
   DropdownModule,
   InputTextModule,
   LightboxModule, MessageModule, MessagesModule,
   RatingModule,
-  ScrollPanelModule,
+  ScrollPanelModule, SidebarModule, SlideMenuModule,
   TabMenuModule,
   TooltipModule
 } from 'primeng';
@@ -77,7 +78,10 @@ import {SearchResultComponent} from './component/search-result/search-result.com
     TooltipModule,
     CardModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    SlideMenuModule,
+    SidebarModule,
+    BlockUIModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   searchResults: any[];
   product: Product;
   currentSearchText: string;
+  visibleSidebar2 = false;
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }
