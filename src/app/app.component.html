@@ -3,8 +3,10 @@
     <!--Grid for header-->
     <div class="p-col-12 p-lg-3 fixed-p-3">
       <div class="p-col-3 p-lg-0">
-        <button  #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>
-        <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"></p-slideMenu>
+        <button  #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event); visibleSidebar2 = true;"></button>
+<!--        <p-sidebar [(visible)]="visibleSidebar2" [baseZIndex]="10000">-->
+        <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="350"></p-slideMenu>
+<!--        </p-sidebar>-->
       </div>
       <!--Logo place-->
       <a href="/">
