@@ -90,25 +90,23 @@
   }
 
   .compare-favourites-container {
-    display: flex;
-    justify-content: center !important;
     width: 130px;
-  }
-  .logo-container {
-    display: flex;
-    justify-content: center !important;
   }
 
   .header .p-justify-start{
     justify-content: space-between;
     margin: 0 2em;
   }
+  #mobileSearch * {
+    padding-top: 0;
+  }
 }
 
 @media screen and (min-device-width: 992px) {
   #mobileCatalogButton,
   #mobileCatalog,
-  .mobile-catalog-container {
+  .mobile-catalog-container,
+  #mobileSearch {
     display: none;
     padding: 0;
   }
