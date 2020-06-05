@@ -93,12 +93,21 @@
     width: 130px;
   }
 
-  .header .p-justify-start{
+  .header .p-justify-start {
     justify-content: space-between;
-    margin: 0 2em;
+    margin: 0;
   }
+
   #mobileSearch * {
     padding-top: 0;
+  }
+
+  .logo-container {
+    width: 50%;
+  }
+
+  #logo {
+    margin: auto;
   }
 }
 
