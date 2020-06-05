@@ -13,6 +13,7 @@
           <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true" (onChange)="sendRequest()"
                       style="padding-left: 1.05em">
           </p-checkbox>
+
           <ul class="filters">
             <li *ngFor="let filterItem of filters">
               <div class="p-grid">
@@ -57,13 +58,31 @@
                   </div>
                 </div>
                 <div class="p-col-12 p-justify-start filter-box">
+                  <div *ngIf="filterItem.filterType==='SORT'">
+                    <div class="p-grid">
+                      <div class="p-col-12 filter-header-box">
+                        <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                      </div>
+                      <div class="p-col-12">
+                        <p-dropdown class="sorting" [options]="filterItem.selectItem"
+                                    [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                                    (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                                    [style]="{'min-width':'100px'}"
+                                    (onChange)= "sendRequest()"
+                                    placeholder="{{filterItem.showName}}">
+                        </p-dropdown>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-12 p-justify-start filter-box">
                   <div *ngIf="filterItem.filterType==='DROPDOWN'">
                     <div class="p-grid">
                       <div class="p-col-12 filter-header-box">
                         <p-header class="filter-header">{{filterItem.showName}}</p-header>
                       </div>
                       <div class="p-col-12">
-                        <p-dropdown [options]="filterItem.selectItem"
+                        <p-dropdown class="sorting" [options]="filterItem.selectItem"
                                     [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                     (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
                                     [style]="{'min-width':'100px'}"
@@ -83,11 +102,28 @@
         </p-scrollPanel>
       </p-sidebar>
     </div>
-    <div class="p-col-12 p-lg-9 type-name">{{typeName}}</div>
+    <div class="p-col-12 p-lg-5 type-name">{{typeName}}</div>
+
+    <div class="p-col-0 p-lg-4">
+      <div *ngFor="let filterItem of filters;">
+        <div *ngIf="filterItem.filterType==='SORT'">
+          <p-header class="filter-header">{{filterItem.showName}}</p-header>
+          <p-dropdown [options]="filterItem.selectItem"
+                      [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                      (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                      [style]="{'min-width':'100px'}"
+                      (onChange)="sendRequest()"
+                      placeholder="{{filterItem.showName}}">
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+
     <div class="p-col-12 p-lg-3 fixed-p-3 product-filter-container">
       <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true" (onChange)="sendRequest()"
                   style="padding-left: 1.05em">
       </p-checkbox>
+
       <ul class="filters">
         <li *ngFor="let filterItem of filters">
           <div class="p-grid">
@@ -151,6 +187,7 @@
           </div>
         </li>
       </ul>
+
       <p-button label="Применить все фильтры"
                 (onClick)="sendRequest()"
                 style="display: flex; justify-content: center">

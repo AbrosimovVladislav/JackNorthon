@@ -92,7 +92,7 @@ export class ProductComponent implements OnInit {
       const currentFilterItem: FilterItem = this.filterKeyOnFilterName.get(key);
       let paramString = '';
 
-      if (currentFilterItem.filterType === 'DROPDOWN') {
+      if (currentFilterItem.filterType === 'DROPDOWN' || currentFilterItem.filterType === 'SORT') {
         paramString = value.toString();
       } else {
         value.forEach((filterValue: string) => {
