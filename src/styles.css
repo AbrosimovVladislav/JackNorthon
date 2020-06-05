@@ -27,6 +27,10 @@ body .p-grid {
   margin: 0;
 }
 
+/*body .pi {
+  font-size: 2em;
+}*/
+
 /*to have maximum width in grid columns*/
 .fixed-p-3 {
   width: 25%;
@@ -185,6 +189,21 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
   color: #E07E0B;
   border: none;
   font-size: 13px;
+}
+
+/*to have catalog icon bigger on mobiles*/
+@media screen and (max-device-width: 991px) {
+  body .pi-bars:before {
+    font-size: 2em;
+    display: inline-block;
+  }
+
+  .ui-button-text-icon-left .ui-button-icon-left {
+    width: 2em;
+    height: 2em;
+    top: 0;
+  }
+
 }
 
 
