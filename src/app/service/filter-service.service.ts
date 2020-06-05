@@ -43,7 +43,7 @@ export class FilterService {
             menuItemName: '',
             showName: 'Sort',
             filterKey: 'sort',
-            filterType: 'DROPDOWN',
+            filterType: 'SORT',
             rank: '1',
             value: null,
             selectItem: this.sortOptions
