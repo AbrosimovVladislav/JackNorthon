@@ -27,6 +27,10 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {
   }
 
+  scrollTo() {
+    scrollTo(0, 0);
+  }
+
   ngOnInit() {
     this.route
       .paramMap

@@ -85,9 +85,10 @@
                   [rows]="24"
                   [alwaysShowPaginator]="false"
                   [emptyMessage]="'По вашему запросу ничего не найдено :('"
+                  (onPage)="scrollTo()"
                   layout="grid">
         <p-header id="dataViewHeader" class="p-grid p-nogutter p-justify-between">
-          <div class="p-col-12 p-lg-5 type-name">{{typeName}}</div>
+          <div id="CategoryName" class="p-col-12 p-lg-5 type-name">{{typeName}}</div>
           <div id="sorting" class="p-col-6 p-lg-4" *ngFor="let filterItem of filters;">
             <div *ngIf="filterItem.filterType==='SORT'">
               <p-dropdown [options]="filterItem.selectItem"
