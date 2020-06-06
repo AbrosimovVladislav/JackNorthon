@@ -61,7 +61,8 @@
                                 [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                 (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
                                 [style]="{'min-width':'100px'}"
-                                placeholder="{{filterItem.showName}}">
+                                placeholder="{{filterItem.showName}}"
+                                (onChange)="sendRequest()">
                     </p-dropdown>
                   </div>
                 </div>
@@ -78,7 +79,7 @@
     </div>
 
     <!--Dataview-->
-    <div  class="p-col-12 p-lg-9 product-dataview">
+    <div class="p-col-12 p-lg-9 product-dataview">
       <p-dataView [value]="products"
                   [paginator]="true"
                   [rows]="24"
@@ -134,7 +135,9 @@
                                          (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
                                          [listStyle]="{'max-height':'120px', 'padding-left':'0', 'margin-left':'0'}"
                                          [multiple]="true"
-                                         [checkbox]="true" [filter]="true">
+                                         [checkbox]="true"
+                                         [filter]="true"
+                                         (onChange)="sendRequest()">
                               </p-listbox>
                             </div>
                           </div>
@@ -149,12 +152,14 @@
                             <div class="p-col-6 p-justify-center">
                               <input type="text" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
                                      class="range-box"
-                                     pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"/>
+                                     pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"
+                                     (change)="sendRequest()"/>
                             </div>
                             <div class="p-col-6 p-justify-center">
                               <input type="text" placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}"
                                      class="range-box"
-                                     pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"/>
+                                     pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
+                                     (change)="sendRequest()"/>
                             </div>
                           </div>
                         </div>
@@ -170,7 +175,8 @@
                                           [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                           (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
                                           [style]="{'min-width':'100px'}"
-                                          placeholder="{{filterItem.showName}}">
+                                          placeholder="{{filterItem.showName}}"
+                                          (onChange)="sendRequest()">
                               </p-dropdown>
                             </div>
                           </div>
@@ -187,7 +193,8 @@
                                           [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                           (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
                                           [style]="{'min-width':'100px'}"
-                                          placeholder="{{filterItem.showName}}">
+                                          placeholder="{{filterItem.showName}}"
+                                          (onChange)="sendRequest()">
                               </p-dropdown>
                             </div>
                           </div>
