@@ -90,7 +90,7 @@
   }
 
   .compare-favourites-container {
-    width: 130px;
+    width: 160px;
   }
 
   .header .p-justify-start {
@@ -121,7 +121,11 @@
   }
 
   .compare-favourites-container {
-    width: 325px;
+    width: 340px;
+  }
+
+  .compare-favourites-container * {
+    padding: 0.5em;
   }
 }
 

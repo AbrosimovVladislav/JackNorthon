@@ -38,8 +38,14 @@
         </ng-template>
       </p-autoComplete>
     </div>
-    <!--Search place FOR MOBILE-->
-    <div id="mobileSearch" class="p-col-1">
+
+
+    <!--Compare + Favourites + Login/Profile-->
+    <div class="p-col-fixed compare-favourites-container">
+      <div class="p-grid p-align-center  p-nogutter p-justify-start" style="margin: auto">
+
+        <!--Search place FOR MOBILE-->
+        <div id="mobileSearch" class="p-col-fixed">
           <!-- TODO: see styles.css .ui-sidebar-top -->
           <p-sidebar #sidebar [(visible)]="searchFieldVisible" position="top" [showCloseIcon]="false"
                      (onShow)="autoComplete.focusInput(); searchOnRestore($event, autoComplete)">
@@ -66,11 +72,7 @@
           <button type="button" (click)="searchFieldVisible=true" pButton icon="pi pi-search"
                   style=" width: 30%; border: none; background-color: transparent; box-shadow: none">
           </button>
-    </div>
-
-    <!--Compare + Favourites + Login/Profile-->
-    <div class="p-col-fixed compare-favourites-container">
-      <div class="p-grid p-align-center p-justify-start" style="margin: auto">
+        </div>
         <div class="p-col-fixed p-md-5" style="width: 35px">
           <img src="assets/showcase/images/icons/grey-compare.svg"
                class="header-icons">
