@@ -95,16 +95,22 @@ img.img-responsive {
   and no sorting
   and name of the type in the center of the screen
 */
-@media screen and (max-width: 991px) {
+@media screen and (max-device-width: 991px) {
   .product-filter-container,
-  #desktopSorting {
+  #sorting {
     padding: 0;
     display: none;
   }
 
   .type-name {
     text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
     width: 100%;
+  }
+
+  #dataViewHeader {
+    justify-content: center;
   }
 
 }
@@ -116,7 +122,7 @@ img.img-responsive {
     padding: 0;
   }
 
-  #desktopSorting {
+  #sorting {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;

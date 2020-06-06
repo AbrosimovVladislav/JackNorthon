@@ -75,105 +75,6 @@
 
       </p-button>
     </div>
-    <!--MOBILE filters-->
-    <div id="mobileFilters">
-      <button pButton type="button" label="Фильтры"
-              style="font-family: Ubuntu; width: 45%; margin: 0.5em; color: #0E0E0E"
-              (click)="mobileFilterSideBar.visible = true">
-      </button>
-      <p-sidebar #mobileFilterSideBar
-                 [(visible)]="mobileFilterSideBar.visible"
-                 [baseZIndex]="10000"
-                 [showCloseIcon]="false">
-        <p-scrollPanel [style]="{width: '100%', height: '100%'}">
-          <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true"
-                      style="padding-left: 0.5em">
-          </p-checkbox>
-
-          <ul class="filters">
-            <li *ngFor="let filterItem of filters">
-              <div class="p-grid p-nogutter">
-                <div class="p-col-12 p-justify-start filter-box">
-                  <div *ngIf="filterItem.filterType==='CHECKBOX'">
-                    <div class="p-grid">
-                      <div class="p-col-12 filter-header-box">
-                        <p-header class="filter-header">{{filterItem.showName}}</p-header>
-                      </div>
-                      <div class="p-col-12">
-                        <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
-                                   [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
-                                   (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                                   [listStyle]="{'max-height':'120px', 'padding-left':'0', 'margin-left':'0'}"
-                                   [multiple]="true"
-                                   [checkbox]="true" [filter]="true">
-                        </p-listbox>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-col-12 p-justify-start filter-box">
-                  <div *ngIf="filterItem.filterType==='RANGE'">
-                    <div class="p-grid">
-                      <div class="p-col-12 filter-header-box">
-                        <p-header class="filter-header">{{filterItem.showName}}</p-header>
-                      </div>
-                      <div class="p-col-6 p-justify-center">
-                        <input type="text" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
-                               class="range-box"
-                               pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"/>
-                      </div>
-                      <div class="p-col-6 p-justify-center">
-                        <input type="text" placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}"
-                               class="range-box"
-                               pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-col-12 p-justify-start filter-box">
-                  <div *ngIf="filterItem.filterType==='SORT'">
-                    <div class="p-grid">
-                      <div class="p-col-12 filter-header-box">
-                        <p-header class="filter-header">{{filterItem.showName}}</p-header>
-                      </div>
-                      <div class="p-col-12">
-                        <p-dropdown class="sorting" [options]="filterItem.selectItem"
-                                    [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
-                                    (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                                    [style]="{'min-width':'100px'}"
-                                    placeholder="{{filterItem.showName}}">
-                        </p-dropdown>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="p-col-12 p-justify-start filter-box">
-                  <div *ngIf="filterItem.filterType==='DROPDOWN'">
-                    <div class="p-grid">
-                      <div class="p-col-12 filter-header-box">
-                        <p-header class="filter-header">{{filterItem.showName}}</p-header>
-                      </div>
-                      <div class="p-col-12">
-                        <p-dropdown class="sorting" [options]="filterItem.selectItem"
-                                    [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
-                                    (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                                    [style]="{'min-width':'100px'}"
-                                    placeholder="{{filterItem.showName}}">
-                        </p-dropdown>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <p-button label="Применить все фильтры"
-                    (onClick)="sendRequest(); mobileFilterSideBar.close($event)"
-                    style="display: flex; justify-content: center; margin-bottom: 10%">
-          </p-button>
-        </p-scrollPanel>
-      </p-sidebar>
-    </div>
 
     <!--Dataview-->
     <div class="p-col-12 p-lg-9 product-dataview">
@@ -183,19 +84,123 @@
                   [alwaysShowPaginator]="false"
                   [emptyMessage]="'По вашему запросу ничего не найдено :('"
                   layout="grid">
-        <p-header class="p-grid p-justify-between">
-          <div class="p-col-5 type-name">{{typeName}}</div>
-          <div id="desktopSorting" class="p-col-4 p-align-center" *ngFor="let filterItem of filters;">
+        <p-header id="dataViewHeader" class="p-grid p-nogutter p-justify-between">
+          <div class="p-col-12 p-lg-5 type-name">{{typeName}}</div>
+          <div id="sorting" class="p-col-6 p-lg-4" *ngFor="let filterItem of filters;">
             <div *ngIf="filterItem.filterType==='SORT'">
-              <!--<p-header class="filter-header"></p-header>-->
               <p-dropdown [options]="filterItem.selectItem"
                           [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                           (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                          [style]="{'min-width':'200px'}"
+                          [style]="{'min-width':'80px', width:'80%'}"
                           (onChange)="sendRequest()"
                           placeholder="{{filterItem.showName}}">
               </p-dropdown>
             </div>
+            <div *ngIf="filterItem.filterType!=='SORT'" [hidden]="true"
+                 style="display: none; padding: 0; width: 0; height: 0">
+            </div>
+          </div>
+
+          <!--MOBILE filters-->
+          <div id="mobileFilters" class="p-col-8">
+            <button pButton type="button" label="Фильтры"
+                    style="font-family: Ubuntu; width: 100%; margin: auto"
+                    (click)="mobileFilterSideBar.visible = true">
+            </button>
+            <p-sidebar #mobileFilterSideBar
+                       [(visible)]="mobileFilterSideBar.visible"
+                       [baseZIndex]="10000"
+                       [showCloseIcon]="true"
+                       [fullScreen]="true"
+                       position="right">
+              <p-scrollPanel [style]="{width: '100%', height: '100%'}">
+                <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true"
+                            style="padding-left: 0.5em">
+                </p-checkbox>
+
+                <ul class="filters">
+                  <li *ngFor="let filterItem of filters">
+                    <div class="p-grid p-nogutter">
+                      <div class="p-col-12 p-justify-start filter-box">
+                        <div *ngIf="filterItem.filterType==='CHECKBOX'">
+                          <div class="p-grid">
+                            <div class="p-col-12 filter-header-box">
+                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            </div>
+                            <div class="p-col-12">
+                              <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
+                                         [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                                         (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                                         [listStyle]="{'max-height':'120px', 'padding-left':'0', 'margin-left':'0'}"
+                                         [multiple]="true"
+                                         [checkbox]="true" [filter]="true">
+                              </p-listbox>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="p-col-12 p-justify-start filter-box">
+                        <div *ngIf="filterItem.filterType==='RANGE'">
+                          <div class="p-grid">
+                            <div class="p-col-12 filter-header-box">
+                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            </div>
+                            <div class="p-col-6 p-justify-center">
+                              <input type="text" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
+                                     class="range-box"
+                                     pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"/>
+                            </div>
+                            <div class="p-col-6 p-justify-center">
+                              <input type="text" placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}"
+                                     class="range-box"
+                                     pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="p-col-12 p-justify-start filter-box">
+                        <div *ngIf="filterItem.filterType==='SORT'">
+                          <div class="p-grid">
+                            <div class="p-col-12 filter-header-box">
+                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            </div>
+                            <div class="p-col-12">
+                              <p-dropdown class="sorting" [options]="filterItem.selectItem"
+                                          [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                                          (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                                          [style]="{'min-width':'100px'}"
+                                          placeholder="{{filterItem.showName}}">
+                              </p-dropdown>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="p-col-12 p-justify-start filter-box">
+                        <div *ngIf="filterItem.filterType==='DROPDOWN'">
+                          <div class="p-grid">
+                            <div class="p-col-12 filter-header-box">
+                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            </div>
+                            <div class="p-col-12">
+                              <p-dropdown class="sorting" [options]="filterItem.selectItem"
+                                          [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                                          (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                                          [style]="{'min-width':'100px'}"
+                                          placeholder="{{filterItem.showName}}">
+                              </p-dropdown>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <p-button label="Применить все фильтры"
+                          (onClick)="sendRequest(); mobileFilterSideBar.close($event)"
+                          style="display: flex; justify-content: center; margin-bottom: 10%">
+                </p-button>
+              </p-scrollPanel>
+            </p-sidebar>
           </div>
         </p-header>
         <p-footer style="height: 0"></p-footer>

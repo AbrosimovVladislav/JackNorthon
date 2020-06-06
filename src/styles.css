@@ -234,7 +234,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
 
 /*to have no border in dropdown on desktop screens*/
 @media screen and (min-device-width: 992px) {
-  body #desktopSorting .ui-dropdown,
+  body #sorting .ui-dropdown,
   body .ui-dropdown-panel {
     border: none;
     border-radius: 0;
