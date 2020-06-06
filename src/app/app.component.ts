@@ -58,7 +58,6 @@ export class AppComponent implements OnInit {
       autoComplete.inputEL.nativeElement.value = '';
       sidebar.close(event);
       autoComplete.suggestions = [];  // sidebar closed, autocomplete hidden, but suggestions are clickable -- epic fuck up
-      focus();
       this.router.navigate(['/search', {searchLine: this.currentSearchText}]);
     }
   }

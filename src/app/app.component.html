@@ -56,7 +56,7 @@
                             size="75"
                             (completeMethod)="search($event)"
                             (onSelect)="onSelect($event); sidebar.close($event)"
-                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)">
+                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete); avatar.focus()">
               <ng-template let-product pTemplate="item">
                 <div class="ui-helper-clearfix top-search">
                   <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
@@ -88,7 +88,7 @@
           Избранное
         </div>
 
-        <div class="p-col-fixed">
+        <div #avatar class="p-col-fixed">
           <img src="assets/showcase/images/icons/avatar.png"
                class="header-icons">
         </div>
