@@ -7,6 +7,7 @@ import {ProductService} from './service/product-service.service';
 import {Router} from '@angular/router';
 import {Product} from './model/product';
 import {environment} from '../environments/environment';
+import {AutoComplete, Sidebar} from 'primeng';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +24,9 @@ export class AppComponent implements OnInit {
   searchResults: any[];
   product: Product;
   currentSearchText: string;
-  visibleSidebar2 = false;
+  searchFieldVisible = false;
 
-  constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
-  }
+  constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {}
 
   onSelect(product: Product) {
     this.product = product;
@@ -44,6 +44,19 @@ export class AppComponent implements OnInit {
 
   searchEnter(event) {
     if (event.key === 'Enter') {
+      this.router.navigate(['/search', {searchLine: this.currentSearchText}]);
+    }
+  }
+
+  searchOnRestore(event, autoComplete: AutoComplete) {
+    autoComplete.search(event, this.currentSearchText);
+  }
+
+  mobileSearchEnter(event: KeyboardEvent, sidebar: Sidebar, autoComplete: AutoComplete) {
+    if (event.key === 'Enter') {
+      autoComplete.inputEL.nativeElement.value = '';
+      sidebar.close(event);
+      autoComplete.suggestions = [];  // sidebar closed, autocomplete hidden, but suggestions are clickable -- epic fuck up
       this.router.navigate(['/search', {searchLine: this.currentSearchText}]);
     }
   }
