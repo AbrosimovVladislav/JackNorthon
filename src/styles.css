@@ -497,3 +497,12 @@ body .ui-listbox.ui-inputtext.ui-widget.ui-widget-content.ui-corner-all {
   margin-right: 0;
   width: 100%;
 }
+
+/*anyone plz find another solution T___T */
+.ui-sidebar-top {
+  height: 4em;
+}
+/*anyone plz find another solution T___T */
+.ui-autocomplete {
+  margin-top: 0.3em;
+}
