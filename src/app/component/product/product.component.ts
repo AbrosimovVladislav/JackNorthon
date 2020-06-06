@@ -12,7 +12,6 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  visibleSidebar1 = false;
   machineBaseUrl = environment.machineBaseUrl;
   basePath = this.machineBaseUrl + '8082/products';
   inStock = true;
@@ -21,22 +20,11 @@ export class ProductComponent implements OnInit {
   queryMap: ParamMap;
   typeName: string;
   typeIds: string;
-  cardGocus = 0;
 
   selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
   filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {
-  }
-
-  addBorderStyle(event: MouseEvent) {
-    console.log(event);
-    /*    this.hoverProdId = event.target.src;*/
-    this.cardGocus++;
-  }
-
-  removeBorderStyle() {
-    this.cardGocus--;
   }
 
   ngOnInit() {
