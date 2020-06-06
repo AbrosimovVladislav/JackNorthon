@@ -11,7 +11,7 @@
     </div>
 
     <!--Logo place-->
-    <div class="p-col-6 p-lg-3 fixed-p-3 logo-container">
+    <div class="p-col-5 p-lg-3 fixed-p-3 logo-container">
       <a href="/">
         <img id="logo" class="logo" src="assets/showcase/images/logo/logo-4.png">
       </a>
@@ -38,39 +38,11 @@
         </ng-template>
       </p-autoComplete>
     </div>
-
-    <!--Compare + Favourites + Login/Profile-->
-    <div class="p-col-fixed compare-favourites-container">
-      <div class="p-grid p-align-center p-justify-start" style="margin: auto">
-        <div class="p-col-fixed p-md-5" style="width: 35px">
-          <img src="assets/showcase/images/icons/grey-compare.svg"
-               class="header-icons">
-        </div>
-        <div class="p-col-fixed header-text" style="width: 70px">
-          Сравнить
-        </div>
-        <div class="p-col-fixed p-md-5" style="width: 35px">
-          <img src="assets/showcase/images/icons/grey-heart.svg"
-               class="header-icons">
-        </div>
-        <div class="p-col-fixed header-text" style="width: 70px">
-          Избранное
-        </div>
-
-        <div class="p-col-fixed">
-          <img src="assets/showcase/images/icons/avatar.png"
-               class="header-icons">
-        </div>
-      </div>
-    </div>
-
     <!--Search place FOR MOBILE-->
-    <div id="mobileSearch" class="p-col-12">
-      <div class="p-grid p-justify-center">
-        <div class="p-col-8 p-lg-0 search-block">
+    <div id="mobileSearch" class="p-col-1">
           <!-- TODO: see styles.css .ui-sidebar-top -->
           <p-sidebar #sidebar [(visible)]="searchFieldVisible" position="top" [showCloseIcon]="false"
-            (onShow)="autoComplete.focusInput(); searchOnRestore($event, autoComplete)">
+                     (onShow)="autoComplete.focusInput(); searchOnRestore($event, autoComplete)">
             <!-- TODO: see styles.css .ui-autocomplete -->
             <p-autoComplete #autoComplete [ngModel]="product"
                             [suggestions]="searchResults"
@@ -94,6 +66,29 @@
           <button type="button" (click)="searchFieldVisible=true" pButton icon="pi pi-search"
                   style=" width: 30%; border: none; background-color: transparent; box-shadow: none">
           </button>
+    </div>
+
+    <!--Compare + Favourites + Login/Profile-->
+    <div class="p-col-fixed compare-favourites-container">
+      <div class="p-grid p-align-center p-justify-start" style="margin: auto">
+        <div class="p-col-fixed p-md-5" style="width: 35px">
+          <img src="assets/showcase/images/icons/grey-compare.svg"
+               class="header-icons">
+        </div>
+        <div class="p-col-fixed header-text" style="width: 70px">
+          Сравнить
+        </div>
+        <div class="p-col-fixed p-md-5" style="width: 35px">
+          <img src="assets/showcase/images/icons/grey-heart.svg"
+               class="header-icons">
+        </div>
+        <div class="p-col-fixed header-text" style="width: 70px">
+          Избранное
+        </div>
+
+        <div class="p-col-fixed">
+          <img src="assets/showcase/images/icons/avatar.png"
+               class="header-icons">
         </div>
       </div>
     </div>
