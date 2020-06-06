@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
   currentSearchText: string;
   searchFieldVisible = false;
 
-  constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {}
+  constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
+  }
 
   onSelect(product: Product) {
     this.product = product;
@@ -57,6 +58,7 @@ export class AppComponent implements OnInit {
       autoComplete.inputEL.nativeElement.value = '';
       sidebar.close(event);
       autoComplete.suggestions = [];  // sidebar closed, autocomplete hidden, but suggestions are clickable -- epic fuck up
+      focus();
       this.router.navigate(['/search', {searchLine: this.currentSearchText}]);
     }
   }
