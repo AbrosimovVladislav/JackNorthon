@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {OnInit} from 'angular2/core';
+import {ElementRef, OnInit, ViewChild} from 'angular2/core';
 import {MenuItem} from 'primeng/api';
 import {Type} from './model/Type';
 import {MenuItemsService} from './service/menuItems-service';
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   product: Product;
   currentSearchText: string;
   searchFieldVisible = false;
+  @ViewChild('avatar') avatarFocus: ElementRef;
 
   constructor(private router: Router, private productService: ProductService, private menuItemsService: MenuItemsService) {
   }
@@ -58,6 +59,7 @@ export class AppComponent implements OnInit {
       autoComplete.inputEL.nativeElement.value = '';
       sidebar.close(event);
       autoComplete.suggestions = [];  // sidebar closed, autocomplete hidden, but suggestions are clickable -- epic fuck up
+      this.avatarFocus.nativeElement.focus();
       this.router.navigate(['/search', {searchLine: this.currentSearchText}]);
     }
   }
