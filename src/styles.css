@@ -113,6 +113,7 @@ body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
   -moz-box-shadow: 0 0 0 0.1em #E5E5E5;
   box-shadow: 0 0 0 0.1em #E5E5E5;
   border-color: #E5E5E5;
+  border-radius: 1px;
 }
 
 body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
@@ -280,7 +281,7 @@ body .ui-tabmenu .ui-tabmenu-nav {
   border: none;
 }
 
-/*to have less space between menuitems in horisontal menu*/
+/*to have less space between menuitems in horizontal menu*/
 body .ui-tabmenu,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   display: flex;
@@ -509,6 +510,20 @@ body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/*to have decline button in common style and size*/
+body .ui-fluid .decline-button .ui-button,
+body .decline-button .ui-button:enabled:hover,
+body .decline-button .ui-button:enabled:focus,
+body .decline-button .ui-button:enabled:active,
+body .decline-button .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
+  background-color: #ffffff;
+  color: #7F7F7F;
+  border: 1px solid #E5E5E5;
+  -webkit-box-shadow: 0 0 0 0.2em #E5E5E5;
+  -moz-box-shadow: 0 0 0 0.2em #E5E5E5;
+  box-shadow: 0 0 0 0.2em #E5E5E5;
 }
 
 /*to have a minimum padding in filter button text*/

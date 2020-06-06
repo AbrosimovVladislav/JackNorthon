@@ -55,7 +55,7 @@
 }
 
 .filter-box {
-  display: flex;
+  /*display: flex;*/
   justify-content: start;
   left: 0;
   margin: auto;
@@ -95,6 +95,11 @@ img.img-responsive {
 
 .product-short-info {
   text-align: center;
+}
+
+.decline-button .ui-button .ui-widget .ui-state-default .ui-corner-all .ui-button-text-only {
+  background-color: #E5E5E5 !important;
+  color: #0E0E0E !important;
 }
 
 
