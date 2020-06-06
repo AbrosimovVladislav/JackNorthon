@@ -65,6 +65,14 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  clearFilters() {
+    this.refreshPage();
+  }
+
+  refreshPage(){
+    location.reload();
+  }
+
   sendRequest() {
     this.selectedFilterMap.forEach(
       (internalFilterArr: string[], key: string) => {
