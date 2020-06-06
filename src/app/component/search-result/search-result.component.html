@@ -16,15 +16,15 @@
       <ng-template let-product pTemplate="gridItem">
         <div class="p-grid ui-g-6 ui-md-4 ui-lg-3">
           <div class="p-col-12 p-align-start p-justify-center product-image">
-            <a href="/productPage/{{product.productId}}">
+            <a href="/productPage/{{product.productId}}"  target="_blank">
               <img (mouseover)="addBorderStyle($event)" (mouseout)="removeBorderStyle()" alt="img"
-                   class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}">
+                   class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}" >
             </a>
           </div>
           <div class="p-col-12  p-align-end p-justify-center product-short-info">
             <p>{{product.brand.shortName}}</p>
             <div class="ui-g-12 p-align-start">
-              <a href="/productPage/{{product.productId}}" class="data-view-product-name">
+              <a href="/productPage/{{product.productId}}" target="_blank" class="data-view-product-name">
                 {{product.type.showName + " " + product.model + " " + product.age}}
               </a>
             </div>
