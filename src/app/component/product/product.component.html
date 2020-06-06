@@ -12,14 +12,14 @@
             <div class="p-col-12 p-justify-start filter-box">
               <div *ngIf="filterItem.filterType==='CHECKBOX'">
                 <div class="p-grid">
-                  <div class="p-col-12 filter-header-box">
-                    <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                  <div class="p-col-12 filter-name-box">
+                    <p-header class="filter-name">{{filterItem.showName}}</p-header>
                   </div>
                   <div class="p-col-12">
                     <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
                                [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                               [listStyle]="{'max-height':'120px', 'padding-left':'0', 'margin-left':'0'}"
+                               [listStyle]="{'max-height':'130px', 'padding-left':'0', 'margin-left':'0'}"
                                [multiple]="true"
                                [checkbox]="true"
                                [filter]="true"
@@ -32,8 +32,8 @@
             <div class="p-col-12 p-justify-start filter-box">
               <div *ngIf="filterItem.filterType==='RANGE'">
                 <div class="p-grid">
-                  <div class="p-col-12 filter-header-box">
-                    <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                  <div class="p-col-12 filter-name-box">
+                    <p-header class="filter-name">{{filterItem.showName}}</p-header>
                   </div>
                   <div class="p-col-6 p-justify-center">
                     <input type="text" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
@@ -53,8 +53,8 @@
             <div class="p-col-12 p-justify-start filter-box">
               <div *ngIf="filterItem.filterType==='DROPDOWN'">
                 <div class="p-grid">
-                  <div class="p-col-12 filter-header-box">
-                    <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                  <div class="p-col-12 filter-name-box">
+                    <p-header class="filter-name">{{filterItem.showName}}</p-header>
                   </div>
                   <div class="p-col-12">
                     <p-dropdown [options]="filterItem.selectItem"
@@ -71,11 +71,21 @@
           </div>
         </li>
       </ul>
-      <p-button label="Применить все фильтры"
-                (onClick)="sendRequest()"
-                style="display: flex; justify-content: center">
+      <div class="p-grid">
+        <p-button class="p-col-6 apply-button"
+                  label="Применить"
+                  (onClick)="sendRequest()"
+                  style="display: flex; justify-content: center">
 
-      </p-button>
+        </p-button>
+        <p-button class="p-col-6 decline-button"
+                  label="Очистить"
+                  (onClick)="sendRequest()"
+                  style="display: flex; justify-content: center">
+
+        </p-button>
+      </div>
+
     </div>
 
     <!--Dataview-->
@@ -115,6 +125,9 @@
                        [showCloseIcon]="true"
                        [fullScreen]="true"
                        position="right">
+              <div class="p-col-12 filter-header">
+                Фильтры
+              </div>
               <p-scrollPanel [style]="{width: '100%', height: '100%'}">
                 <p-checkbox label="Есть в наличии" [(ngModel)]="inStock" binary="true"
                             style="padding-left: 0.5em">
@@ -126,14 +139,14 @@
                       <div class="p-col-12 p-justify-start filter-box">
                         <div *ngIf="filterItem.filterType==='CHECKBOX'">
                           <div class="p-grid">
-                            <div class="p-col-12 filter-header-box">
-                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            <div class="p-col-12 filter-name-box">
+                              <p-header class="filter-name">{{filterItem.showName}}</p-header>
                             </div>
                             <div class="p-col-12">
                               <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
                                          [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                          (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                                         [listStyle]="{'max-height':'120px', 'padding-left':'0', 'margin-left':'0'}"
+                                         [listStyle]="{'max-height':'130px', 'padding-left':'0', 'margin-left':'0'}"
                                          [multiple]="true"
                                          [checkbox]="true"
                                          [filter]="true"
@@ -146,8 +159,8 @@
                       <div class="p-col-12 p-justify-start filter-box">
                         <div *ngIf="filterItem.filterType==='RANGE'">
                           <div class="p-grid">
-                            <div class="p-col-12 filter-header-box">
-                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            <div class="p-col-12 filter-name-box">
+                              <p-header class="filter-name">{{filterItem.showName}}</p-header>
                             </div>
                             <div class="p-col-6 p-justify-center">
                               <input type="text" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
@@ -167,8 +180,8 @@
                       <div class="p-col-12 p-justify-start filter-box">
                         <div *ngIf="filterItem.filterType==='SORT'">
                           <div class="p-grid">
-                            <div class="p-col-12 filter-header-box">
-                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            <div class="p-col-12 filter-name-box">
+                              <p-header class="filter-name">{{filterItem.showName}}</p-header>
                             </div>
                             <div class="p-col-12">
                               <p-dropdown class="sorting" [options]="filterItem.selectItem"
@@ -185,8 +198,8 @@
                       <div class="p-col-12 p-justify-start filter-box">
                         <div *ngIf="filterItem.filterType==='DROPDOWN'">
                           <div class="p-grid">
-                            <div class="p-col-12 filter-header-box">
-                              <p-header class="filter-header">{{filterItem.showName}}</p-header>
+                            <div class="p-col-12 filter-name-box">
+                              <p-header class="filter-name">{{filterItem.showName}}</p-header>
                             </div>
                             <div class="p-col-12">
                               <p-dropdown class="sorting" [options]="filterItem.selectItem"
@@ -203,10 +216,18 @@
                     </div>
                   </li>
                 </ul>
-                <p-button label="Применить все фильтры"
-                          (onClick)="sendRequest(); mobileFilterSideBar.close($event)"
-                          style="display: flex; justify-content: center; margin-bottom: 10%">
-                </p-button>
+                <div class="p-grid">
+                  <p-button class="p-col-6 apply-button"
+                            label="Применить"
+                            (onClick)="sendRequest(); mobileFilterSideBar.close($event)"
+                            style="display: flex; justify-content: center; margin-bottom: 10%">
+                  </p-button>
+                  <p-button class="p-col-6 decline-button"
+                            label="Очистить"
+                            (onClick)="sendRequest()"
+                            style="display: flex; justify-content: center; margin-bottom: 10%">
+                  </p-button>
+                </div>
               </p-scrollPanel>
             </p-sidebar>
           </div>

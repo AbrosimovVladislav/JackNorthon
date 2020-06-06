@@ -215,23 +215,37 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
   and to have zero-content columns disappeared in small screens
 */
 @media screen and (max-device-width: 991px) {
+
+  /*for catalog icon size*/
   body .pi-bars:before {
     font-size: 2em;
     display: inline-block;
   }
-  body .pi-search:before {
+
+  /*for global search icon size and color*/
+  body .header .pi-search:before {
     font-size: 1.5em;
     color: #E07E0B;
     display: inline-block;
     top:0;
   }
 
+  /*for filter close icon size*/
+  body .pi-times:before {
+    font-size: 2em;
+    position: relative;
+    display: block;
+    padding-top: 0.25em;
+  }
+
+  /*for catalog vertical alignment*/
   .ui-button-text-icon-left .ui-button-icon-left {
     width: 2em;
     height: 2em;
     top: -20%;
   }
 
+  /*for search vertical alignment*/
   .ui-button-icon-only .ui-button-icon-left {
     width: 2em;
     height: 2em;
