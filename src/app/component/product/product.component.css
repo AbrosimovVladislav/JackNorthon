@@ -2,15 +2,9 @@
   display: flex;
   justify-content: center;
   padding: 0;
-  margin:auto;
+  margin: auto;
 }
 
-@media screen and (min-device-width: 992px) {
-  #mobileFilters {
-    display: none;
-    padding: 0;
-  }
-}
 
 .type-name {
   font-family: Ubuntu;
@@ -33,18 +27,6 @@
 }
 
 
-/*to have no standard filters on small screens
-  and name of the type in the center of the screen
-*/
-@media screen and (max-width: 991px) {
-  .product-filter-container {
-    padding: 0;
-    display: none;
-  }
-  .type-name {
-    text-align: center;
-  }
-}
 
 
 .filter-header {
@@ -60,8 +42,8 @@
 }
 
 .filter-header-box {
-/*  border-bottom: 1px solid #E5E5E5;*/
-/*  border-top: 1px solid #E5E5E5;*/
+  /*  border-bottom: 1px solid #E5E5E5;*/
+  /*  border-top: 1px solid #E5E5E5;*/
 
 }
 
@@ -79,14 +61,14 @@
 }
 
 .product-dataview {
-/*  padding: 0 0 0 1.5em;*/
+  /*  padding: 0 0 0 1.5em;*/
 }
 
 .product-image {
   position: relative;
   height: 250px;
   width: 100%;
-/*  margin: auto;*/
+  /*  margin: auto;*/
 }
 
 img.img-responsive {
@@ -108,6 +90,51 @@ img.img-responsive {
   text-align: center;
 }
 
+
+/*to have no standard filters on small screens
+  and no sorting
+  and name of the type in the center of the screen
+*/
+@media screen and (max-device-width: 991px) {
+  .product-filter-container,
+  #sorting {
+    padding: 0;
+    display: none;
+  }
+
+  .type-name {
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    width: 100%;
+  }
+
+  #dataViewHeader {
+    justify-content: center;
+  }
+
+}
+
+@media screen and (min-device-width: 992px) {
+  #mobileFilters,
+  #mobileFilters .filter-box.p-col-12 {
+    display: none;
+    padding: 0;
+  }
+
+  #sorting {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 40%;
+  }
+
+  .product-filter-container {
+    padding-top: 4em;
+    border-right: 1px solid #E5E5E5;
+  }
+}
+
 /*to have horizontal content on mobile*/
 @media screen and (max-width: 767px) {
   .product-image {
@@ -116,6 +143,7 @@ img.img-responsive {
     width: 50%;
     /*  margin: auto;*/
   }
+
   img.img-responsive {
     position: absolute;
     display: flex;
@@ -130,6 +158,7 @@ img.img-responsive {
 
     margin: auto;
   }
+
   .product-short-info {
     text-align: left;
     height: 250px;
@@ -146,14 +175,14 @@ img.img-responsive {
   box-shadow: 0 0 20px #CFCFCF;
 
   text-align: center;
-/*  padding: 0 0 35px;*/
+  /*  padding: 0 0 35px;*/
 }
 
 .product-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-/*  padding: 0 0 35px;*/
+  /*  padding: 0 0 35px;*/
   border-bottom: 1px solid #E5E5E5;
   text-align: center;
   margin-top: 0;

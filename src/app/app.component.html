@@ -11,7 +11,7 @@
     </div>
 
     <!--Logo place-->
-    <div class="p-col-6 p-lg-3 fixed-p-3 logo-container">
+    <div class="p-col-5 p-lg-3 fixed-p-3 logo-container">
       <a href="/">
         <img id="logo" class="logo" src="assets/showcase/images/logo/logo-4.png">
       </a>
@@ -21,7 +21,6 @@
     <div id="desktopSearch" class="p-col-0 p-lg-5 search-block fixed-p-5">
       <p-autoComplete [ngModel]="product"
                       [suggestions]="searchResults"
-                      ui-menuitem-icon="pi pi-bars"
                       field="Поиск по имени"
                       size="75"
                       (completeMethod)="search($event)"
@@ -40,9 +39,40 @@
       </p-autoComplete>
     </div>
 
+
     <!--Compare + Favourites + Login/Profile-->
     <div class="p-col-fixed compare-favourites-container">
-      <div class="p-grid p-align-center p-justify-start" style="margin: auto">
+      <div class="p-grid p-align-center  p-nogutter p-justify-start" style="margin: auto">
+
+        <!--Search place FOR MOBILE-->
+        <div id="mobileSearch" class="p-col-fixed">
+          <!-- TODO: see styles.css .ui-sidebar-top -->
+          <p-sidebar #sidebar [(visible)]="searchFieldVisible" position="top" [showCloseIcon]="false"
+                     (onShow)="autoComplete.focusInput(); searchOnRestore($event, autoComplete)">
+            <!-- TODO: see styles.css .ui-autocomplete -->
+            <p-autoComplete #autoComplete [ngModel]="product"
+                            [suggestions]="searchResults"
+                            field="Поиск по имени"
+                            size="75"
+                            (completeMethod)="search($event)"
+                            (onSelect)="onSelect($event); sidebar.close($event)"
+                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)">
+              <ng-template let-product pTemplate="item">
+                <div class="ui-helper-clearfix top-search">
+                  <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
+                       style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
+                  <div
+                    style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
+                    {{product.brand.shortName}} {{product.model}} {{product.age}}
+                  </div>
+                </div>
+              </ng-template>
+            </p-autoComplete>
+          </p-sidebar>
+          <button type="button" (click)="searchFieldVisible=true" pButton icon="pi pi-search"
+                  style=" width: 30%; border: none; background-color: transparent; box-shadow: none">
+          </button>
+        </div>
         <div class="p-col-fixed p-md-5" style="width: 35px">
           <img src="assets/showcase/images/icons/grey-compare.svg"
                class="header-icons">
@@ -61,33 +91,6 @@
         <div class="p-col-fixed">
           <img src="assets/showcase/images/icons/avatar.png"
                class="header-icons">
-        </div>
-      </div>
-    </div>
-
-    <!--Search place FOR MOBILE-->
-    <div id="mobileSearch" class="p-col-12">
-      <div class="p-grid p-justify-center">
-        <div  class="p-col-8 p-lg-0 search-block">
-          <p-autoComplete [ngModel]="product"
-                          [suggestions]="searchResults"
-                          ui-menuitem-icon="pi pi-bars"
-                          field="Поиск по имени"
-                          size="75"
-                          (completeMethod)="search($event)"
-                          (onSelect)="onSelect($event)"
-                          (onKeyUp)="searchEnter($event)">
-            <ng-template let-product pTemplate="item">
-              <div class="ui-helper-clearfix top-search">
-                <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
-                     style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-                <div
-                  style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
-                  {{product.brand.shortName}} {{product.model}} {{product.age}}
-                </div>
-              </div>
-            </ng-template>
-          </p-autoComplete>
         </div>
       </div>
     </div>
