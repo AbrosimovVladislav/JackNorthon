@@ -5,9 +5,15 @@
     <!--Catalog icon and menu FOR MOBILE-->
     <div class="p-col-1 p-lg-0 mobile-catalog-container">
       <button id="mobileCatalogButton" type="button" pButton icon="pi pi-bars" label=" "
-              (click)="mobileCatalog.toggle($event)"></button>
+              (click)="mobileCatalog.toggle($event); mobileMenuSideBar.visible=true"></button>
+      <p-sidebar #mobileMenuSideBar
+                 [(visible)]="mobileMenuSideBar.visible"
+                 [baseZIndex]="10000"
+                 [showCloseIcon]="true"
+                 position="left">
       <p-slideMenu #mobileCatalog id="mobileCatalog" [model]="items" [popup]="true"
                    [viewportHeight]="250"></p-slideMenu>
+      </p-sidebar>
     </div>
 
     <!--Logo place-->
