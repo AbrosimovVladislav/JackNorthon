@@ -1,3 +1,11 @@
+.apply-button{
+  display: flex; justify-content: center
+}
+
+.decline-button{
+  display: flex; justify-content: center
+}
+
 .data-view-content {
   display: flex;
   justify-content: center;

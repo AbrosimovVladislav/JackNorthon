@@ -73,19 +73,16 @@
       </ul>
       <div class="p-grid">
         <div class="p-col-6">
-          <p-button class=" apply-button"
+          <p-button class="apply-button"
                     label="Применить"
-                    (onClick)="sendRequest()"
-                    style="display: flex; justify-content: center">
+                    (onClick)="sendRequest()">
 
           </p-button>
         </div>
         <div class="p-col-6">
-          <p-button class=" decline-button"
+          <p-button class="decline-button"
                     label="Очистить"
-                    (onClick)="clearFilters()"
-                    style="display: flex; justify-content: center">
-
+                    (onClick)="clearFilters()">
           </p-button>
         </div>
       </div>
@@ -118,7 +115,7 @@
           <!--MOBILE filters-->
           <div id="mobileFilters" class="p-col-8">
             <button pButton type="button" label="Фильтры"
-                    style="font-family: Ubuntu; width: 100%; margin: auto"
+                    style="background: white; color: #7F7F7F; font-family: Ubuntu; width: 100%; margin: auto"
                     (click)="mobileFilterSideBar.visible = true">
             </button>
             <p-sidebar #mobileFilterSideBar
@@ -224,11 +221,11 @@
                             (onClick)="sendRequest(); mobileFilterSideBar.close($event)"
                             style="display: flex; justify-content: center; margin-bottom: 10%">
                   </p-button>
-                  <p-button class="p-col-6 decline-button"
+<!--                  <p-button class="p-col-6 decline-button"
                             label="Очистить"
                             (onClick)="clearFilters()"
                             style="display: flex; justify-content: center; margin-bottom: 10%">
-                  </p-button>
+                  </p-button>-->
                 </div>
               </p-scrollPanel>
             </p-sidebar>
