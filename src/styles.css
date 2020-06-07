@@ -240,7 +240,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
   }
 
   /*for catalog vertical alignment*/
-  .ui-button-text-icon-left .ui-button-icon-left {
+  .ui-button-text-icon-left .ui-button-icon-left.pi-bars {
     width: 2em;
     height: 2em;
     top: -20%;

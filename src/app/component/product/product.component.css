@@ -112,7 +112,7 @@ img.img-responsive {
 
 
 /*to have no standard filters on small screens
-  and no sorting
+  and small sorting
   and name of the type in the center of the screen
 */
 @media screen and (max-device-width: 991px) {
