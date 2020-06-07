@@ -9,10 +9,20 @@
       <p-sidebar #mobileMenuSideBar
                  [(visible)]="mobileMenuSideBar.visible"
                  [baseZIndex]="10000"
+                 [autoZIndex]="true"
                  [showCloseIcon]="true"
                  position="left">
-      <p-slideMenu #mobileCatalog id="mobileCatalog" [model]="items" [popup]="true"
-                   [viewportHeight]="250"></p-slideMenu>
+        <div #catalogHeader class="p-col-12 sidebar-header">
+          Каталог
+        </div>
+        <p-slideMenu #mobileCatalog id="mobileCatalog" [model]="items"
+                     [viewportHeight]="420"
+                     [menuWidth]="230"
+                     [backLabel]="'Назад'"
+                     [popup]="true"
+                     [appendTo]="catalogHeader"
+                     (onHide)="mobileMenuSideBar.visible = false">
+        </p-slideMenu>
       </p-sidebar>
     </div>
 
@@ -95,7 +105,7 @@
         </div>
 
         <div class="p-col-fixed">
-          <img  src="assets/showcase/images/icons/avatar.png"
+          <img src="assets/showcase/images/icons/avatar.png"
                class="header-icons">
         </div>
       </div>
