@@ -83,6 +83,11 @@ body .ui-widget {
   text-decoration: none;
 }
 
+/*to have common border-radius*/
+body .ui-corner-all {
+  border-radius: 1px;
+}
+
 /*to have common active color
   on triangle in catalog on hover
   and spinner in search
@@ -212,6 +217,58 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
   font-size: 13px;
 }
 
+
+/*to have mobile catalog in common style and inside sidebar*/
+body .ui-slidemenu {
+  padding: 0;
+  top: 5em !important;
+  left: 0.5em !important;
+  background-color: #ffffff;
+  border: none;
+  box-shadow: none;
+  width: 98% !important;
+}
+
+body .ui-slidemenu,
+body .ui-slidemenu-wrapper,
+body .ui-slidemenu-content {
+
+  display: flex;
+  height: 80%;
+  width: 98%;
+}
+
+body .ui-slidemenu .ui-slidemenu-backward {
+  background-color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+
+body ul.ui-menu-child {
+  white-space: nowrap;
+  width: auto !important;
+}
+
+/*to have uppercase in sidebars*/
+body .sidebar-header {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: normal;
+  padding: 1em;
+  border-bottom: 1px solid #E5E5E5;
+  margin-bottom: 2em;
+}
+
+body .sidebar-content {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: normal;
+  padding: 0;
+  border: none;
+  margin-top: 2em;
+}
+
+
 /*to have catalog icon bigger on mobiles
   and to have zero-content columns disappeared in small screens
 */
@@ -228,7 +285,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
     font-size: 1.5em;
     color: #E07E0B;
     display: inline-block;
-    top:0;
+    top: 0;
   }
 
   /*for filter close icon size*/
@@ -266,7 +323,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-s
     border: none;
     border-radius: 0;
     transition: none;
-/*    box-shadow: none;*/
+    /*    box-shadow: none;*/
   }
 }
 
@@ -422,8 +479,9 @@ body .ui-listbox .ui-listbox-header {
   margin: 0;
 }
 
-/*to have no shadow transition on focus in filter items*/
-body .ui-listbox .ui-listbox-list .ui-listbox-item:focus {
+/*to have no shadow transition on focus in filter and catalog items*/
+body .ui-listbox .ui-listbox-list .ui-listbox-item:focus,
+body .ui-slidemenu .ui-menuitem-link:focus {
   box-shadow: none;
 }
 
@@ -500,7 +558,7 @@ body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
   -moz-box-shadow: 0 0 0 0.2em #E07E0B;
   box-shadow: 0 0 0 0.2em #E07E0B;
   height: auto;
-  width: 80%;
+  width: 90%;
   font-weight: bold;
   font-size: 12px;
   line-height: 140%;
@@ -543,6 +601,7 @@ body .ui-listbox.ui-inputtext.ui-widget.ui-widget-content.ui-corner-all {
 .ui-sidebar-top {
   height: 4em;
 }
+
 /*anyone plz find another solution T___T */
 .ui-autocomplete {
   margin-top: 0.3em;
