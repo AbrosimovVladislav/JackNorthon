@@ -19,7 +19,7 @@
                     <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
                                [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                               [listStyle]="{'max-height':'130px', 'padding-left':'0', 'margin-left':'0'}"
+                               [listStyle]="{'max-height':'125px', 'padding-left':'0', 'margin-left':'0'}"
                                [multiple]="true"
                                [checkbox]="true"
                                [filter]="true"
@@ -113,18 +113,20 @@
           </div>
 
           <!--MOBILE filters-->
-          <div id="mobileFilters" class="p-col-8">
-            <button pButton type="button" label="Фильтры"
-                    style="background: white; color: #7F7F7F; font-family: Ubuntu; width: 100%; margin: auto"
+          <div id="mobileFilters" class="p-col-4">
+            <button type="button" label="Фильтры" pButton icon="pi pi-filter"
+                    style="background-color: #ffffff; color: #7F7F7F;
+                    border: 1px solid #E5E5E5; border-radius: 1px;  box-shadow: none;
+                    font-family: Ubuntu; font-size: 14px; width: 100%; height: 40px; margin: auto"
                     (click)="mobileFilterSideBar.visible = true">
             </button>
             <p-sidebar #mobileFilterSideBar
                        [(visible)]="mobileFilterSideBar.visible"
                        [baseZIndex]="10000"
                        [showCloseIcon]="true"
-                       [fullScreen]="true"
+                       [fullScreen]="false"
                        position="right">
-              <div class="p-col-12 filter-header">
+              <div class="p-col-12 sidebar-header">
                 Фильтры
               </div>
               <p-scrollPanel [style]="{width: '100%', height: '90%'}">
@@ -145,7 +147,7 @@
                               <p-listbox [id]="filterItem.showName" [options]="filterItem.selectItem"
                                          [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
                                          (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                                         [listStyle]="{'max-height':'130px', 'padding-left':'0', 'margin-left':'0'}"
+                                         [listStyle]="{'max-height':'125px', 'padding-left':'0', 'margin-left':'0'}"
                                          [multiple]="true"
                                          [checkbox]="true"
                                          [filter]="true"
