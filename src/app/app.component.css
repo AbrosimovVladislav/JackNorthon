@@ -147,3 +147,25 @@ body .ui-menubar .catalog .ui-menuitem-link .ui-menuitem-text {
   color: #E07E0B;
 }
 
+.top-search {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75em;
+  min-height: 70px;
+}
+.top-search img {
+  max-width:60px;
+  display:inline-block;
+  margin: auto;
+
+}
+.top-search .top-search-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 1em;
+}

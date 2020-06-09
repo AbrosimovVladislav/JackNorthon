@@ -37,18 +37,21 @@
     <div id="desktopSearch" class="p-col-0 p-lg-5 search-block fixed-p-5">
       <p-autoComplete [ngModel]="product"
                       [suggestions]="searchResults"
-                      field="Поиск по имени"
+                      [required]="true"
+                      scrollHeight="320px"
+                      [placeholder]="'Поиск по имени'"
                       size="75"
                       (completeMethod)="search($event)"
-                      (onSelect)="onSelect($event)"
-                      (onKeyUp)="searchEnter($event)">
+                      (onSelect)="onSelect($event); sidebar.close($event)"
+                      (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)"
+                      class="autocomplete-search">
         <ng-template let-product pTemplate="item">
-          <div class="ui-helper-clearfix top-search">
-            <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
-                 style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-            <div
-              style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
-              {{product.brand.shortName}} {{product.model}} {{product.age}}
+          <div class="ui-helper-clearfix top-search p-grid p-nogutter">
+            <div class="p-col-2">
+              <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"/>
+            </div>
+            <div class="p-col-10 top-search-text">
+              {{product.type.showName}} {{product.brand.shortName}} {{product.model}} {{product.age}}
             </div>
           </div>
         </ng-template>
@@ -68,18 +71,21 @@
             <!-- TODO: see styles.css .ui-autocomplete -->
             <p-autoComplete #autoComplete [ngModel]="product"
                             [suggestions]="searchResults"
-                            field="Поиск по имени"
+                            [required]="true"
+                            scrollHeight="290px"
+                            [placeholder]="'Поиск по имени'"
                             size="75"
                             (completeMethod)="search($event)"
                             (onSelect)="onSelect($event); sidebar.close($event)"
-                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)">
+                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)"
+                            class="autocomplete-search">
               <ng-template let-product pTemplate="item">
-                <div class="ui-helper-clearfix top-search">
-                  <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
-                       style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-                  <div
-                    style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
-                    {{product.brand.shortName}} {{product.model}} {{product.age}}
+                <div class="ui-helper-clearfix top-search p-grid p-nogutter">
+                  <div class="p-col-2">
+                    <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"/>
+                  </div>
+                  <div class="p-col-10 top-search-text">
+                    {{product.type.showName}} {{product.brand.shortName}} {{product.model}} {{product.age}}
                   </div>
                 </div>
               </ng-template>
