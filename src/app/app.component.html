@@ -41,9 +41,10 @@
                       scrollHeight="320px"
                       [placeholder]="'Поиск по имени'"
                       size="75"
+                      field="search"
                       (completeMethod)="search($event)"
-                      (onSelect)="onSelect($event); sidebar.close($event)"
-                      (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)"
+                      (onSelect)="onSelect($event)"
+                      (onKeyUp)="searchEnter($event)"
                       class="autocomplete-search">
         <ng-template let-product pTemplate="item">
           <div class="ui-helper-clearfix top-search p-grid p-nogutter">
