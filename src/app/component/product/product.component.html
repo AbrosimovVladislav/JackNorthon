@@ -114,7 +114,27 @@
 
           <!--MOBILE filters-->
           <div id="mobileFilters" class="p-col-4">
-            <button type="button" label="Фильтры" pButton icon="pi pi-filter"
+            <div class="p-col-6 p-justify-start filter-box">
+              <div *ngFor="let filterItem of filters">
+              <div *ngIf="filterItem.filterType==='SORT'">
+                <div class="p-grid">
+                  <div class="p-col-12 filter-name-box">
+                    <p-header class="filter-name">{{filterItem.showName}}</p-header>
+                  </div>
+                  <div class="p-col-12">
+                    <p-dropdown class="sorting" [options]="filterItem.selectItem"
+                                [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
+                                (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
+                                [style]="{'min-width':'100px'}"
+                                placeholder="{{filterItem.showName}}"
+                                (onChange)="sendRequest()">
+                    </p-dropdown>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <button class="p-col-6" type="button" label="Фильтры" pButton icon="pi pi-filter"
                     style="background-color: #ffffff; color: #7F7F7F;
                     border: 1px solid #E5E5E5; border-radius: 1px;  box-shadow: none;
                     font-family: Ubuntu; font-size: 14px; width: 100%; height: 40px; margin: auto"
@@ -174,24 +194,6 @@
                                      class="range-box"
                                      pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
                                      (change)="sendRequest()"/>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="p-col-12 p-justify-start filter-box">
-                        <div *ngIf="filterItem.filterType==='SORT'">
-                          <div class="p-grid">
-                            <div class="p-col-12 filter-name-box">
-                              <p-header class="filter-name">{{filterItem.showName}}</p-header>
-                            </div>
-                            <div class="p-col-12">
-                              <p-dropdown class="sorting" [options]="filterItem.selectItem"
-                                          [ngModel]="selectedFilterMap.get(filterItem.filterKey)"
-                                          (ngModelChange)="selectedFilterMap.set(filterItem.filterKey, $event)"
-                                          [style]="{'min-width':'100px'}"
-                                          placeholder="{{filterItem.showName}}"
-                                          (onChange)="sendRequest()">
-                              </p-dropdown>
                             </div>
                           </div>
                         </div>
