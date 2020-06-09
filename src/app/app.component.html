@@ -35,9 +35,10 @@
 
     <!--Search place FOR DESKTOP-->
     <div id="desktopSearch" class="p-col-0 p-lg-5 search-block fixed-p-5">
-      <p-autoComplete [ngModel]="product"
+      <p-autoComplete #desktopAutoComplete [ngModel]="product"
                       [suggestions]="searchResults"
                       [required]="true"
+                      (onFocus)="searchOnRestore($event, desktopAutoComplete)"
                       scrollHeight="320px"
                       [placeholder]="'Поиск по имени'"
                       size="75"
@@ -68,9 +69,9 @@
         <div id="mobileSearch" class="p-col-fixed">
           <!-- TODO: see styles.css .ui-sidebar-top -->
           <p-sidebar #sidebar [(visible)]="searchFieldVisible" position="top" [showCloseIcon]="false"
-                     (onShow)="autoComplete.focusInput(); searchOnRestore($event, autoComplete)">
+                     (onShow)="mobileAutoComplete.focusInput(); searchOnRestore($event, mobileAutoComplete)">
             <!-- TODO: see styles.css .ui-autocomplete -->
-            <p-autoComplete #autoComplete [ngModel]="product"
+            <p-autoComplete #mobileAutoComplete [ngModel]="product"
                             [suggestions]="searchResults"
                             [required]="true"
                             scrollHeight="290px"
@@ -78,7 +79,7 @@
                             size="75"
                             (completeMethod)="search($event)"
                             (onSelect)="onSelect($event); sidebar.close($event)"
-                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)"
+                            (onKeyUp)="mobileSearchEnter($event, sidebar, mobileAutoComplete)"
                             class="autocomplete-search">
               <ng-template let-product pTemplate="item">
                 <div class="ui-helper-clearfix top-search p-grid p-nogutter">
