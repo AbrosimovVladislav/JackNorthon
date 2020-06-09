@@ -606,3 +606,20 @@ body .ui-listbox.ui-inputtext.ui-widget.ui-widget-content.ui-corner-all {
 .ui-autocomplete {
   margin-top: 0.3em;
 }
+
+/*to have fixed width in top-search autocomplete list*/
+body .autocomplete-search .ui-autocomplete .ui-autocomplete-panel {
+  width: 100%;
+}
+
+/*to have border in bottom of autocomplete list item*/
+body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item {
+  border-bottom: 1px solid rgb(246,246,246);
+}
+
+
+/*to have common state on hover*/
+body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item.ui-state-highlight {
+  background-color: rgb(246,246,246);
+  color: #0E0E0E;
+}
