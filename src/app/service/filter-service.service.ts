@@ -13,8 +13,8 @@ export class FilterService {
   selectItems: SItem[];
   filterItemArray: FilterItem[];
   sortOptions: SItem[] = [
-    {title: 'Цена', label: 'Цена (сначала дешевые)', value: 'minPrice,asc'},
-    {title: 'Цена', label: 'Цена (сначала дорогие)', value: 'minPrice,desc'},
+    {title: 'Цена', label: 'Сначала дешевые', value: 'minPrice,asc'},
+    {title: 'Цена', label: 'Сначала дорогие', value: 'minPrice,desc'},
     {title: 'Популярность', label: 'Популярность', value: 'rating.value,desc'},
     {title: 'Отзывы', label: 'Отзывы', value: 'reviewCount,desc'}
   ];

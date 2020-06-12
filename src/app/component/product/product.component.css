@@ -110,7 +110,7 @@ img.img-responsive {
 */
 @media screen and (max-device-width: 991px) {
   .product-filter-container,
-  #sorting {
+  #desktopSorting {
     padding: 0;
     display: none;
   }
@@ -126,6 +126,24 @@ img.img-responsive {
     justify-content: center;
   }
 
+  .sorting {
+    height: 40px;
+    border: none;
+  }
+
+  #mobileFilters button {
+    background-color: #ffffff;
+    text-transform: none;
+    color: #7F7F7F;
+    border: 1px solid #E5E5E5;
+    border-radius: 1px;
+    box-shadow: none;
+    font-family: Ubuntu;
+    font-size: 14px;
+    width: 40%;
+    max-width: 150px;
+    height: 40px;
+  }
 }
 
 @media screen and (min-device-width: 992px) {
@@ -135,7 +153,7 @@ img.img-responsive {
     padding: 0;
   }
 
-  #sorting {
+  #desktopSorting {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
