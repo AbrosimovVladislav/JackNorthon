@@ -109,6 +109,12 @@
   #logo {
     margin: auto;
   }
+
+  .top-search img {
+    max-width: 55px;
+    display: inline-block;
+    margin: auto;
+  }
 }
 
 
@@ -157,12 +163,13 @@ body .ui-menubar .catalog .ui-menuitem-link .ui-menuitem-text {
   max-width: 75em;
   min-height: 70px;
 }
-.top-search img {
-  max-width:60px;
-  display:inline-block;
-  margin: auto;
 
+.top-search img {
+  max-width: 60px;
+  display: inline-block;
+  margin: auto;
 }
+
 .top-search .top-search-text {
   white-space: nowrap;
   overflow: hidden;
