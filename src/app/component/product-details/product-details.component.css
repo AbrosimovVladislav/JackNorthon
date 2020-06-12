@@ -93,6 +93,11 @@
   .product-name {
     padding-left: 0.5em;
   }
+  .favourites-and-comparison,
+  .favourites-and-comparison *{
+    display: none;
+    padding: 0;
+  }
 }
 
 @media screen and (min-device-width: 992px) {
