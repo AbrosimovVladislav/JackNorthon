@@ -1,15 +1,20 @@
+.product-details {
+  display: flex;
+  justify-content: center;
+}
+
 .product-name {
   font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
   font-size: 21px;
-  /*line-height: 140%;*/
-  /* or 29px */
+  line-height: 140%;
   letter-spacing: 0.02em;
 
   position: relative;
   padding-top: 2em;
   padding-bottom: 1.5em;
+  padding-left: 1.5em;
   text-align: left;
   vertical-align: center;
   color: #0E0E0E;
@@ -17,41 +22,137 @@
 
 
 .product-details-menu {
-  margin: 0 auto;
-  padding: 20px;
-  background: #E9E9E9;
-  color: #E9E9E9;
+  padding: 0;
+  background: #f4f4f4;
+  color: #0E0E0E;
   vertical-align: center;
   text-align: center;
-
-  font-family: Ubuntu;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 140%;
-  /* or 18px */
-
-  letter-spacing: 0.02em;
-
-  /* #0E0E0E */
-
-  color: #0E0E0E;
+  border: 1px solid #dcdcdc;
+  border-right: none;
+  border-top: none;
+  box-shadow: 0 1px 4px 0 #b9b9b9;
 }
 
 .product-details-menu-item {
+  padding: 20px 0;
   display: inline-block;
   vertical-align: center;
 
   font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 140%;
-  /* or 18px */
+  border-right: 1px solid #dcdcdc;
 
   letter-spacing: 0.02em;
   /* #0E0E0E */
   color: #0E0E0E;
+}
+
+.product-details-menu-item a {
+  color: #0E0E0E;
+}
+
+
+@media screen and (max-device-width: 991px) {
+  .product-name {
+    text-align: center;
+  }
+
+  .product-details-menu,
+  .product-details-menu * {
+    display: none;
+    padding: 0;
+  }
+
+  #productGalleria {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 80%;
+  }
+  #productGalleria img.ui-panel-images {
+    width: 80%;
+    height: 64%;
+  }
+
+  #desktopPrice {
+    display: none;
+    padding: 0;
+  }
+  #mobilePrice {
+    font-size: 14px;
+    text-align: right;
+  }
+  div.one-string-text {
+    display: none;
+    padding: 0;
+  }
+
+  .product-name {
+    padding-left: 0.5em;
+  }
+  .favourites-and-comparison,
+  .favourites-and-comparison *{
+    display: none;
+    padding: 0;
+  }
+
+  .offers-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ui-table-responsive .ui-table-tbody>tr>td.offer-image > a > img{
+    text-align: center !important;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    margin-left: 50px;
+  }
+
+
+
+  .offer-image img {
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #desktopOfferPrice {
+    display: none;
+    padding: 0;
+  }
+
+  .ui-table .ui-table-tbody > tr > td.offer-name,
+  .offer-name a {
+    display: none;
+    padding: 0 !important;
+  }
+
+  #offerShop > a > p,
+  #mobileOfferPrice > a {
+    padding: 0.5em 0;
+  }
+
+
+}
+
+@media screen and (min-device-width: 992px) {
+  #mobilePrice {
+    display: none;
+    padding: 0;
+  }
+
+  .offer-image img {
+    max-height: 70px;
+  }
+
+  #mobileOfferPrice {
+    display: none;
+    padding: 0;
+  }
 }
 
 .product-rating img {
@@ -90,8 +191,6 @@
 .product-info {
   padding: 5%;
 }
-
-
 
 
 .one-string-text {
@@ -161,7 +260,6 @@
 
 .offers td {
   border: none;
-  border-bottom: 1px solid #E9E9E9;
 
   word-wrap: break-spaces;
 
@@ -172,6 +270,12 @@
 
   vertical-align: center;
   color: #000000;
+}
+
+.offers-header {
+  font-size: 16px;
+  line-height: 140%;
+  padding: 1em 1em 2em;
 }
 
 .offer-price {
@@ -200,7 +304,7 @@
   border-color: #E07E0B !important;
 }
 
-.offer-link {
+.offer-button {
   font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
@@ -219,6 +323,7 @@
   border-color: #E07E0B;
   border-radius: 3px;
   padding: 10px;
+
 
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);

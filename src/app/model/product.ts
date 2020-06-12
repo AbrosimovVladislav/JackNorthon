@@ -14,6 +14,7 @@ export interface Product {
   imageLink;
   rating: Rating;
   minPrice;
+  maxPrice;
   offerQuantity: number;
 }
 
