@@ -89,11 +89,16 @@
       <p-scrollPanel [style]="{width: '100%', height: '100vh'}">
         <p-table [value]="offers" [autoLayout]="true" [responsive]="true" class="offers">
           <ng-template pTemplate="header">
-            <th colspan="3">Предложения магазинов</th>
+            <th colspan="5" class="offers-header">Предложения магазинов</th>
           </ng-template>
           <ng-template pTemplate="body" let-offer>
-            <tr>
-              <td align="left">
+            <tr class="p-grid" style="padding-top: 2em">
+              <td class="p-col-6 p-lg-1 offer-image">
+                <a href="{{offer.link}}">
+                  <img src="{{images[0].source}}">
+                </a>
+              </td>
+              <td class="p-col-6 p-lg-5 offer-name" align="left">
                 <a href="{{offer.link}}">
                   {{product.type.showName + " " +
                 product.brand.shortName + " " +
@@ -101,7 +106,7 @@
                 product.age}}
                 </a>
               </td>
-              <td>
+              <td id="offerShop" class="p-col-6 p-lg-2" align="center">
                 <a href="{{offer.shop.website}}">
                   {{offer.shop.name}}
                   <p>
@@ -111,12 +116,16 @@
                     <img src="assets/showcase/images/icons/star-small.png">
                     <img src="assets/showcase/images/icons/star-small.png">
                   </p>
-                </a></td>
-              <td align="right">
-                <a href="{{offer.link}}" class="offer-price">{{offer.price}}</a>
+                </a>
+                <p id="mobileOfferPrice">
+                  <a href="{{offer.link}}" class="offer-price">{{offer.price}} Р</a>
+                </p>
               </td>
-              <td align="right">
-                <a href="{{offer.link}}"><span class="offer-link">В&nbsp;МАГАЗИН</span></a>
+              <td id="desktopOfferPrice" class="p-col-6 p-lg-2" align="center">
+                <a href="{{offer.link}}" class="offer-price">{{offer.price}} Р</a>
+              </td>
+              <td id="offerShopButton" class="p-col-12 p-lg-2" align="center">
+                <a href="{{offer.link}}"><span class="offer-button">В&nbsp;МАГАЗИН</span></a>
               </td>
             </tr>
           </ng-template>

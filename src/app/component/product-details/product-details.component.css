@@ -98,10 +98,58 @@
     display: none;
     padding: 0;
   }
+
+  .offers-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ui-table-responsive .ui-table-tbody>tr>td.offer-image > a > img{
+    text-align: center !important;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    margin-left: 50px;
+  }
+
+
+
+  .offer-image img {
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #desktopOfferPrice {
+    display: none;
+    padding: 0;
+  }
+
+  .ui-table .ui-table-tbody > tr > td.offer-name,
+  .offer-name a {
+    display: none;
+    padding: 0 !important;
+  }
+
+  #offerShop > a > p,
+  #mobileOfferPrice > a {
+    padding: 0.5em 0;
+  }
+
+
 }
 
 @media screen and (min-device-width: 992px) {
   #mobilePrice {
+    display: none;
+    padding: 0;
+  }
+
+  .offer-image img {
+    max-height: 70px;
+  }
+
+  #mobileOfferPrice {
     display: none;
     padding: 0;
   }
@@ -212,7 +260,6 @@
 
 .offers td {
   border: none;
-  border-bottom: 1px solid #E9E9E9;
 
   word-wrap: break-spaces;
 
@@ -223,6 +270,12 @@
 
   vertical-align: center;
   color: #000000;
+}
+
+.offers-header {
+  font-size: 16px;
+  line-height: 140%;
+  padding: 1em 1em 2em;
 }
 
 .offer-price {
@@ -251,7 +304,7 @@
   border-color: #E07E0B !important;
 }
 
-.offer-link {
+.offer-button {
   font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
@@ -270,6 +323,7 @@
   border-color: #E07E0B;
   border-radius: 3px;
   padding: 10px;
+
 
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);

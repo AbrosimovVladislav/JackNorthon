@@ -343,7 +343,35 @@ body .sidebar-content {
     padding: 0;
     display: none;
   }
+
+  .ui-table-responsive .ui-table-tbody > tr > td.offer-name {
+    display: none;
+    padding: 0 !important;
+  }
+
+  .ui-table-responsive .ui-table-tbody>tr>td.offer-image > a > img{
+    text-align: center !important;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    margin-left: 40px;
+  }
+
+  .ui-table-responsive .ui-table-tbody>tr>td.p-col-6 {
+    width: 50% !important;
+  }
+
+  .ui-table-responsive .ui-table-tbody>tr>td#offerShopButton {
+    text-align: center !important;
+    padding-bottom: 2em;
+  }
+
+  .ui-table-responsive .ui-table-tbody>tr>td#offerShopButton .offer-button {
+    padding-left: 6em;
+    padding-right: 6em;
+  }
 }
+
 
 /*to have no border in dropdown on desktop screens*/
 @media screen and (min-device-width: 992px) {
@@ -354,6 +382,13 @@ body .sidebar-content {
     transition: none;
     /*    box-shadow: none;*/
   }
+
+  body .ui-table-responsive .ui-table-tbody > tr > td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 }
 
 
@@ -578,7 +613,7 @@ body .ui-button:enabled:hover,
 body .ui-button:enabled:focus,
 body .ui-button:enabled:active,
 body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
-/*  margin: 5px auto;*/
+  /*  margin: 5px auto;*/
   color: #ffffff;
   background-color: #E07E0B;
   border: 1px solid #E07E0B;
@@ -587,7 +622,7 @@ body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
   -moz-box-shadow: 0 0 0 0.2em #E07E0B;
   box-shadow: 0 0 0 0.2em #E07E0B;
   height: auto;
-/*  width: 90%;*/
+  /*  width: 90%;*/
   font-weight: bold;
   font-size: 12px;
   line-height: 140%;
@@ -643,12 +678,12 @@ body .autocomplete-search .ui-autocomplete .ui-autocomplete-panel {
 
 /*to have border in bottom of autocomplete list item*/
 body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item {
-  border-bottom: 1px solid rgb(246,246,246);
+  border-bottom: 1px solid rgb(246, 246, 246);
 }
 
 
 /*to have common state on hover*/
 body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item.ui-state-highlight {
-  background-color: rgb(246,246,246);
+  background-color: rgb(246, 246, 246);
   color: #0E0E0E;
 }
