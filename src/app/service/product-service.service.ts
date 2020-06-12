@@ -32,6 +32,7 @@ export class ProductService {
                     imageLink: products[key].imageLink,
                     rating: products[key].rating,
                     minPrice: products[key].minPrice,
+                    maxPrice: products[key].maxPrice,
                     offerQuantity: products[key].offerQuantity
                   });
                 } else {
@@ -48,6 +49,7 @@ export class ProductService {
                     imageLink: product.imageLink,
                     rating: product.rating,
                     minPrice: product.minPrice,
+                    maxPrice: product.maxPrice,
                     offerQuantity: product.offerQuantity
                   });
                 }
