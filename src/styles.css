@@ -131,7 +131,36 @@ body .ui-dropdown .ui-dropdown-label,
 body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item {
   padding-right: 2em;
   padding-left: 0.857em;
+  font-size: 14px;
+  font-weight: bold;
   line-height: 140%;
+  color: #7F7F7F;
+}
+
+/*to override theme dropdown for mobile sort*/
+body .sorting .ui-dropdown,
+body .sorting .ui-dropdown-label,
+body .sorting .ui-dropdown-label-container {
+
+  display: flex;
+  align-content: center;
+  align-items: center;
+  border: none;
+  height: 40px;
+
+}
+
+body .sorting .ui-dropdown-label {
+  border: 1px solid #E5E5E5;
+}
+
+body .sorting .ui-dropdown .ui-dropdown-trigger {
+  border: 1px solid #E5E5E5;
+  border-left: none;
+}
+
+body #mobileFilters .ui-button.ui-button-text-icon-left .ui-button-text {
+  padding: 0 1em 0 2em;
 }
 
 /*to override theme colors and sizes*/
@@ -318,7 +347,7 @@ body .sidebar-content {
 
 /*to have no border in dropdown on desktop screens*/
 @media screen and (min-device-width: 992px) {
-  body #sorting .ui-dropdown,
+  body #desktopSorting .ui-dropdown,
   body .ui-dropdown-panel {
     border: none;
     border-radius: 0;
@@ -549,7 +578,7 @@ body .ui-button:enabled:hover,
 body .ui-button:enabled:focus,
 body .ui-button:enabled:active,
 body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
-  margin: 5px auto;
+/*  margin: 5px auto;*/
   color: #ffffff;
   background-color: #E07E0B;
   border: 1px solid #E07E0B;
@@ -558,7 +587,7 @@ body .ui-button.ui-state-default.ui-button-secondary:enabled:focus {
   -moz-box-shadow: 0 0 0 0.2em #E07E0B;
   box-shadow: 0 0 0 0.2em #E07E0B;
   height: auto;
-  width: 90%;
+/*  width: 90%;*/
   font-weight: bold;
   font-size: 12px;
   line-height: 140%;
@@ -605,4 +634,21 @@ body .ui-listbox.ui-inputtext.ui-widget.ui-widget-content.ui-corner-all {
 /*anyone plz find another solution T___T */
 .ui-autocomplete {
   margin-top: 0.3em;
+}
+
+/*to have fixed width in top-search autocomplete list*/
+body .autocomplete-search .ui-autocomplete .ui-autocomplete-panel {
+  width: 100%;
+}
+
+/*to have border in bottom of autocomplete list item*/
+body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item {
+  border-bottom: 1px solid rgb(246,246,246);
+}
+
+
+/*to have common state on hover*/
+body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item.ui-state-highlight {
+  background-color: rgb(246,246,246);
+  color: #0E0E0E;
 }

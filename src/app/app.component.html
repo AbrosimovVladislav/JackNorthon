@@ -35,20 +35,25 @@
 
     <!--Search place FOR DESKTOP-->
     <div id="desktopSearch" class="p-col-0 p-lg-5 search-block fixed-p-5">
-      <p-autoComplete [ngModel]="product"
+      <p-autoComplete #desktopAutoComplete [ngModel]="product"
                       [suggestions]="searchResults"
-                      field="Поиск по имени"
+                      [required]="true"
+                      (onFocus)="searchOnRestore($event, desktopAutoComplete)"
+                      scrollHeight="320px"
+                      [placeholder]="'Поиск по имени'"
                       size="75"
+                      field="search"
                       (completeMethod)="search($event)"
                       (onSelect)="onSelect($event)"
-                      (onKeyUp)="searchEnter($event)">
+                      (onKeyUp)="searchEnter($event)"
+                      class="autocomplete-search">
         <ng-template let-product pTemplate="item">
-          <div class="ui-helper-clearfix top-search">
-            <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
-                 style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-            <div
-              style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
-              {{product.brand.shortName}} {{product.model}} {{product.age}}
+          <div class="ui-helper-clearfix top-search p-grid p-nogutter">
+            <div class="p-col-2">
+              <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"/>
+            </div>
+            <div class="p-col-10 top-search-text">
+              {{product.type.showName}} {{product.brand.shortName}} {{product.model}} {{product.age}}
             </div>
           </div>
         </ng-template>
@@ -64,22 +69,25 @@
         <div id="mobileSearch" class="p-col-fixed">
           <!-- TODO: see styles.css .ui-sidebar-top -->
           <p-sidebar #sidebar [(visible)]="searchFieldVisible" position="top" [showCloseIcon]="false"
-                     (onShow)="autoComplete.focusInput(); searchOnRestore($event, autoComplete)">
+                     (onShow)="mobileAutoComplete.focusInput(); searchOnRestore($event, mobileAutoComplete)">
             <!-- TODO: see styles.css .ui-autocomplete -->
-            <p-autoComplete #autoComplete [ngModel]="product"
+            <p-autoComplete #mobileAutoComplete [ngModel]="product"
                             [suggestions]="searchResults"
-                            field="Поиск по имени"
+                            [required]="true"
+                            scrollHeight="290px"
+                            [placeholder]="'Поиск по имени'"
                             size="75"
                             (completeMethod)="search($event)"
                             (onSelect)="onSelect($event); sidebar.close($event)"
-                            (onKeyUp)="mobileSearchEnter($event, sidebar, autoComplete)">
+                            (onKeyUp)="mobileSearchEnter($event, sidebar, mobileAutoComplete)"
+                            class="autocomplete-search">
               <ng-template let-product pTemplate="item">
-                <div class="ui-helper-clearfix top-search">
-                  <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"
-                       style="width:60px;display:inline-block;margin:5px 0 2px 5px"/>
-                  <div
-                    style="width: 100%; font-size:18px;float:right;margin:10px 10px 0 0; border-bottom:1px solid #D5D5D5;">
-                    {{product.brand.shortName}} {{product.model}} {{product.age}}
+                <div class="ui-helper-clearfix top-search p-grid p-nogutter">
+                  <div class="p-col-2">
+                    <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"/>
+                  </div>
+                  <div class="p-col-10 top-search-text">
+                    {{product.type.showName}} {{product.brand.shortName}} {{product.model}} {{product.age}}
                   </div>
                 </div>
               </ng-template>
@@ -122,3 +130,7 @@
   </div>
 </div>
 <router-outlet></router-outlet>
+<div id="footer" style="font-family: Ubuntu; background: #F3F3F3; position:page; bottom:0;  width:100%; padding-top: 0.7em; padding-bottom: 1em">
+  <p style="text-align: center"><a href="https://forms.gle/YAzXXggUh4LJ2Wgf9" target="_blank">ФОРМА ОБРАТНОЙ СВЯЗИ</a></p>
+  <p style="text-align: center; margin-bottom: 0; padding-bottom: 0;">2020 © Твой Хоккей</p>
+</div>
