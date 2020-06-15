@@ -228,6 +228,7 @@ body .non-icon .ui-submenu-icon {
 */
 .pi-bars:before,
 body .ui-menubar .ui-menuitem.ui-state-active,
+body .ui-menubar .ui-menuitem > .ui-menuitem-link .ui-menuitem-icon,
 body ul .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link .ui-menuitem-text,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text,
