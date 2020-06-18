@@ -1,12 +1,14 @@
-
-
 <div class="p-grid">
   <p style="color: white">aaa</p>
   <div style="text-align: center" class="p-col-12">
     <span style="color: #0E0E0E; font-family: Ubuntu; line-height: 140%; font-size: 35px">Товаров найдено: {{resultProducts.length}}</span>
   </div>
   <div class="p-col-12 p-md-12 product-dataview">
-    <p-dataView [value]="resultProducts" [paginator]="true" [rows]="24" layout="grid">
+    <p-dataView [value]="resultProducts"
+                [paginator]="true"
+                [rows]="24"
+                [alwaysShowPaginator]="false"
+                layout="grid">
       <p-header style="height: 0">
         <!--uncomment to see typename in the center of table
         <div class="type-name" style="text-align: center">{{typeName}}</div>
