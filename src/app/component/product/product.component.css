@@ -245,3 +245,28 @@ a.data-view-product-name:hover,
   padding-top: 0.5em;
   color: #0E0E0E;
 }
+.up-button {
+  position: fixed;
+  z-index: 1;
+  padding: 0;
+  bottom: 75px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #7F7F7F;
+  border-radius: 50%;
+  color:  #E07E0B;
+  display: none;
+  cursor: pointer;
+}
+.up-button:hover {
+  box-shadow: 0 0 10px #E07E0B;
+}
+
+.shown {
+  display: inline-block;
+}
