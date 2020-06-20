@@ -21,7 +21,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
+/* footer to bottom */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+app-product, app-product-details, app-main, app-search-result {
+  flex: 1 0 auto;
+}
 /*to have no negative margins inside grid*/
 body .p-grid {
   margin: 0;
