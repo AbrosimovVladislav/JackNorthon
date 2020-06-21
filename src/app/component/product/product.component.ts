@@ -20,6 +20,7 @@ export class ProductComponent implements OnInit {
   queryMap: ParamMap;
   typeName: string;
   typeIds: string;
+  condition: boolean;
 
   selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
   filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
@@ -116,5 +117,12 @@ export class ProductComponent implements OnInit {
     requestPath = requestPath.substring(0, requestPath.length - 1);
     requestPath += '&' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
     this.updateProducts(requestPath);
+  }
+
+  up() {
+    window.scroll(0, 0);
+  }
+  onWindowScroll() {
+    this.condition = window.pageYOffset > 200;
   }
 }

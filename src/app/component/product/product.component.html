@@ -1,4 +1,4 @@
-<div class="data-view-content">
+<div class="data-view-content" (window:scroll)="onWindowScroll()">
   <div class="p-grid p-justify-between ui-fluid p-align-stretch fixed-p-12">
     <!--DESKTOP filters-->
     <div class="p-col-12 p-lg-3 fixed-p-3 product-filter-container">
@@ -267,4 +267,7 @@
       </p-dataView>
     </div>
   </div>
+  <button class="up-button" type="button" (click)="up()" [ngClass]="{'shown': condition}">
+    ↑
+  </button>`
 </div>
