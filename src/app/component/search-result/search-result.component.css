@@ -1,4 +1,10 @@
-.type-name {
+.data-view-content {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.search-name {
   font-family: Ubuntu;
   font-style: normal;
   font-weight: bold;
@@ -6,17 +12,13 @@
   letter-spacing: 0.02em;
 
   position: relative;
-  padding-top: 2em;
+  padding-top: 1em;
   padding-bottom: 1.5em;
-  padding-left: 0.25em;
-  text-align: left;
-  vertical-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 140%;
 
   color: #0E0E0E;
-}
-
-.product-filter-container {
-  max-width: border-box;
 }
 
 .product-image {
@@ -36,7 +38,7 @@ img.img-responsive {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 0 35px;
+  padding: 0 20px;
 
   margin: auto;
 }
@@ -45,21 +47,68 @@ img.img-responsive {
   text-align: center;
 }
 
-.ui-g-6:hover {
+/*to have name of the type in the center of the screen
+*/
+@media screen and (max-device-width: 991px) {
+  .search-name {
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    width: 100%;
+  }
+
+  #dataViewHeader {
+    justify-content: center;
+  }
+}
+
+/*to have horizontal content on mobile*/
+@media screen and (max-width: 767px) {
+  .product-image {
+    position: relative;
+    height: 250px;
+    width: 50%;
+    /*  margin: auto;*/
+  }
+
+  img.img-responsive {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    max-height: 200px;
+    max-width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+
+    margin: auto;
+  }
+
+  .product-short-info {
+    text-align: left;
+    height: 250px;
+    width: 50%;
+    display: inline-block;
+    align-items: start;
+  }
+}
+
+.product-card:hover {
   position: relative;
   /*common active color on hover
     border: 2px solid #E07E0B;*/
   box-shadow: 0 0 20px #CFCFCF;
 
   text-align: center;
-  padding: 35px 0;
+  /*  padding: 0 0 35px;*/
 }
 
-.ui-g-6 {
+.product-card {
   position: relative;
   display: flex;
   align-items: flex-end;
-  padding: 35px 0;
+  /*  padding: 0 0 35px;*/
   border-bottom: 1px solid #E5E5E5;
   text-align: center;
   margin-top: 0;
@@ -75,7 +124,8 @@ a.data-view-product-name {
   color: #0E0E0E;
 }
 
-a.data-view-product-name:hover {
+a.data-view-product-name:hover,
+.product-card:hover .data-view-product-name {
   color: #E07E0B;
 }
 
