@@ -177,14 +177,3 @@ body .ui-menubar .catalog .ui-menuitem-link .ui-menuitem-text {
   text-overflow: ellipsis;
   padding-left: 1em;
 }
-
-span.pi-search {
-  color: gray;
-  margin-left: -25px;
-  margin-top: 5px;
-  z-index: 1;
-}
-
-.search-block:hover>.pi-search {
-  color: #E07E0B;
-}
