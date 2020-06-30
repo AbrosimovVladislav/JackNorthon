@@ -32,6 +32,7 @@
   /*  display: block;*/
 
   text-align: center;
+  padding-left: 1.5em;
 }
 
 
@@ -67,7 +68,7 @@
   text-align: left;
 }
 
-@media screen and (max-device-width: 991px) {
+@media screen and (max-device-width: 1199px) {
   .header-text,
   #desktopSearch,
   #desktopCatalog {
@@ -115,10 +116,15 @@
     display: inline-block;
     margin: auto;
   }
+
+  .horizontal-menu {
+    padding: 0;
+    display: none;
+  }
 }
 
 
-@media screen and (min-device-width: 992px) {
+@media screen and (min-device-width: 1200px) {
   #mobileCatalogButton,
   #mobileCatalog,
   .mobile-catalog-container,
@@ -133,13 +139,6 @@
 
   .compare-favourites-container * {
     padding: 0.5em;
-  }
-}
-
-@media screen and (max-device-width: 1002px) {
-  .horizontal-menu {
-    padding: 0;
-    display: none;
   }
 }
 
