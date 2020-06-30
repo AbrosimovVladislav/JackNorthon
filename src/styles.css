@@ -238,22 +238,30 @@ body .non-icon .ui-submenu-icon {
 body .ui-menubar .ui-menuitem.ui-state-active,
 body .ui-menubar .ui-menuitem > .ui-menuitem-link .ui-menuitem-icon,
 body ul .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link.ui-state-active .ui-menuitem-text,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-icon,
-body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon,
-  /*to make catalog root label always active*/
-body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link .ui-menuitem-text,
-  /**/
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active > .ui-menuitem-link .ui-menuitem-text,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active:not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text {
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon {
   background: #0E0E0E;
   color: #E07E0B;
   border: none;
   font-size: 13px;
 }
+
+/*
+#header > div > div.p-col-0.p-lg-9.p-justify-start.fixed-p-9.horizontal-menu > p-menubar > div > p-menubarsub > ul > li:nth-child(2) > a
+#header > div > div.p-col-0.p-lg-9.p-justify-start.fixed-p-9.horizontal-menu > p-menubar > div > p-menubarsub > ul > li:nth-child(3) > a*/
+/*to have no triangles in root menu element*/
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link > span.ui-submenu-icon.pi.pi-fw.pi-caret-down.ng-star-inserted {
+  display: none;
+}
+
+/*to have root menuitems in 100% width*/
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link {
+  padding: 1em 1.32em;
+}
+
 
 
 /*to have mobile catalog in common style and inside sidebar*/
@@ -423,9 +431,6 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
 /*  padding-right: 0.5em;*/
 }
 
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
-  padding: 0.571em .993em;
-}
 
 
 /*to have centered empty message in dataview*/

@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
     this.catalog = [
       {label: 'Каталог', icon: 'pi pi-bars', items: this.items, styleClass: 'non-icon'}
     ];
-    this.horizontalMenu = [{items: this.items}];
+    this.horizontalMenu = [{items: this.items, styleClass: 'non-icon'}];
 
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
       this.refreshCommandSetting(mi);
