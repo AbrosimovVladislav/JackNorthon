@@ -31,6 +31,7 @@
         <div #productGalleria id="productGalleria" class="p-col-12 p-lg-6 p-justify-center p-align-center">
           <!--Half of available screen for gallery-->
           <p-galleria [showFilmstrip]="true"
+                      [autoPlay]="false"
                       [panelWidth]="productGalleria.offsetWidth"
                       [panelHeight]="productGalleria.offsetWidth * (8/10)"
                       [images]="images"
