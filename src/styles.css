@@ -453,16 +453,6 @@ body .ui-paginator .ui-paginator-last:focus {
   box-shadow: none;
 }
 
-/*to have hovered buttons in paginator in common active state color*/
-body .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-first:not(.ui-state-disabled):not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-prev:not(.ui-state-disabled):not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-next:not(.ui-state-disabled):not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-last:not(.ui-state-disabled):not(.ui-state-active):hover {
-  box-shadow: 0 0 10px #E07E0B;
-}
-
-
 /*to override checkbox common size*/
 body .ui-chkbox {
   display: inline-block;
