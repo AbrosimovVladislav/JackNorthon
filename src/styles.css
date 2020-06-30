@@ -57,7 +57,7 @@ body .p-grid {
 
 .fixed-p-9 {
   width: 75%;
-  max-width: 880px;
+  max-width: 900px;
 }
 
 .fixed-p-12 {
@@ -310,7 +310,7 @@ body .sidebar-content {
 /*to have catalog icon bigger on mobiles
   and to have zero-content columns disappeared in small screens
 */
-@media screen and (max-device-width: 991px) {
+@media screen and (max-device-width: 1199px) {
 
   /*for catalog icon size*/
   body .pi-bars:before {
@@ -409,17 +409,24 @@ body .ui-menubar .ui-submenu-list {
 /*to have no border in bottom of horizontal menu*/
 body .ui-tabmenu .ui-tabmenu-nav {
   border: none;
+  width: 100%;
 }
 
 /*to have less space between menuitems in horizontal menu*/
 body .ui-tabmenu,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+/*  padding: 0.571em .993em;*/
   /*vertical-align: center;*/
-  padding-left: 0;
-  padding-right: 0.5em;
+/*  padding-left: 0;*/
+/*  padding-right: 0.5em;*/
 }
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
+  padding: 0.571em .993em;
+}
+
 
 /*to have centered empty message in dataview*/
 body .ui-dataview-emptymessage {
