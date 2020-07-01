@@ -56,7 +56,7 @@ body .p-grid {
 }
 
 .fixed-p-9 {
-  width: 75%;
+/*  width: 75%;*/
   max-width: 900px;
 }
 
@@ -249,9 +249,6 @@ body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu
   font-size: 13px;
 }
 
-/*
-#header > div > div.p-col-0.p-lg-9.p-justify-start.fixed-p-9.horizontal-menu > p-menubar > div > p-menubarsub > ul > li:nth-child(2) > a
-#header > div > div.p-col-0.p-lg-9.p-justify-start.fixed-p-9.horizontal-menu > p-menubar > div > p-menubarsub > ul > li:nth-child(3) > a*/
 /*to have no triangles in root menu element*/
 body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link > span.ui-submenu-icon.pi.pi-fw.pi-caret-down.ng-star-inserted {
   display: none;
@@ -259,7 +256,7 @@ body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link > span
 
 /*to have root menuitems in 100% width*/
 body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link {
-  padding: 1em 1.32em;
+  padding: 0.5em 1.25em;
 }
 
 
