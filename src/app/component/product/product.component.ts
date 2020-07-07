@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
       .subscribe(paramMap => {
         this.queryMap = paramMap;
         this.typeIds = this.queryMap.get('typeId');
-        const requestPath = this.basePath + '?' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
+        const requestPath = this.basePath + '?' + 'type.typeId=' + this.typeIds + '&offer.inStock=' + this.inStock;
         this.updateProducts(requestPath);
       });
     const menuItem = this.queryMap.get('menuItem');
@@ -115,7 +115,7 @@ export class ProductComponent implements OnInit {
       requestPath += paramString;
     });
     requestPath = requestPath.substring(0, requestPath.length - 1);
-    requestPath += '&' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
+    requestPath += '&' + 'type.typeId=' + this.typeIds + '&offer.inStock=' + this.inStock;
     this.updateProducts(requestPath);
   }
 
