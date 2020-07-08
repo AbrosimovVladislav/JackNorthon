@@ -31,5 +31,5 @@ jobs:
           username: ${{ secrets.DEV_USER }}
           key: ${{ secrets.DEV_KEY }}
           source: "dist/"
-          target: "/var/www/tt"
+          target: "/var/www/html"
           strip_components: 2
