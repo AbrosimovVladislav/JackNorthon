@@ -21,7 +21,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
+/* footer to bottom */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+app-product, app-product-details, app-main, app-search-result {
+  flex: 1 0 auto;
+}
 /*to have no negative margins inside grid*/
 body .p-grid {
   margin: 0;
@@ -48,8 +56,8 @@ body .p-grid {
 }
 
 .fixed-p-9 {
-  width: 75%;
-  max-width: 880px;
+/*  width: 75%;*/
+  max-width: 900px;
 }
 
 .fixed-p-12 {
@@ -228,23 +236,29 @@ body .non-icon .ui-submenu-icon {
 */
 .pi-bars:before,
 body .ui-menubar .ui-menuitem.ui-state-active,
+body .ui-menubar .ui-menuitem > .ui-menuitem-link .ui-menuitem-icon,
 body ul .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link .ui-menuitem-text,
+body .ui-menubar-root-list > .ui-menuitem .ui-menuitem-link.ui-state-active .ui-menuitem-text,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .pi-caret-right:before,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-text,
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-menuitem-icon,
-body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon,
-  /*to make catalog root label always active*/
-body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link .ui-menuitem-text,
-  /**/
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active > .ui-menuitem-link .ui-menuitem-text,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active:not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text,
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:not(.ui-state-active):not(.ui-state-disabled):hover .ui-menuitem-link .ui-menuitem-text {
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link .ui-submenu-icon {
   background: #0E0E0E;
   color: #E07E0B;
   border: none;
   font-size: 13px;
 }
+
+/*to have no triangles in root menu element*/
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link > span.ui-submenu-icon.pi.pi-fw.pi-caret-down.ng-star-inserted {
+  display: none;
+}
+
+/*to have root menuitems in 100% width*/
+body .ui-menubar .ui-menubar-root-list > .ui-menuitem > .ui-menuitem-link {
+  padding: 0.5em 1.25em;
+}
+
 
 
 /*to have mobile catalog in common style and inside sidebar*/
@@ -301,7 +315,7 @@ body .sidebar-content {
 /*to have catalog icon bigger on mobiles
   and to have zero-content columns disappeared in small screens
 */
-@media screen and (max-device-width: 991px) {
+@media screen and (max-device-width: 1199px) {
 
   /*for catalog icon size*/
   body .pi-bars:before {
@@ -400,17 +414,21 @@ body .ui-menubar .ui-submenu-list {
 /*to have no border in bottom of horizontal menu*/
 body .ui-tabmenu .ui-tabmenu-nav {
   border: none;
+  width: 100%;
 }
 
 /*to have less space between menuitems in horizontal menu*/
 body .ui-tabmenu,
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-menuitem-link {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+/*  padding: 0.571em .993em;*/
   /*vertical-align: center;*/
-  padding-left: 0;
-  padding-right: 0.5em;
+/*  padding-left: 0;*/
+/*  padding-right: 0.5em;*/
 }
+
+
 
 /*to have centered empty message in dataview*/
 body .ui-dataview-emptymessage {
@@ -443,16 +461,6 @@ body .ui-paginator .ui-paginator-next:focus,
 body .ui-paginator .ui-paginator-last:focus {
   box-shadow: none;
 }
-
-/*to have hovered buttons in paginator in common active state color*/
-body .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-first:not(.ui-state-disabled):not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-prev:not(.ui-state-disabled):not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-next:not(.ui-state-disabled):not(.ui-state-active):hover,
-body .ui-paginator .ui-paginator-last:not(.ui-state-disabled):not(.ui-state-active):hover {
-  box-shadow: 0 0 10px #E07E0B;
-}
-
 
 /*to override checkbox common size*/
 body .ui-chkbox {

@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
     this.catalog = [
       {label: 'Каталог', icon: 'pi pi-bars', items: this.items, styleClass: 'non-icon'}
     ];
-    this.horizontalMenu = [];
+    this.horizontalMenu = [{items: this.items, styleClass: 'non-icon'}];
 
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
       this.refreshCommandSetting(mi);
@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
       const cutMenuItem: MenuItem = {
         label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams, command: mi.command
       };
-      this.horizontalMenu.push(cutMenuItem);
+      this.horizontalMenu.push(/*cutMenuItem*/mi);
     }));
   }
 

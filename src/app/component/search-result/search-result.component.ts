@@ -13,19 +13,21 @@ export class SearchResultComponent implements OnInit {
   machineBaseUrl = environment.machineBaseUrl;
   searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   resultProducts: Product[];
-  cardGocus = 0;
+  condition: boolean;
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
   }
 
-  addBorderStyle(event: MouseEvent) {
-    console.log(event);
-    /*    this.hoverProdId = event.target.src;*/
-    this.cardGocus++;
+  scrollTo() {
+    scrollTo(0, 0);
   }
 
-  removeBorderStyle() {
-    this.cardGocus--;
+  up() {
+    window.scroll(0, 0);
+  }
+
+  onWindowScroll() {
+    this.condition = window.pageYOffset > 200;
   }
 
   ngOnInit(): void {

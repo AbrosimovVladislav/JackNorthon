@@ -1,0 +1,35 @@
+name: dev
+
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: NPM install & build
+        run: |
+          npm install
+          npm run-script build-qa
+      - name: Copy artifact via SSH
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DEV_HOST }}
+          username: ${{ secrets.DEV_USER }}
+          key: ${{ secrets.DEV_KEY }}
+          source: "dist/"
+          target: "/var/www/tt"
+          strip_components: 2

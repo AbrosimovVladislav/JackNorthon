@@ -1,4 +1,4 @@
-<div class="data-view-content">
+<div class="data-view-content" (window:scroll)="onWindowScroll()">
   <div class="p-grid p-justify-between ui-fluid p-align-stretch fixed-p-12">
     <!--DESKTOP filters-->
     <div class="p-col-12 p-lg-3 fixed-p-3 product-filter-container">
@@ -232,7 +232,8 @@
         <ng-template let-product pTemplate="gridItem">
           <div class="p-grid p-col-12 p-md-6 p-lg-4 p-xl-3 product-card p-justify-center">
             <div class="p-col-6 p-md-12 p-align-start p-justify-center product-image">
-              <a href="/productPage/{{product.productId}}" target="_blank">
+              <a href="/productPage/{{product.productId}}"
+                 target="_blank">
                 <img alt="img"
                      class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}">
               </a>
@@ -240,7 +241,9 @@
             <div class="p-col-6 p-md-12  p-align-center p-justify-center product-short-info">
               <p class="p-col-12">{{product.brand.shortName}}</p>
               <div class="p-col-12 p-align-start">
-                <a href="/productPage/{{product.productId}}" target="_blank" class="data-view-product-name">
+                <a href="/productPage/{{product.productId}}"
+                   target="_blank"
+                   class="data-view-product-name">
                   {{product.type.showName + " " + product.model + " " + product.age}}
                 </a>
               </div>
@@ -252,7 +255,9 @@
                           readonly="true" stars="5" [cancel]="false"></p-rating>
               </div>
               <div class="p-col-12">
-                <a href="/productPage/{{product.productId}}#offersTable" class="data-view-offer-qty">
+                <a href="/productPage/{{product.productId}}#offersTable"
+                   target="_blank"
+                   class="data-view-offer-qty">
                   Количество предложений:&nbsp;{{product.offerQuantity}}
                 </a>
               </div>
@@ -262,4 +267,7 @@
       </p-dataView>
     </div>
   </div>
+  <button class="up-button" type="button" (click)="up()" [ngClass]="{'shown': condition}">
+    ↑
+  </button>`
 </div>

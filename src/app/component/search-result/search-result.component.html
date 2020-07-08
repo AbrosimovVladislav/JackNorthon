@@ -1,42 +1,46 @@
-
-
-<div class="p-grid">
-  <p style="color: white">aaa</p>
-  <div style="text-align: center" class="p-col-12">
-    <span style="color: #0E0E0E; font-family: Ubuntu; line-height: 140%; font-size: 35px">Товаров найдено: {{resultProducts.length}}</span>
-  </div>
-  <div class="p-col-12 p-md-12 product-dataview">
-    <p-dataView [value]="resultProducts" [paginator]="true" [rows]="24" layout="grid">
-      <p-header style="height: 0">
-        <!--uncomment to see typename in the center of table
-        <div class="type-name" style="text-align: center">{{typeName}}</div>
-      -->
+<div class="p-grid p-justify-center ui-fluid p-align-stretch fixed-p-12 data-view-content">
+  <!--Dataview-->
+  <div class="p-col-12">
+    <p-dataView [value]="resultProducts"
+                [paginator]="true"
+                [rows]="24"
+                [alwaysShowPaginator]="false"
+                [emptyMessage]="'По вашему запросу ничего не найдено :('"
+                (onPage)="scrollTo()"
+                layout="grid">
+      <p-header id="dataViewHeader" class="p-grid p-nogutter p-justify-between">
+        <div class="p-col-12 search-name">Товаров найдено: {{resultProducts.length}}</div>
       </p-header>
       <p-footer style="height: 0"></p-footer>
       <ng-template let-product pTemplate="gridItem">
-        <div class="p-grid ui-g-6 ui-md-4 ui-lg-3">
-          <div class="p-col-12 p-align-start p-justify-center product-image">
-            <a href="/productPage/{{product.productId}}"  target="_blank">
-              <img (mouseover)="addBorderStyle($event)" (mouseout)="removeBorderStyle()" alt="img"
-                   class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}" >
+        <div class="p-grid p-col-12 p-md-6 p-lg-4 p-xl-3 product-card p-justify-center">
+          <div class="p-col-6 p-md-12 p-align-start p-justify-center product-image">
+            <a href="/productPage/{{product.productId}}"
+               target="_blank">
+              <img alt="img"
+                   class="img-responsive" src="{{machineBaseUrl + '8082/images/' + product.productId}}">
             </a>
           </div>
-          <div class="p-col-12  p-align-end p-justify-center product-short-info">
-            <p>{{product.brand.shortName}}</p>
-            <div class="ui-g-12 p-align-start">
-              <a href="/productPage/{{product.productId}}" target="_blank" class="data-view-product-name">
+          <div class="p-col-6 p-md-12  p-align-center p-justify-center product-short-info">
+            <p class="p-col-12">{{product.brand.shortName}}</p>
+            <div class="p-col-12 p-align-start">
+              <a href="/productPage/{{product.productId}}"
+                 target="_blank"
+                 class="data-view-product-name">
                 {{product.type.showName + " " + product.model + " " + product.age}}
               </a>
             </div>
-            <div class="ui-g-12">
+            <div class="p-col-12">
               <b>от&nbsp;{{product.minPrice}}&nbsp;₽</b>
             </div>
-            <div class="ui-g-12 data-view-product-rating">
+            <div class="p-col-12 data-view-product-rating">
               <p-rating [ngModel]="product.rating.value" iconOnClass="pi pi-star" iconOffClass="pi pi-star-o"
                         readonly="true" stars="5" [cancel]="false"></p-rating>
             </div>
-            <div class="ui-g-12">
-              <a href="/productPage/{{product.productId}}#offersTable" class="data-view-offer-qty">
+            <div class="p-col-12">
+              <a href="/productPage/{{product.productId}}#offersTable"
+                 target="_blank"
+                 class="data-view-offer-qty">
                 Количество предложений:&nbsp;{{product.offerQuantity}}
               </a>
             </div>
@@ -46,5 +50,3 @@
     </p-dataView>
   </div>
 </div>
-
-

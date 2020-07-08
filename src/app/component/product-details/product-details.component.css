@@ -31,12 +31,19 @@
   border-right: none;
   border-top: none;
   box-shadow: 0 1px 4px 0 #b9b9b9;
+  list-style: none;
 }
 
-.product-details-menu-item {
-  padding: 20px 0;
+product-details-menu-item{
   display: inline-block;
   vertical-align: center;
+}
+
+.product-details-menu-item a {
+  color: #0E0E0E;
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
 
   font-family: Ubuntu;
   font-style: normal;
@@ -46,12 +53,6 @@
   border-right: 1px solid #dcdcdc;
 
   letter-spacing: 0.02em;
-  /* #0E0E0E */
-  color: #0E0E0E;
-}
-
-.product-details-menu-item a {
-  color: #0E0E0E;
 }
 
 
