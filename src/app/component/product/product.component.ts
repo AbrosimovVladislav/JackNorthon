@@ -12,7 +12,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  machineBaseUrl = environment.machineBaseUrl;
+  machineBaseUrl = environment.baseApiUrl;
   basePath = this.machineBaseUrl + '8082/products';
   inStock = true;
   products: Product[];

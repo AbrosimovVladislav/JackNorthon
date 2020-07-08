@@ -12,7 +12,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  machineBaseUrl = environment.machineBaseUrl;
+  machineBaseUrl = environment.baseApiUrl;
   productId: string;
   product: Product;
   offers: Offer[];

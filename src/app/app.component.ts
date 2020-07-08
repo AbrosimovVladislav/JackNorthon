@@ -15,7 +15,7 @@ import {AutoComplete, Sidebar} from 'primeng';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  machineBaseUrl = environment.machineBaseUrl;
+  machineBaseUrl = environment.baseApiUrl;
   searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   catalog: MenuItem[];
   horizontalMenu: MenuItem[];

@@ -8,7 +8,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class OfferService {
-  machineBaseUrl = environment.machineBaseUrl;
+  machineBaseUrl = environment.baseApiUrl;
 
   constructor(private http: HttpClient) {
   }

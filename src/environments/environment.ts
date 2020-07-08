@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  machineBaseUrl : 'http://localhost:'
-  // machineBaseUrl : 'http://161.35.70.99:'
+  baseApiUrl : 'http://localhost:'
+  // baseApiUrl : 'http://161.35.70.99:'
 };
 
 /*

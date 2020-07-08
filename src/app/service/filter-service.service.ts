@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class FilterService {
-  machineBaseUrl = environment.machineBaseUrl;
+  machineBaseUrl = environment.baseApiUrl;
   selectItems: SItem[];
   filterItemArray: FilterItem[];
   sortOptions: SItem[] = [

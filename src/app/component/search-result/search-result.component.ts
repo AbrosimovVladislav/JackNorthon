@@ -10,7 +10,7 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
-  machineBaseUrl = environment.machineBaseUrl;
+  machineBaseUrl = environment.baseApiUrl;
   searchProductsUrl = this.machineBaseUrl + '8082/products/search?searchLine=';
   resultProducts: Product[];
   condition: boolean;
