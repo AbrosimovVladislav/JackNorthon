@@ -60,6 +60,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
             }
           }
         },
@@ -71,6 +79,9 @@
           "configurations": {
             "production": {
               "browserTarget": "JackNorthon:build:production"
+            },
+            "qa": {
+              "browserTarget": "JackNorthon:build:qa"
             }
           }
         },
