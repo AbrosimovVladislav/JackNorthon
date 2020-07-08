@@ -74,8 +74,13 @@ export class ProductComponent implements OnInit {
     this.refreshPage();
   }
 
-  refreshPage(){
+  refreshPage() {
     location.reload();
+  }
+
+  paginate(event: any) {
+    console.log('PAGINATE');
+    console.log(event);
   }
 
   sendRequest() {
@@ -122,6 +127,7 @@ export class ProductComponent implements OnInit {
   up() {
     window.scroll(0, 0);
   }
+
   onWindowScroll() {
     this.condition = window.pageYOffset > 200;
   }

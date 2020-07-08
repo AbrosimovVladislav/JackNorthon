@@ -97,6 +97,7 @@
                   [alwaysShowPaginator]="false"
                   [emptyMessage]="'По вашему запросу ничего не найдено :('"
                   (onPage)="scrollTo()"
+                  [lazy]="true" (onLazyLoad)="paginate($event)"
                   layout="grid">
         <p-header id="dataViewHeader" class="p-grid p-nogutter p-justify-between">
           <div id="CategoryName" class="p-col-12 p-lg-5 type-name">{{typeName}}</div>
