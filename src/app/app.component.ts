@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
 
     this.menuItemsService.getMenuItems().subscribe(menuItems => menuItems.forEach(mi => {
       this.refreshCommandSetting(mi);
-      this.items.push(mi);
+      this.items.push(mi); /////
       const cutMenuItem: MenuItem = {
         label: mi.label, url: mi.url, routerLink: mi.routerLink, queryParams: mi.queryParams, command: mi.command
       };

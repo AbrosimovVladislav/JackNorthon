@@ -36,25 +36,25 @@
                     <p-header class="filter-name">{{filterItem.showName}}</p-header>
                   </div>
                   <div class="p-col-6 p-justify-center">
-                    <input type="text" name="priceMin" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
+                    <input #inputMinPrice type="text" name="priceMin" placeholder="От {{defaultMinPrice}}"
                            class="range-box"
                            pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"
                            (change)="sendRequest()"
                            #priceMin="ngModel"/>
                     <div>
-                      {{isValidMinPrice(priceMin.value)}}
+                      {{isValidMinPrice(priceMin.value, inputMinPrice)}}
                       <p-message severity="error" text="Введите число" *ngIf="!validMinPrice">
                       </p-message>
                     </div>
                   </div>
                   <div class="p-col-6 p-justify-center">
-                    <input type="text" name="priceMax" placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}"
+                    <input #inputMaxPrice type="text" name="priceMax" placeholder="До {{defaultMaxPrice}}"
                            class="range-box"
                            pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
                            (change)="sendRequest()"
                            #priceMax="ngModel" />
                     <div>
-                      {{isValidMaxPrice(priceMax.value)}}
+                      {{isValidMaxPrice(priceMax.value, inputMaxPrice)}}
                       <p-message severity="error" text="Введите число" *ngIf="!validMaxPrice">
                       </p-message>
                     </div>
