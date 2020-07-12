@@ -306,7 +306,6 @@ body .sidebar-content {
   margin-top: 2em;
 }
 
-
 /*to have catalog icon bigger on mobiles
   and to have zero-content columns disappeared in small screens
 */
@@ -695,4 +694,44 @@ body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item {
 body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item.ui-state-highlight {
   background-color: rgb(246, 246, 246);
   color: #0E0E0E;
+}
+
+
+/* to have no shadow on search button*/
+body button.ui-autocomplete-dropdown.ui-button.ui-state-default {
+  box-shadow: none;
+}
+
+/* search button */
+body button.ui-autocomplete-dropdown.ui-button.ui-state-default {
+  font-size: 13px;
+  color: #E5E5E5;
+  background-color: #0E0E0E;
+  border: solid 1px #E5E5E5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* to have border on search input with hovered search button*/
+body span.ui-autocomplete.ui-widget:hover>.ui-inputtext:enabled:not(.ui-state-error) {
+  border-color: #E07E0B;
+}
+
+/*to have border on search button with hovered search input*/
+/*to have no border-left-radius on hovered search input*/
+body span.ui-autocomplete.ui-widget:hover>button.ui-autocomplete-dropdown.ui-state-default {
+  border: solid 1px #E07E0B;
+  color: #E07E0B;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+/*to have shadow on search button with focused search input + in loading state*/
+body .ui-inputtext:enabled:focus:not(.ui-state-error)+button.ui-autocomplete-dropdown.ui-state-default,
+body .ui-inputtext:enabled:focus:not(.ui-state-error)+button.ui-autocomplete-dropdown.ui-state-default.ui-state-highlight,
+body i.ui-autocomplete-loader+button.ui-autocomplete-dropdown.ui-state-default{
+  color: #E07E0B;
+  border: solid 1px #E07E0B;
+  -webkit-box-shadow: 0 0 0 0.1em #E07E0B;
+  -moz-box-shadow: 0 0 0 0.1em #E07E0B;
+  box-shadow: 0 0 0 0.1em #E07E0B;
 }

@@ -42,7 +42,9 @@
                       scrollHeight="320px"
                       [placeholder]="'Поиск'"
                       size="75"
+                      dropdown="true"
                       field="search"
+                      dropdownIcon="pi pi-search"
                       (completeMethod)="search($event)"
                       (onSelect)="onSelect($event)"
                       (onKeyUp)="searchEnter($event)"
@@ -58,7 +60,6 @@
           </div>
         </ng-template>
       </p-autoComplete>
-      <span class="pi pi-search"></span>
     </div>
 
 
