@@ -21,7 +21,9 @@ export class ProductComponent implements OnInit {
   typeName: string;
   typeIds: string;
   condition: boolean;
-
+  validMinPrice: boolean;
+  validMaxPrice: boolean;
+  validPriceRange: boolean;
   selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
   filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
 
@@ -117,6 +119,27 @@ export class ProductComponent implements OnInit {
     requestPath = requestPath.substring(0, requestPath.length - 1);
     requestPath += '&' + 'type.typeId=' + this.typeIds + '&inStock=' + this.inStock;
     this.updateProducts(requestPath);
+  }
+
+  /* isOnlyWhitespaces(inputPrice) {
+    const whitespaces = RegExp('^\\s*$');
+    this.isWhitespaces = whitespaces.test(inputPrice) || (inputPrice === '');
+  }*/
+  isValidMinPrice(inputMinPrice) {
+    const regexNumb = RegExp('^\\d+(?:\\.?\\,?\\d*|\\s\\d+\\/\\d+)$');
+    this.validMinPrice = regexNumb.test(inputMinPrice.trim()) || (inputMinPrice === '');
+  }
+  isValidMaxPrice(inputMaxPrice) {
+    const regexNumb = RegExp('^\\d+(?:\\.?\\,?\\d*|\\s\\d+\\/\\d+)$');
+    this.validMaxPrice = regexNumb.test(inputMaxPrice.trim()) || (inputMaxPrice === '');
+  }
+  isValidRange(minPrice, maxPrice) {
+    const minPriceNum = parseFloat(minPrice.trim());
+    const maxPriceNum = parseFloat(maxPrice.trim());
+    this.validPriceRange = (minPriceNum <= maxPriceNum) || (minPrice === '') || (maxPrice === '');
+  }
+  isDisabled() {
+    return !(this.validMinPrice && this.validMaxPrice && this.validPriceRange);
   }
 
   up() {

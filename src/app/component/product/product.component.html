@@ -36,17 +36,34 @@
                     <p-header class="filter-name">{{filterItem.showName}}</p-header>
                   </div>
                   <div class="p-col-6 p-justify-center">
-                    <input type="text" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
+                    <input type="text" name="priceMin" placeholder="От {{selectedFilterMap.get(filterItem.filterKey)[0]}}"
                            class="range-box"
                            pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[0]"
-                           (change)="sendRequest()"/>
+                           (change)="sendRequest()"
+                           #priceMin="ngModel"/>
+                    <div>
+                      {{isValidMinPrice(priceMin.value)}}
+                      <p-message severity="error" text="Введите число" *ngIf="!validMinPrice">
+                      </p-message>
+                    </div>
                   </div>
                   <div class="p-col-6 p-justify-center">
-                    <input type="text" placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}"
+                    <input type="text" name="priceMax" placeholder="До {{selectedFilterMap.get(filterItem.filterKey)[1]}}"
                            class="range-box"
                            pInputText [(ngModel)]="selectedFilterMap.get(filterItem.filterKey)[1]"
-                           (change)="sendRequest()"/>
+                           (change)="sendRequest()"
+                           #priceMax="ngModel" />
+                    <div>
+                      {{isValidMaxPrice(priceMax.value)}}
+                      <p-message severity="error" text="Введите число" *ngIf="!validMaxPrice">
+                      </p-message>
+                    </div>
                   </div>
+                </div>
+                <div *ngIf="(validMaxPrice && validMinPrice)">
+                  {{isValidRange(priceMin.value, priceMax.value)}}
+                  <p-message severity="error" text="Некорректный диапазон" *ngIf="!validPriceRange">
+                  </p-message>
                 </div>
               </div>
             </div>
@@ -75,8 +92,8 @@
         <div class="p-col-6">
           <p-button class="apply-button"
                     label="Применить"
+                    [disabled]="isDisabled()"
                     (onClick)="sendRequest()">
-
           </p-button>
         </div>
         <div class="p-col-6">
