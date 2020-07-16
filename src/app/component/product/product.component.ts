@@ -12,6 +12,8 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  ONLY_DIGITS_REGEX = RegExp('^[\\d]+$');
+  ONLY_WHITESPACES_REGEX = RegExp('^[\\s]+$');
   machineBaseUrl = environment.machineBaseUrl;
   basePath = this.machineBaseUrl + '8082/products';
   inStock = true;
@@ -21,9 +23,15 @@ export class ProductComponent implements OnInit {
   typeName: string;
   typeIds: string;
   condition: boolean;
-
+  validMinPrice: boolean;
+  validMaxPrice: boolean;
+  validPriceRange: boolean;
   selectedFilterMap: Map<string, string[]> = new Map<string, string[]>();
   filterKeyOnFilterName: Map<string, FilterItem> = new Map<string, FilterItem>();
+  defaultMinPrice: string;
+  defaultMaxPrice: string;
+  private useDefaultMinPrice: boolean;
+  private useDefaultMaxPrice: boolean;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private filterService: FilterService) {
   }
@@ -56,6 +64,9 @@ export class ProductComponent implements OnInit {
             selectedArray = filter.value;
           }
           this.selectedFilterMap.set(filter.filterKey, selectedArray);
+          if (filter.filterKey === 'offer.price') {
+            this.storeDefaultPriceValues(filter.value);
+          }
         });
       }
     );
@@ -79,6 +90,7 @@ export class ProductComponent implements OnInit {
   }
 
   sendRequest() {
+    if (this.isDisabled()) { return; }
     this.selectedFilterMap.forEach(
       (internalFilterArr: string[], key: string) => {
         if (internalFilterArr.length === 0) {
@@ -97,13 +109,24 @@ export class ProductComponent implements OnInit {
         paramString = value.toString();
       } else {
         value.forEach((filterValue: string) => {
-          paramString += filterValue;
           if (currentFilterItem.filterType === 'CHECKBOX') {
             paramString += ',';
+            paramString += filterValue;
           } else if (currentFilterItem.filterType === 'RANGE') {
             if (intervalFlag) {
+              if (this.useDefaultMinPrice) {
+                paramString += this.defaultMinPrice;
+              } else {
+                paramString += filterValue;
+              }
               paramString += 'interval';
               intervalFlag = false;
+            } else {
+              if (this.useDefaultMaxPrice) {
+                paramString += this.defaultMaxPrice;
+              } else {
+                paramString += filterValue;
+              }
             }
           }
         });
@@ -119,10 +142,42 @@ export class ProductComponent implements OnInit {
     this.updateProducts(requestPath);
   }
 
+  isValidMinPrice(inputMinPrice, inputMinPriceElem: HTMLInputElement) {
+    this.useDefaultMinPrice = inputMinPrice === '' || this.ONLY_WHITESPACES_REGEX.test(inputMinPrice);
+    if (this.useDefaultMinPrice) {
+      inputMinPriceElem.value = '';
+      this.validMinPrice = true;
+    } else {
+      this.validMinPrice = this.ONLY_DIGITS_REGEX.test(inputMinPrice.trim());
+    }
+  }
+  isValidMaxPrice(inputMaxPrice, inputMaxPriceElem: HTMLInputElement) {
+    this.useDefaultMaxPrice = inputMaxPrice === '' || this.ONLY_WHITESPACES_REGEX.test(inputMaxPrice);
+    if (this.useDefaultMaxPrice) {
+      inputMaxPriceElem.value = '';
+      this.validMaxPrice = true;
+    } else {
+      this.validMaxPrice = this.ONLY_DIGITS_REGEX.test(inputMaxPrice.trim());
+    }
+  }
+  isValidRange(minPrice, maxPrice) {
+    const minPriceNum = parseFloat(minPrice.trim());
+    const maxPriceNum = parseFloat(maxPrice.trim());
+    this.validPriceRange = (minPriceNum <= maxPriceNum) || this.useDefaultMinPrice || this.useDefaultMaxPrice;
+  }
+  isDisabled() {
+    return !(this.validMinPrice && this.validMaxPrice && this.validPriceRange);
+  }
+
   up() {
     window.scroll(0, 0);
   }
   onWindowScroll() {
     this.condition = window.pageYOffset > 200;
+  }
+
+  private storeDefaultPriceValues(minMaxPrice: string[]) {
+    this.defaultMinPrice = minMaxPrice[0];
+    this.defaultMaxPrice = minMaxPrice[1];
   }
 }
