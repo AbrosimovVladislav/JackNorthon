@@ -1,6 +1,6 @@
 <div id="header" class="header p-justify-center ui-fluid">
   <!--Grid for header-->
-  <div class="p-grid p-justify-between p-align-center ui-fluid fixed-p-12">
+  <div class="p-grid p-justify-between p-align-center p-nogutter ui-fluid fixed-p-12">
 
     <!--Catalog icon and menu FOR MOBILE-->
     <div class="p-col-1 p-xl-0 mobile-catalog-container">
@@ -27,17 +27,17 @@
     </div>
 
     <!--Logo place-->
-    <div class="p-col-5 p-xl-3 fixed-p-3 logo-container">
+    <div class="p-col-3 p-xl-2 logo-container">
       <a href="/">
         <img id="logo" class="logo" src="assets/showcase/images/logo/logo orange+white for dark header 626262.svg">
       </a>
     </div>
 <!--Grid for all except logo in desktop-->
-    <div class="p-col-5 p-xl-9 fixed-p-9">
-      <div class="p-grid p-justify-between">
+    <div class="p-col-8 p-xl-10">
+      <div class="p-grid p-justify-end">
 
         <!--Search place FOR DESKTOP-->
-        <div id="desktopSearch" class="p-col search-block">
+        <div id="desktopSearch" class="p-col-0 p-xl-8 search-block">
           <p-autoComplete #desktopAutoComplete [ngModel]="product"
                           [suggestions]="searchResults"
                           [required]="true"
@@ -64,11 +64,9 @@
         </div>
 
         <!--Compare + Favourites + Login/Profiles-->
-        <div class="p-col-fixed compare-favourites-container">
-          <div class="p-grid p-align-center p-nogutter p-justify-end" style="margin: auto">
-
+        <div class="p-col-8 p-xl-4">
             <!--Search place FOR MOBILE-->
-            <div id="mobileSearch" class="p-col-fixed">
+            <div id="mobileSearch">
               <!-- TODO: see styles.css .ui-sidebar-top -->
               <p-sidebar #sidebar [(visible)]="searchFieldVisible" position="top" [showCloseIcon]="false"
                          (onShow)="mobileAutoComplete.focusInput(); searchOnRestore($event, mobileAutoComplete)">
@@ -100,30 +98,35 @@
                       style=" width: 30%; border: none; background-color: transparent; box-shadow: none">
               </button>
             </div>
-            <div class="p-col-fixed p-md-5" style="width: 35px">
-              <img src="assets/showcase/images/icons/grey-compare.svg"
+            <div id="compareLine">
+              <img src="assets/showcase/images/icons/compare-line.svg"
                    class="header-icons">
             </div>
-            <div class="p-col-fixed header-text" style="width: 70px">
-              Сравнить
+            <div id="compare">
+              <img src="assets/showcase/images/icons/compare.svg"
+              class="header-buttons">
             </div>
-            <div class="p-col-fixed p-md-5" style="width: 35px">
-              <img src="assets/showcase/images/icons/grey-heart.svg"
+            <div id="heartLine">
+              <img src="assets/showcase/images/icons/heart-line.svg"
                    class="header-icons">
             </div>
-            <div class="p-col-fixed header-text" style="width: 70px">
-              Избранное
+            <div id="favourites">
+              <img src="assets/showcase/images/icons/favourites.svg"
+                   class="header-buttons">
             </div>
 
-            <div class="p-col-fixed">
-              <img src="assets/showcase/images/icons/avatar.png"
+            <div id="profile">
+              <img src="assets/showcase/images/icons/profile.svg"
                    class="header-icons">
             </div>
-          </div>
+            <div id="login">
+              <img src="assets/showcase/images/icons/login.svg"
+                   class="header-buttons">
+            </div>
         </div>
 
         <!--Horizontal menu FOR DESKTOP-->
-        <div class="p-col-0 p-xl-12 p-justify-start horizontal-menu">
+        <div class="p-col-0 p-xl-12 fixed-p-10 p-justify-between horizontal-menu" style="width: 100%">
           <p-menubar [model]="items"></p-menubar>
         </div>
       </div>

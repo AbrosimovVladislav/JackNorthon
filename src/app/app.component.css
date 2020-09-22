@@ -13,7 +13,7 @@
   position: relative;
   display: flex;
   margin: 0;
-  padding: 5% 5% 5% 0.5em;
+  padding: 0;
   width: 100%;
   align-items: center;
   vertical-align: center;
@@ -36,26 +36,9 @@
 }
 
 
-.favourites-and-comparison {
-  text-align: left;
-  display: inline-block;
-  align-items: center;
-  vertical-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
-}
 
 .header-icons {
-  display: flex;
-  align-items: flex-end;
-  vertical-align: bottom;
-  justify-content: center;
-  padding-left: 5%;
-  padding-right: 5%;
-  position: relative;
-  width: fit-content;
-  margin: 0.5% 0;
-  height: auto;
+  padding: 0.75em;
 }
 
 .header-text {
@@ -69,9 +52,12 @@
 }
 
 @media screen and (max-device-width: 1199px) {
-  .header-text,
+  #compare,
+  #favourites,
+  #login,
   #desktopSearch,
-  #desktopCatalog {
+  #desktopCatalog,
+  .horizontal-menu {
     display: none;
     padding: 0;
   }
@@ -90,9 +76,6 @@
     box-shadow: none;
   }
 
-  .compare-favourites-container {
-    width: 160px;
-  }
 
   .header .p-justify-start {
     justify-content: space-between;
@@ -117,9 +100,11 @@
     margin: auto;
   }
 
-  .horizontal-menu {
-    padding: 0;
-    display: none;
+  #heartLine,
+  #compareLine,
+  #profile,
+  #mobileSearch {
+    display: inline-block;
   }
 }
 
@@ -128,17 +113,28 @@
   #mobileCatalogButton,
   #mobileCatalog,
   .mobile-catalog-container,
-  #mobileSearch {
+  #mobileSearch,
+  #heartLine,
+  #compareLine,
+  #profile {
     display: none;
     padding: 0;
   }
 
-  .compare-favourites-container {
-    width: 340px;
+  .header-buttons {
+    padding: 0.5em;
   }
 
-  .compare-favourites-container * {
-    padding: 0.5em;
+  #compare,
+  #favourites,
+  #login {
+    display: inline-block;
+  }
+
+  p-menubar > div > p-menubarsub > ul > li {
+    display: flex;
+    justify-items: stretch;
+    justify-content: stretch;
   }
 }
 
