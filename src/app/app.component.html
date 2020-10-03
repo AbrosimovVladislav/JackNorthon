@@ -36,32 +36,34 @@
     <div class="p-col-5 p-xl-9 fixed-p-9">
       <div class="p-grid p-justify-between">
 
-        <!--Search place FOR DESKTOP-->
-        <div id="desktopSearch" class="p-col search-block">
-          <p-autoComplete #desktopAutoComplete [ngModel]="product"
-                          [suggestions]="searchResults"
-                          [required]="true"
-                          (onFocus)="searchOnRestore($event, desktopAutoComplete)"
-                          scrollHeight="320px"
-                          [placeholder]="'Поиск'"
-                          size="75"
-                          field="search"
-                          (completeMethod)="search($event)"
-                          (onSelect)="onSelect($event)"
-                          (onKeyUp)="searchEnter($event)"
-                          class="autocomplete-search">
-            <ng-template let-product pTemplate="item">
-              <div class="ui-helper-clearfix top-search p-grid p-nogutter">
-                <div class="p-col-2">
-                  <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"/>
-                </div>
-                <div class="p-col-10 top-search-text">
-                  {{product.type.showName}} {{product.brand.shortName}} {{product.model}} {{product.age}}
-                </div>
-              </div>
-            </ng-template>
-          </p-autoComplete>
-        </div>
+    <!--Search place FOR DESKTOP-->
+    <div id="desktopSearch" class="p-col search-block">
+      <p-autoComplete #desktopAutoComplete [ngModel]="product"
+                      [suggestions]="searchResults"
+                      [required]="true"
+                      (onFocus)="searchOnRestore($event, desktopAutoComplete)"
+                      scrollHeight="320px"
+                      [placeholder]="'Поиск'"
+                      size="75"
+                      dropdown="true"
+                      field="search"
+                      dropdownIcon="pi pi-search"
+                      (completeMethod)="search($event)"
+                      (onSelect)="onSelect($event)"
+                      (onKeyUp)="searchEnter($event)"
+                      class="autocomplete-search">
+        <ng-template let-product pTemplate="item">
+          <div class="ui-helper-clearfix top-search p-grid p-nogutter">
+            <div class="p-col-2">
+              <img src="{{machineBaseUrl + '8082/images/' + product.productId}}"/>
+            </div>
+            <div class="p-col-10 top-search-text">
+              {{product.type.showName}} {{product.brand.shortName}} {{product.model}} {{product.age}}
+            </div>
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
 
         <!--Compare + Favourites + Login/Profiles-->
         <div class="p-col-fixed compare-favourites-container">

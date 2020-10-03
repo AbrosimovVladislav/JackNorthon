@@ -93,7 +93,7 @@ body .ui-widget {
 
 /*to have common border-radius*/
 body .ui-corner-all {
-  border-radius: 1px;
+  border-radius: 0;
 }
 
 /*to have common active color
@@ -126,7 +126,6 @@ body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
   -moz-box-shadow: 0 0 0 0.1em #E5E5E5;
   box-shadow: 0 0 0 0.1em #E5E5E5;
   border-color: #E5E5E5;
-  border-radius: 1px;
 }
 
 body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
@@ -310,7 +309,6 @@ body .sidebar-content {
   border: none;
   margin-top: 2em;
 }
-
 
 /*to have catalog icon bigger on mobiles
   and to have zero-content columns disappeared in small screens
@@ -694,4 +692,42 @@ body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item {
 body .autocomplete-search .ui-autocomplete .ui-autocomplete-list-item.ui-state-highlight {
   background-color: rgb(246, 246, 246);
   color: #0E0E0E;
+}
+
+
+/* to have no shadow on search input and search button*/
+body button.ui-autocomplete-dropdown.ui-button.ui-state-default,
+body input.ui-inputtext.ui-state-default.ui-autocomplete-input:focus {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+/* search button */
+body button.ui-autocomplete-dropdown.ui-button.ui-state-default {
+  font-size: 13px;
+  color: #E5E5E5;
+  background-color: #0E0E0E;
+  border: solid 1px #E5E5E5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  border-radius: 0;
+}
+
+/* to have border on search input with hovered search button*/
+body span.ui-autocomplete.ui-widget:hover>.ui-inputtext:enabled:not(.ui-state-error) {
+  border-color: #E07E0B;
+}
+
+/*to have border on search button with hovered search input*/
+body span.ui-autocomplete.ui-widget:hover>button.ui-autocomplete-dropdown.ui-state-default {
+  border: solid 1px #E07E0B;
+  color: #E07E0B;
+}
+
+/*to have other color on search button with focused search input + in loading state*/
+body .ui-inputtext:enabled:focus:not(.ui-state-error)+button.ui-autocomplete-dropdown.ui-state-default,
+body i.ui-autocomplete-loader+button.ui-autocomplete-dropdown.ui-button.ui-state-default.ui-button-icon-only {
+  color: #E5E5E5;
+  border: solid 1px #E07E0B;
+  background-color: #E07E0B;
 }
