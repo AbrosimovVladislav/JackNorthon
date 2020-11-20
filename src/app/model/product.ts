@@ -1,5 +1,4 @@
 import {Brand} from './brand';
-import {Rating} from './rating';
 import {Type} from './Type';
 
 export interface Product {
@@ -12,7 +11,7 @@ export interface Product {
   characteristics;
   link;
   imageLink;
-  rating: Rating;
+  // rating: Rating;
   minPrice;
   maxPrice;
   offerQuantity: number;

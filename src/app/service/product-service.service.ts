@@ -30,7 +30,7 @@ export class ProductService {
                     characteristics: products[key].characteristics,
                     link: products[key].link,
                     imageLink: products[key].imageLink,
-                    rating: products[key].rating,
+                    // rating: products[key].rating,
                     minPrice: products[key].minPrice,
                     maxPrice: products[key].maxPrice,
                     offerQuantity: products[key].offerQuantity
@@ -47,7 +47,7 @@ export class ProductService {
                     characteristics: product.characteristics,
                     link: product.link,
                     imageLink: product.imageLink,
-                    rating: product.rating,
+                    // rating: product.rating,
                     minPrice: product.minPrice,
                     maxPrice: product.maxPrice,
                     offerQuantity: product.offerQuantity

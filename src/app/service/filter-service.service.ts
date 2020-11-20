@@ -15,7 +15,7 @@ export class FilterService {
   sortOptions: SItem[] = [
     {title: 'Цена', label: 'Сначала дешевые', value: 'minPrice,asc'},
     {title: 'Цена', label: 'Сначала дорогие', value: 'minPrice,desc'},
-    {title: 'Популярность', label: 'Популярность', value: 'rating.value,desc'},
+    // {title: 'Популярность', label: 'Популярность', value: 'rating.value,desc'},
     {title: 'Отзывы', label: 'Отзывы', value: 'reviewCount,desc'}
   ];
 
